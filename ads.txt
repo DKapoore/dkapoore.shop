@@ -1,4 +1,4 @@
 # ads.txt
-google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+google.com, pub-3445766076306689, DIRECT, f08c47fec0942fa0
 amazon-adsystem.com, 1234, DIRECT
 facebook.com, 123456789, DIRECT
