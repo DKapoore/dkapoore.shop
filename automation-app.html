@@ -1130,24 +1130,20 @@
             }
 
             // Category filter functionality
-            navButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.preventDefault();
+                    navButtons.forEach(button => {
+                    button.addEventListener('click', function(event) {
                     const category = this.getAttribute('data-category');
-                    
-                    navButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    searchInput.value = '';
-                    
-                    cards.forEach(card => {
-                        if (category === 'home' || card.getAttribute('data-category') === category) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
-                    
+                    const href = this.getAttribute('href');
+        
+                // Agar current page pe hi category filter karna hai
+                    if (href.includes('automation-app.html') || href === '#') {
+                    event.preventDefault();
+                // Yahan category filter code rakho
+                    }
+                // Otherwise link naturally navigate karega
+                });
+            });
+              
                     noResultsMessage.style.display = 'none';
                     
                     const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
@@ -1505,6 +1501,7 @@ ${productData.buyLink}
     </script>
 </body>
 </html>
+
 
 
 
