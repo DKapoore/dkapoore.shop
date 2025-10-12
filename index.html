@@ -359,6 +359,154 @@
             margin-bottom: 20px;
         }
 
+        /* Amazon Deals Slider Section */
+        .deals-slider-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .deals-slider-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .deals-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .deal-slide {
+            min-width: 100%;
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .deal-image {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .deal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .deal-slide:hover .deal-image img {
+            transform: scale(1.05);
+        }
+
+        .deal-content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .deal-content h3 {
+            font-size: 1.8rem;
+            color: #1a2a6c;
+            margin-bottom: 15px;
+        }
+
+        .deal-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .deal-rating .stars {
+            color: #fdbb2d;
+            margin-right: 10px;
+        }
+
+        .deal-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #b21f1f;
+            margin-bottom: 20px;
+        }
+
+        .deal-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(26, 42, 108, 0.8);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .slider-nav:hover {
+            background: #1a2a6c;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev-slide {
+            left: 20px;
+        }
+
+        .next-slide {
+            right: 20px;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background: #1a2a6c;
+            transform: scale(1.2);
+        }
+
+        .loading-spinner {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .loading-spinner i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #1a2a6c;
+        }
+
         /* Ad Placeholder */
         .ad-slot {
             background: #f8f9fa;
@@ -480,6 +628,28 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
+
+            .deal-slide {
+                flex-direction: column;
+            }
+
+            .deal-image {
+                height: 300px;
+            }
+
+            .slider-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .prev-slide {
+                left: 10px;
+            }
+
+            .next-slide {
+                right: 10px;
+            }
         }
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3445766076306689"
@@ -520,6 +690,41 @@
         </div>
     </div>
 
+    <!-- Amazon Deals Slider Section -->
+    <section class="deals-slider-section" id="amazon-deals">
+        <div class="container">
+            <div class="section-title">
+                <h2>Amazon Deals</h2>
+                <p>Discover hand-picked Amazon products with exclusive deals and discounts</p>
+            </div>
+            
+            <div class="deals-slider-container">
+                <div class="deals-slider" id="dealsSlider">
+                    <!-- Loading Spinner -->
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading Amazon deals...</p>
+                    </div>
+                </div>
+                
+                <button class="slider-nav prev-slide" id="prevSlide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-nav next-slide" id="nextSlide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="slider-dots" id="sliderDots">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="amazon_deals.html" class="btn">View All Amazon Deals</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
@@ -529,7 +734,7 @@
             </div>
             <div class="services-grid">
                 <!-- Amazon Deals -->
-                <div class="service-card" id="amazon-deals">
+                <div class="service-card">
                     <div class="service-icon">
                         <i class="fab fa-amazon"></i>
                     </div>
@@ -667,6 +872,211 @@
             'resizeDuration': 200,
             'wrapAround': true,
             'imageFadeDuration': 300
+        });
+
+        // Amazon Deals Auto-Fetch and Slider
+        const dealsSlider = document.getElementById('dealsSlider');
+        const prevSlideBtn = document.getElementById('prevSlide');
+        const nextSlideBtn = document.getElementById('nextSlide');
+        const sliderDots = document.getElementById('sliderDots');
+        
+        let currentSlide = 0;
+        let totalSlides = 0;
+        let autoSlideInterval;
+        
+        // Function to fetch products from amazon_deals.html
+        async function fetchAmazonDeals() {
+            try {
+                console.log('Fetching Amazon deals...');
+                const response = await fetch('amazon_deals.html');
+                const htmlText = await response.text();
+                
+                // Create a temporary DOM parser to extract product data
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, 'text/html');
+                
+                // Extract all product cards
+                const productCards = doc.querySelectorAll('.card');
+                const products = [];
+                
+                productCards.forEach(card => {
+                    // Skip if card doesn't have required elements
+                    if (!card.querySelector('.product-image') || !card.querySelector('h2')) return;
+                    
+                    const product = {
+                        title: card.querySelector('h2').textContent.trim(),
+                        image: card.querySelector('.product-image.active').src,
+                        rating: card.querySelector('.review-count').textContent.trim(),
+                        price: card.querySelector('.product-price-inline').textContent.trim(),
+                        description: card.querySelector('p').textContent.replace(/\.\.\.\.read more|\.\.\.\.show less/g, '').trim(),
+                        buyLink: card.querySelector('.buy-btn').href
+                    };
+                    
+                    products.push(product);
+                });
+                
+                console.log(`Found ${products.length} products`);
+                return products;
+            } catch (error) {
+                console.error('Error fetching Amazon deals:', error);
+                return [];
+            }
+        }
+        
+        // Function to create slider slides from products
+        function createSliderSlides(products) {
+            // Clear loading spinner
+            dealsSlider.innerHTML = '';
+            
+            // Create slides for each product (limit to 6 for performance)
+            const limitedProducts = products.slice(0, 6);
+            
+            limitedProducts.forEach(product => {
+                const slide = document.createElement('div');
+                slide.className = 'deal-slide';
+                
+                slide.innerHTML = `
+                    <div class="deal-image">
+                        <img src="${product.image}" alt="${product.title}" onerror="this.src='https://via.placeholder.com/600x400?text=Image+Not+Found'">
+                    </div>
+                    <div class="deal-content">
+                        <h3>${product.title}</h3>
+                        <div class="deal-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span>${product.rating}</span>
+                        </div>
+                        <div class="deal-price">${product.price}</div>
+                        <p class="deal-description">${product.description.substring(0, 150)}...</p>
+                        <a href="${product.buyLink}" target="_blank" class="btn">Buy Now on Amazon</a>
+                    </div>
+                `;
+                
+                dealsSlider.appendChild(slide);
+            });
+            
+            totalSlides = limitedProducts.length;
+            initializeSlider();
+        }
+        
+        // Function to initialize slider after products are loaded
+        function initializeSlider() {
+            // Create dots
+            sliderDots.innerHTML = '';
+            for (let i = 0; i < totalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('slider-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                sliderDots.appendChild(dot);
+            }
+            
+            // Start auto-slide
+            startAutoSlide();
+        }
+        
+        function goToSlide(slideIndex) {
+            if (totalSlides === 0) return;
+            
+            currentSlide = slideIndex;
+            dealsSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update active dot
+            document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            
+            resetAutoSlide();
+        }
+        
+        function nextSlide() {
+            if (totalSlides === 0) return;
+            currentSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            if (totalSlides === 0) return;
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            goToSlide(currentSlide);
+        }
+        
+        function startAutoSlide() {
+            if (totalSlides === 0) return;
+            autoSlideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+        }
+        
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+        
+        // Event listeners for manual navigation
+        prevSlideBtn.addEventListener('click', prevSlide);
+        nextSlideBtn.addEventListener('click', nextSlide);
+        
+        // Pause auto-slide on hover
+        dealsSlider.parentElement.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideInterval);
+        });
+        
+        dealsSlider.parentElement.addEventListener('mouseleave', () => {
+            if (totalSlides > 0) startAutoSlide();
+        });
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            const products = await fetchAmazonDeals();
+            if (products.length > 0) {
+                createSliderSlides(products);
+            } else {
+                // Show error message if no products found
+                dealsSlider.innerHTML = `
+                    <div class="loading-spinner">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Unable to load Amazon deals. Please check your connection or try again later.</p>
+                    </div>
+                `;
+            }
+        });
+
+        // Cache products for better performance (refresh every 30 minutes)
+        let cachedProducts = null;
+        let cacheTimestamp = null;
+        const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes
+
+        async function fetchAmazonDealsWithCache() {
+            const now = Date.now();
+            
+            // Return cached products if they exist and are not expired
+            if (cachedProducts && cacheTimestamp && (now - cacheTimestamp) < CACHE_DURATION) {
+                console.log('Returning cached products');
+                return cachedProducts;
+            }
+            
+            // Otherwise fetch fresh data
+            console.log('Fetching fresh products');
+            const products = await fetchAmazonDeals();
+            cachedProducts = products;
+            cacheTimestamp = now;
+            
+            return products;
+        }
+
+        // Update the initialization to use cached version
+        document.addEventListener('DOMContentLoaded', async () => {
+            const products = await fetchAmazonDealsWithCache();
+            if (products.length > 0) {
+                createSliderSlides(products);
+            } else {
+                dealsSlider.innerHTML = `
+                    <div class="loading-spinner">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Unable to load Amazon deals. Please check your connection or try again later.</p>
+                    </div>
+                `;
+            }
         });
     </script>
 </body>
