@@ -115,24 +115,294 @@
         
         body {
             background: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            padding: 20px;
-            overflow-y: auto;
         }
         
+        /* Desktop Header & Footer Styles */
+        .desktop-header {
+            display: none;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .desktop-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .desktop-nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .desktop-nav-menu li {
+            margin-left: 25px;
+        }
+        
+        .desktop-nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .desktop-nav-menu a:hover {
+            color: #ffdd00;
+        }
+        
+        /* Desktop Footer Styling */
+        .desktop-footer {
+            background: #111;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .desktop-footer .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #ffdd00;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffdd00;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #999;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        /* Desktop Layout */
+        .desktop-container {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 15px 50px;
+        }
+        
+        .desktop-section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .desktop-section-title h2 {
+            font-size: 2.2rem;
+            color: #1a2a6c;
+            margin-bottom: 15px;
+        }
+        
+        .desktop-section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .desktop-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .desktop-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .desktop-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .desktop-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .desktop-card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .desktop-card h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #1a2a6c;
+        }
+        
+        .desktop-review-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            gap: 8px;
+        }
+        
+        .desktop-stars {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .desktop-stars i {
+            color: #fdbb2d;
+            font-size: 14px;
+        }
+        
+        .desktop-review-count {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .desktop-description-container {
+            position: relative;
+            margin-bottom: 8px;
+            flex-grow: 1;
+        }
+        
+        .desktop-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+            padding: 2px 0;
+        }
+        
+        .desktop-price-buy-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: space-between;
+            margin-top: 8px;
+            width: 100%;
+        }
+        
+        .desktop-product-price-inline {
+            color: #1a2a6c;
+            font-weight: 700;
+            font-size: 23px;
+            padding: 0;
+            box-shadow: none;
+        }
+        
+        .desktop-buy-btn {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            font-size: 14px;
+        }
+        
+        .desktop-buy-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(26, 42, 108, 0.3);
+        }
+        
+        .desktop-buy-btn i {
+            margin-left: 8px;
+        }
+        
+        .desktop-disclaimer {
+            background: #f1f1f1;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 50px;
+        }
+        
+        /* Mobile Layout (reel-style) */
         .reels-container {
             position: relative;
-            width: 360px;
-            height: 640px;
+            width: 100%;
+            height: 100vh;
             background: white;
-            border-radius: 12px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .top-header {
@@ -154,10 +424,6 @@
             align-items: center;
         }
         
-        .logo i {
-            margin-right: 8px;
-            color: #ffdd00;
-        }
         
         .search-bar {
             display: flex;
@@ -192,8 +458,8 @@
         .main-content {
             display: flex;
             flex: 1;
-             overflow: hidden;
-    height: calc(100% - 80px - 60px); /* Top header + bottom disclaimer ke liye space chhodo */
+            overflow: hidden;
+            height: calc(100% - 80px - 60px); /* Top header + bottom disclaimer ke liye space chhodo */
         }
         
         .nav-sidebar {
@@ -711,92 +977,271 @@
             color: #ccc;
         }
         
-        @media (max-width: 480px) {
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            /* Mobile Layout */
             .reels-container {
-                width: 100%;
-                height: 100vh;
-                max-width: none;
-                border-radius: 0;
+                display: flex;
+            }
+            
+            .desktop-header,
+            .desktop-container,
+            .desktop-footer {
+                display: none;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            /* Desktop Layout */
+            .reels-container {
+                display: none;
+            }
+            
+            .desktop-header,
+            .desktop-container,
+            .desktop-footer {
+                display: block;
             }
             
             body {
-                padding: 0;
-            }
-            
-            .card {
-                width: 100%;
-                max-width: none;
+                overflow-y: auto;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Desktop Layout -->
+    <header class="desktop-header">
+        <div class="header-container">
+            <a href="index.html" class="desktop-logo">
+                <img src="dkapoore.shop_logo.png" alt="DKapoore.Shop Logo" style="height:80px;">
+            </a>
+            <ul class="desktop-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="amazon_deals.html" class="active">Amazon Deals</a></li>
+                <li><a href="ebook.html">E-Books</a></li>
+                <li><a href="automation-app.html">Automation Apps</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="desktop-container">
+        <div class="desktop-section-title">
+            <h2>Amazon Deals</h2>
+            <p>Discover hand-picked Amazon affiliate products with exclusive deals on electronics, home, fashion & lifestyle</p>
+        </div>
+        
+        <div class="desktop-cards-grid">
+            <!-- Card 1: Multicolored Printed Anarkali Kurta Pant Set -->
+            <div class="desktop-card" data-search-terms="printed anarkali kurta set, women's viscose rayon kurta, multicolor ethnic wear">
+                <img src="https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A multicolored printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="desktop-card-image">
+                <div class="desktop-card-content">
+                    <h2>Multicolored Printed Anarkali Kurta Pant Set</h2>
+                    <div class="desktop-review-section">
+                        <div class="desktop-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <a href="https://amzn.to/3VF06Q4" target="_blank" style="text-decoration: none; color: inherit;"><span class="desktop-review-count">(4.8 - 1007 reviews)</span></a>
+                    </div>
+                    <div class="desktop-description-container">
+                        <p>Enhance your ethnic collection with this vibrant multicolored Anarkali kurta set. Made from soft viscose rayon for a comfortable and flattering drape. Ideal for festive events, weddings, office wear, or casual outings. Complete your look with this elegant and versatile three-piece ensemble.</p>
+                    </div>
+                    <div class="desktop-price-buy-row">
+                        <span class="desktop-product-price-inline">Rs 679</span>
+                        <a href="https://amzn.to/3VF06Q4" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Elegant Brown Viscose Printed Kurta Pant Set -->
+            <div class="desktop-card" data-search-terms="brown viscose kurta set, printed anarkali suit set, traditional ethnic wear for women">
+                <img src="https://i.ibb.co/mrvmtHtP/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-01.jpg" alt="A sophisticated brown printed flared A-line kurta set with pant and dupatta, displayed neatly on a neutral background." class="desktop-card-image">
+                <div class="desktop-card-content">
+                    <h2>Elegant Brown Viscose Printed Kurta Pant Set</h2>
+                    <div class="desktop-review-section">
+                        <div class="desktop-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <a href="https://amzn.to/3VBpAh9" target="_blank" style="text-decoration: none; color: inherit;"><span class="desktop-review-count">(4.1 - 3216 reviews)</span></a>
+                    </div>
+                    <div class="desktop-description-container">
+                        <p>Adorn yourself in this exquisite brown viscose rayon kurta set with elegant prints. The luxurious fabric ensures a breathable and comfortable feel all day long. Its timeless design is perfect for weddings, festivals, and special traditional occasions. Embrace timeless charm and versatile style with this complete ensemble.</p>
+                    </div>
+                    <div class="desktop-price-buy-row">
+                        <span class="desktop-product-price-inline">Rs 589</span>
+                        <a href="https://amzn.to/3VBpAh9" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Printed Alia-Cut Anarkali Kurta with Dhoti Pants -->
+            <div class="desktop-card" data-search-terms="alia cut anarkali kurta set, women's dhoti pant suit, printed ethnic wear for office">
+                <img src="https://i.ibb.co/XfkYRh0J/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-01.jpg" alt="A modern printed Alia-cut Anarkali kurta set with dhoti pants and dupatta, displayed on a mannequin against a clean, light background." class="desktop-card-image">
+                <div class="desktop-card-content">
+                    <h2>Printed Alia-Cut Anarkali Kurta with Dhoti Pants</h2>
+                    <div class="desktop-review-section">
+                        <div class="desktop-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <a href="https://amzn.to/4nP24Jn" target="_blank" style="text-decoration: none; color: inherit;"><span class="desktop-review-count">(3.4 - 41 reviews)</span></a>
+                    </div>
+                    <div class="desktop-description-container">
+                        <p>This elegant 3-piece set features a flared Alia-cut kurta and trendy dhoti pants. Made from breathable polyester for a comfortable, all-day wear. Ideal for creating a sophisticated and stylish professional look. Elevate your ethnic workwear wardrobe with this complete ensemble.</p>
+                    </div>
+                    <div class="desktop-price-buy-row">
+                        <span class="desktop-product-price-inline">Rs 599</span>
+                        <a href="https://amzn.to/4nP24Jn" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Women's Black Viscose Rayon Kurta Pant Set -->
+            <div class="desktop-card" data-search-terms="black viscose rayon kurta set, women's ethnic wear, traditional suit set">
+                <img src="https://i.ibb.co/4fQ8P8qW/Womens-Black-Viscose-Rayon-Kurta-Pant-Set-01.jpg" alt="A classic black viscose rayon kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="desktop-card-image">
+                <div class="desktop-card-content">
+                    <h2>Women's Black Viscose Rayon Kurta Pant Set</h2>
+                    <div class="desktop-review-section">
+                        <div class="desktop-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <a href="https://amzn.to/3Vx5JQa" target="_blank" style="text-decoration: none; color: inherit;"><span class="desktop-review-count">(4.7 - 102 reviews)</span></a>
+                    </div>
+                    <div class="desktop-description-container">
+                        <p>This elegant black kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
+                    </div>
+                    <div class="desktop-price-buy-row">
+                        <span class="desktop-product-price-inline">Rs 599</span>
+                        <a href="https://amzn.to/3Vx5JQa" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Women's Printed Anarkali Kurta Pant Set -->
+            <div class="desktop-card" data-search-terms="printed anarkali kurta set, women's ethnic wear, traditional suit set">
+                <img src="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A vibrant printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="desktop-card-image">
+                <div class="desktop-card-content">
+                    <h2>Women's Printed Anarkali Kurta Pant Set</h2>
+                    <div class="desktop-review-section">
+                        <div class="desktop-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <a href="https://amzn.to/3Vx5JQa" target="_blank" style="text-decoration: none; color: inherit;"><span class="desktop-review-count">(4.7 - 102 reviews)</span></a>
+                    </div>
+                    <div class="desktop-description-container">
+                        <p>This vibrant printed Anarkali kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
+                    </div>
+                    <div class="desktop-price-buy-row">
+                        <span class="desktop-product-price-inline">Rs 599</span>
+                        <a href="https://amzn.to/3Vx5JQa" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Women's Printed Anarkali Kurta Pant Set -->
+            <div class="desktop-card" data-search-terms="printed anarkali kurta set, women's ethnic wear, traditional suit set">
+                <img src="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A vibrant printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="desktop-card-image">
+                <div class="desktop-card-content">
+                    <h2>Women's Printed Anarkali Kurta Pant Set</h2>
+                    <div class="desktop-review-section">
+                        <div class="desktop-stars">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <a href="https://amzn.to/3Vx5JQa" target="_blank" style="text-decoration: none; color: inherit;"><span class="desktop-review-count">(4.7 - 102 reviews)</span></a>
+                    </div>
+                    <div class="desktop-description-container">
+                        <p>This vibrant printed Anarkali kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
+                    </div>
+                    <div class="desktop-price-buy-row">
+                        <span class="desktop-product-price-inline">Rs 599</span>
+                        <a href="https://amzn.to/3Vx5JQa" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="desktop-disclaimer">
+            <p>Disclaimer: This website contains affiliate links (Amazon, etc.). When you make a purchase through links on this site, we may earn a small commission at no extra cost to you. This helps us keep the site running and continue providing useful content.</p>
+        </div>
+    </div>
+
+    <footer class="desktop-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DKapoore.Shop</h3>
+                <p>Your trusted platform for Amazon deals, e-books, and custom automation solutions.</p>
+            </div>
+            <div class="footer-section">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ebook.html">E-Books</a></li>
+                    <li><a href="automation-app.html">Automation Apps</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p>Email: dkapoore@gmail.com</p>
+                <p>WhatsApp: +91-9766893279</p>
+                <p>Location: Nashik, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DKapoore.Shop All rights reserved. | Serving worldwide online</p>
+            <p>Made with ❤️ in India</p>
+        </div>
+    </div>
+    </footer>
+
+    <!-- Mobile Layout (Reel-style) -->
     <div class="reels-container">
         <div class="top-header">
             <div class="logo">
-                <img src="dkapoore.shop_logo.png" alt="DKapoore.Shop Logo" style="height:50px;">
+                <i class="fas fa-bolt"></i> DKapoore.Shop
             </div>
             <div class="search-bar">
                 <i class="fas fa-search"></i>
-                <input type="text" id="search-input" placeholder="Search products...">
+                <input type="text" placeholder="Search deals..." id="search-input">
             </div>
         </div>
 
         <div class="main-content">
             <div class="nav-sidebar">
-                <a href="index.html" class="nav-btn" data-category="home">
+                <a href="index.html" class="nav-btn" title="Home">
                     <i class="fas fa-home"></i>
                     <span class="tooltip">Home</span>
                 </a>
-
-                <a href="amazon_deals.html" class="nav-btn active" data-category="shopping">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="tooltip">Shopping</span>
+                <a href="amazon_deals.html" class="nav-btn active" title="Amazon Deals">
+                    <i class="fas fa-tag"></i>
+                    <span class="tooltip">Amazon Deals</span>
                 </a>
-
-                <a href="ebook.html" class="nav-btn" data-category="ebooks">
+                <a href="ebook.html" class="nav-btn" title="E-Books">
                     <i class="fas fa-book"></i>
-                    <span class="tooltip">E-books</span>
+                    <span class="tooltip">E-Books</span>
                 </a>
-
-                <a href="automation-app.html" class="nav-btn" data-category="apps">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span class="tooltip">Apps</span>
+                <a href="automation-app.html" class="nav-btn" title="Automation Apps">
+                    <i class="fas fa-robot"></i>
+                    <span class="tooltip">Automation Apps</span>
                 </a>
-
-                <a href="contact.html" class="nav-btn" data-category="contact">
-                    <i class="fas fa-phone"></i>
-                    <span class="tooltip">Contact Us</span>
+                <a href="contact.html" class="nav-btn" title="Contact">
+                    <i class="fas fa-envelope"></i>
+                    <span class="tooltip">Contact</span>
                 </a>
             </div>
 
             <div class="carousel">
-                <div class="reel-progress">  
-                    <div class="progress-item active"><div class="progress-fill" style="width: 0%"></div></div>
-                    <div class="progress-item"><div class="progress-fill" style="width: 0%"></div></div>
-                    <div class="progress-item"><div class="progress-fill" style="width: 0%"></div></div>
-                    <div class="progress-item"><div class="progress-fill" style="width: 0%"></div></div>
-                    <div class="progress-item"><div class="progress-fill" style="width: 0%"></div></div>
-                    <div class="progress-item"><div class="progress-fill" style="width: 0%"></div></div>
-                    <div class="progress-item"><div class="progress-fill" style="width: 0%"></div></div>
-                    <div class="progress-item"><div class="progress-fill" style="width: 0%"></div></div>
-                    <div class="progress-item"><div class="progress-fill" style="width: 0%"></div></div>
-                    <div class="progress-item"><div class="progress-fill" style="width: 0%"></div></div>
-                    <div class="progress-item"><div class="progress-fill" style="width: 0%"></div></div>
+                <div class="reel-progress" id="progress-container">
+                    <!-- Progress bars will be generated by JavaScript -->
                 </div>
-                <div class="cards-container">
-                    <div class="no-results">
-                        <i class="fas fa-search"></i>
-                        <h3>No products found</h3>
-                        <p>Try different keywords or browse categories</p>
-                    </div>
-        
+
+                <div class="cards-container" id="cards-container">
                     <!-- Card 1: Multicolored Printed Anarkali Kurta Pant Set -->
                     <div class="card active" data-search-terms="printed anarkali kurta set, women's viscose rayon kurta, multicolor ethnic wear">
                         <div class="image-slider">
                             <img src="https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A multicolored printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image active">
-                            <img src="https://i.ibb.co/YFXkcL2M/Multicolored-Printed-Anarkali-Kurta-Pant-Set-02.jpg" alt="A woman wearing the vibrant printed Anarkali kurta set at a festive gathering or wedding celebration." class="product-image">
-                            <img src="https://i.ibb.co/YFf9fVDy/Multicolored-Printed-Anarkali-Kurta-Pant-Set-03.jpg" alt="Close-up view of the intricate multicolor print and embroidery on the viscose rayon kurta fabric." class="product-image">
+                            <img src="https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A multicolored printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image">
+                            <img src="https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A multicolored printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image">
                             <div class="image-indicators">
                                 <div class="indicator active"></div>
                                 <div class="indicator"></div>
@@ -812,15 +1257,11 @@
                                 <a href="https://amzn.to/3VF06Q4" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(4.8 - 1007 reviews)</span></a>
                             </div>
                             <div class="social-buttons">
-                                <button class="social-btn like-btn">
-                                    <i class="far fa-heart"></i> Like
-                                </button>
-                                <button class="social-btn share-btn" data-product-id="1">
-                                    <i class="fas fa-share"></i> Share
-                                </button>
+                                <button class="social-btn" onclick="shareProduct(0)"><i class="fas fa-share-alt"></i> Share</button>
+                                <button class="social-btn"><i class="fas fa-heart"></i> Save</button>
                             </div>
                             <div class="description-container">
-                                <p>Enhance your ethnic collection with this vibrant multicolored Anarkali kurta set. Made from soft viscose rayon for a comfortable and flattering drape. Ideal for festive events, weddings, office wear, or casual outings. Complete your look with this elegant and versatile three-piece ensemble. <span class="read-more-link">....read more</span></p>
+                                <p>Enhance your ethnic collection with this vibrant multicolored Anarkali kurta set. Made from soft viscose rayon for a comfortable and flattering drape. Ideal for festive events, weddings, office wear, or casual outings. Complete your look with this elegant and versatile three-piece ensemble.</p>
                             </div>
                             <div class="price-buy-row">
                                 <span class="product-price-inline">Rs 679</span>
@@ -833,8 +1274,8 @@
                     <div class="card" data-search-terms="brown viscose kurta set, printed anarkali suit set, traditional ethnic wear for women">
                         <div class="image-slider">
                             <img src="https://i.ibb.co/mrvmtHtP/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-01.jpg" alt="A sophisticated brown printed flared A-line kurta set with pant and dupatta, displayed neatly on a neutral background." class="product-image active">
-                            <img src="https://i.ibb.co/MktXGFr7/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-02.jpg" alt="A woman wearing the elegant brown printed kurta set at a traditional daytime wedding or festive celebration." class="product-image">
-                            <img src="https://i.ibb.co/zhKHcHNM/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-03.jpg" alt="Close-up detail of the intricate print and the texture of the high-quality viscose rayon fabric." class="product-image">
+                            <img src="https://i.ibb.co/mrvmtHtP/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-01.jpg" alt="A sophisticated brown printed flared A-line kurta set with pant and dupatta, displayed neatly on a neutral background." class="product-image">
+                            <img src="https://i.ibb.co/mrvmtHtP/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-01.jpg" alt="A sophisticated brown printed flared A-line kurta set with pant and dupatta, displayed neatly on a neutral background." class="product-image">
                             <div class="image-indicators">
                                 <div class="indicator active"></div>
                                 <div class="indicator"></div>
@@ -850,464 +1291,160 @@
                                 <a href="https://amzn.to/3VBpAh9" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(4.1 - 3216 reviews)</span></a>
                             </div>
                             <div class="social-buttons">
-                                <button class="social-btn like-btn">
-                                    <i class="far fa-heart"></i> Like
-                                </button>
-                                <button class="social-btn share-btn" data-product-id="2">
-                                    <i class="fas fa-share"></i> Share
-                                </button>
+                                <button class="social-btn" onclick="shareProduct(1)"><i class="fas fa-share-alt"></i> Share</button>
+                                <button class="social-btn"><i class="fas fa-heart"></i> Save</button>
                             </div>
                             <div class="description-container">
-                                <p>Adorn yourself in this exquisite brown viscose rayon kurta set with elegant prints. The luxurious fabric ensures a breathable and comfortable feel all day long. Its timeless design is perfect for weddings, festivals, and special traditional occasions. Embrace timeless charm and versatile style with this complete ensemble. <span class="read-more-link">....read more</span></p>
+                                <p>Adorn yourself in this exquisite brown viscose rayon kurta set with elegant prints. The luxurious fabric ensures a breathable and comfortable feel all day long. Its timeless design is perfect for weddings, festivals, and special traditional occasions. Embrace timeless charm and versatile style with this complete ensemble.</p>
                             </div>
-
                             <div class="price-buy-row">
                                 <span class="product-price-inline">Rs 589</span>
                                 <a href="https://amzn.to/3VBpAh9" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
                             </div>
                         </div>
                     </div>
-                    
-<!-- Card 3: Elegant Brown Viscose Printed Kurta Pant Set -->
-        <div class="card active" data-search-terms="brown viscose kurta set, printed anarkali suit set, traditional ethnic wear for women">
-            <div class="image-slider">
-                <img src="https://i.ibb.co/mrvmtHtP/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-01.jpg" alt="A sophisticated brown printed flared A-line kurta set with pant and dupatta, displayed neatly on a neutral background." class="product-image active">
-		<img src="https://i.ibb.co/MktXGFr7/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-02.jpg" alt="A woman wearing the elegant brown printed kurta set at a traditional daytime wedding or festive celebration." class="product-image">
-		<img src="https://i.ibb.co/zhKHcHNM/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-03.jpg" alt="Close-up detail of the intricate print and the texture of the high-quality viscose rayon fabric." class="product-image">
 
-                <div class="image-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-            <div class="card-content">
-                <h2>Elegant Brown Viscose Printed Kurta Pant Set</h2>
-                
-                <div class="review-section">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <!-- Card 3: Printed Alia-Cut Anarkali Kurta with Dhoti Pants -->
+                    <div class="card" data-search-terms="alia cut anarkali kurta set, women's dhoti pant suit, printed ethnic wear for office">
+                        <div class="image-slider">
+                            <img src="https://i.ibb.co/XfkYRh0J/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-01.jpg" alt="A modern printed Alia-cut Anarkali kurta set with dhoti pants and dupatta, displayed on a mannequin against a clean, light background." class="product-image active">
+                            <img src="https://i.ibb.co/XfkYRh0J/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-01.jpg" alt="A modern printed Alia-cut Anarkali kurta set with dhoti pants and dupatta, displayed on a mannequin against a clean, light background." class="product-image">
+                            <img src="https://i.ibb.co/XfkYRh0J/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-01.jpg" alt="A modern printed Alia-cut Anarkali kurta set with dhoti pants and dupatta, displayed on a mannequin against a clean, light background." class="product-image">
+                            <div class="image-indicators">
+                                <div class="indicator active"></div>
+                                <div class="indicator"></div>
+                                <div class="indicator"></div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2>Printed Alia-Cut Anarkali Kurta with Dhoti Pants</h2>
+                            <div class="review-section">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                                </div>
+                                <a href="https://amzn.to/4nP24Jn" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(3.4 - 41 reviews)</span></a>
+                            </div>
+                            <div class="social-buttons">
+                                <button class="social-btn" onclick="shareProduct(2)"><i class="fas fa-share-alt"></i> Share</button>
+                                <button class="social-btn"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <div class="description-container">
+                                <p>This elegant 3-piece set features a flared Alia-cut kurta and trendy dhoti pants. Made from breathable polyester for a comfortable, all-day wear. Ideal for creating a sophisticated and stylish professional look. Elevate your ethnic workwear wardrobe with this complete ensemble.</p>
+                            </div>
+                            <div class="price-buy-row">
+                                <span class="product-price-inline">Rs 599</span>
+                                <a href="https://amzn.to/4nP24Jn" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="https://amzn.to/3VBpAh9" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(4.1 - 3216 reviews)</span></a>
-                </div>
-                
-                <div class="social-buttons">
-                    <button class="social-btn like-btn">
-                        <i class="far fa-heart"></i> Like
-                    </button>
-                    <button class="social-btn share-btn" data-product-id="2">
-                        <i class="fas fa-share"></i> Share
-                    </button>
-                </div>
-                
-                <div class="description-container">
-                    <p>Adorn yourself in this exquisite brown viscose rayon kurta set with elegant prints. The luxurious fabric ensures a breathable and comfortable feel allday long. Its timeless design is perfect for weddings, festivals, and special traditional occasions. Embrace timeless charm and versatile style with this complete ensemble. <span class="read-more-link">....read more</span></p>
-                </div>
 
-                <div class="price-buy-row">
-                    <span class="product-price-inline">Rs 589</span>
-                    <a href="https://amzn.to/3VBpAh9" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
-                </div>
-            </div>
-        </div>
-
-<!-- Card 4: Printed Alia-Cut Anarkali Kurta with Dhoti Pants -->
-        <div class="card active" data-search-terms="alia cut anarkali kurta set, women&#x27;s dhoti pant suit, printed ethnic wear for office">
-            <div class="image-slider">
-                <img src="https://i.ibb.co/XfkYRh0J/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-01.jpg" alt="A modern printed Alia-cut Anarkali kurta set with dhoti pants and dupatta, displayed on a mannequin against a clean, light background." class="product-image active">
-		<img src="https://i.ibb.co/fVhd5GHV/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-02.jpg" alt="A professional woman wearing the printed Alia-cut kurta set, walking confidently in an urban office setting." class="product-image">
-		<img src="https://i.ibb.co/d0BCZThz/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-03.jpg" alt="Close-up shot highlighting the detailed print on the kurta and the elegant dhoti-style fit of the pants." class="product-image">
-
-                <div class="image-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-            <div class="card-content">
-                <h2>Printed Alia-Cut Anarkali Kurta with Dhoti Pants</h2>
-                
-                <div class="review-section">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    <!-- Card 4: Women's Black Viscose Rayon Kurta Pant Set -->
+                    <div class="card" data-search-terms="black viscose rayon kurta set, women's ethnic wear, traditional suit set">
+                        <div class="image-slider">
+                            <img src="https://i.ibb.co/4fQ8P8qW/Womens-Black-Viscose-Rayon-Kurta-Pant-Set-01.jpg" alt="A classic black viscose rayon kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image active">
+                            <img src="https://i.ibb.co/4fQ8P8qW/Womens-Black-Viscose-Rayon-Kurta-Pant-Set-01.jpg" alt="A classic black viscose rayon kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image">
+                            <img src="https://i.ibb.co/4fQ8P8qW/Womens-Black-Viscose-Rayon-Kurta-Pant-Set-01.jpg" alt="A classic black viscose rayon kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image">
+                            <div class="image-indicators">
+                                <div class="indicator active"></div>
+                                <div class="indicator"></div>
+                                <div class="indicator"></div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2>Women's Black Viscose Rayon Kurta Pant Set</h2>
+                            <div class="review-section">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <a href="https://amzn.to/3Vx5JQa" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(4.7 - 102 reviews)</span></a>
+                            </div>
+                            <div class="social-buttons">
+                                <button class="social-btn" onclick="shareProduct(3)"><i class="fas fa-share-alt"></i> Share</button>
+                                <button class="social-btn"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <div class="description-container">
+                                <p>This elegant black kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
+                            </div>
+                            <div class="price-buy-row">
+                                <span class="product-price-inline">Rs 599</span>
+                                <a href="https://amzn.to/3Vx5JQa" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="https://amzn.to/4nP24Jn" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(3.4 - 41 reviews)</span></a>
-                </div>
-                
-                <div class="social-buttons">
-                    <button class="social-btn like-btn">
-                        <i class="far fa-heart"></i> Like
-                    </button>
-                    <button class="social-btn share-btn" data-product-id="3">
-                        <i class="fas fa-share"></i> Share
-                    </button>
-                </div>
-                
-                <div class="description-container">
-                    <p>This elegant 3-piece set features a flared Alia-cut kurta and trendy dhoti pants. Made from breathable polyester for a comfortable, all-day wear. Ideal for creating a sophisticatedand stylish professional look.Elevate your ethnic workwear wardrobe with this complete ensemble. <span class="read-more-link">....read more</span></p>
-                </div>
 
-                <div class="price-buy-row">
-                    <span class="product-price-inline">Rs 599</span>
-                    <a href="https://amzn.to/4nP24Jn" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
-                </div>
-            </div>
-        </div>
-
-<!-- Card 5: Printed Rayon Anarkali Kurta Set -->
-        <div class="card" data-search-terms="women anarkali kurta set, printed rayon kurta with dupatta, casual party wear kurti">
-            <div class="image-slider">
-                <img src="https://i.ibb.co/7ttDDxTV/Wine-Anarkali-Kurta-Set-with-Dupatta-01.jpg" alt="Wine-colored printed Anarkali kurta, pant, and dupatta set laid flat on a neutral background." class="product-image active">
-		<img src="https://i.ibb.co/xSdxGVB7/Wine-Anarkali-Kurta-Set-with-Dupatta-02.jpg" alt="A woman smiling while wearing the wine-colored Anarkali kurta set at a festive outdoor gathering." class="product-image">
-		<img src="https://i.ibb.co/ynJsZ7sw/Wine-Anarkali-Kurta-Set-with-Dupatta-03.jpg" alt="Close-up view of the soft Rayon blend fabric and the intricate print on the kurta." class="product-image">
-
-                <div class="image-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-            <div class="card-content">
-                <h2>Women&#x27;s Printed Rayon Anarkali Kurta Set</h2>
-                
-                <div class="review-section">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <!-- Card 5: Women's Printed Anarkali Kurta Pant Set -->
+                    <div class="card" data-search-terms="printed anarkali kurta set, women's ethnic wear, traditional suit set">
+                        <div class="image-slider">
+                            <img src="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A vibrant printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image active">
+                            <img src="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A vibrant printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image">
+                            <img src="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A vibrant printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image">
+                            <div class="image-indicators">
+                                <div class="indicator active"></div>
+                                <div class="indicator"></div>
+                                <div class="indicator"></div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2>Women's Printed Anarkali Kurta Pant Set</h2>
+                            <div class="review-section">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <a href="https://amzn.to/3Vx5JQa" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(4.7 - 102 reviews)</span></a>
+                            </div>
+                            <div class="social-buttons">
+                                <button class="social-btn" onclick="shareProduct(4)"><i class="fas fa-share-alt"></i> Share</button>
+                                <button class="social-btn"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <div class="description-container">
+                                <p>This vibrant printed Anarkali kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
+                            </div>
+                            <div class="price-buy-row">
+                                <span class="product-price-inline">Rs 599</span>
+                                <a href="https://amzn.to/3Vx5JQa" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="https://amzn.to/46ZsqCU" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(3.7 - 910 reviews)</span></a>
-                </div>
-                
-                <div class="social-buttons">
-                    <button class="social-btn like-btn">
-                        <i class="far fa-heart"></i> Like
-                    </button>
-                    <button class="social-btn share-btn" data-product-id="1">
-                        <i class="fas fa-share"></i> Share
-                    </button>
-                </div>
-                
-                <div class="description-container">
-                    <p>This printed Anarkali kurta set is ideal for traditional andcasual occasions. Crafted fromsoft Rayon blend, it offers comfortable style with a round neck and 3/4 sleeves. Perfect for festive gatherings, parties, or daily wear. Complete yourethnic wardrobe with this elegant three-piece ensemble. <span class="read-more-link">....read more</span></p>
-                </div>
 
-                <div class="price-buy-row">
-                    <span class="product-price-inline">Rs 659</span>
-                    <a href="https://amzn.to/46ZsqCU" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
-                </div>
-            </div>
-        </div>
-
-<!-- Card 6: Yellow Printed Rayon Anarkali Kurta Palazzo Set -->
-        <div class="card" data-search-terms="yellow anarkali kurta set, rayon palazzo kurta set, women party wear kurti">
-            <div class="image-slider">
-                <img src="https://i.ibb.co/KJQnnQ2/Anarkali-Kurta-Set-for-Women-01.jpg" alt="Yellow printed Anarkali kurta, palazzo pants, and matching dupatta arranged neatly on a light background." class="product-image active">
-<img src="https://i.ibb.co/Y7QGTG0r/Anarkali-Kurta-Set-for-Women-02.jpg" alt="A woman enjoying a festive occasion while wearing the vibrant Anarkali kurta set, showcasing its flowy silhouette." class="product-image">
-<img src="https://i.ibb.co/vx5qX4tz/Anarkali-Kurta-Set-for-Women-03.jpg" alt="Close-up shot highlighting the intricate print on the Rayon fabric and the flattering V-neck design of the kurta." class="product-image">
-
-                <div class="image-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-            <div class="card-content">
-                <h2>Yellow Printed Rayon Anarkali Kurta Palazzo Set</h2>
-                
-                <div class="review-section">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    <!-- Card 6: Women's Printed Anarkali Kurta Pant Set -->
+                    <div class="card" data-search-terms="printed anarkali kurta set, women's ethnic wear, traditional suit set">
+                        <div class="image-slider">
+                            <img src="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A vibrant printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image active">
+                            <img src="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A vibrant printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image">
+                            <img src="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A vibrant printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="product-image">
+                            <div class="image-indicators">
+                                <div class="indicator active"></div>
+                                <div class="indicator"></div>
+                                <div class="indicator"></div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h2>Women's Printed Anarkali Kurta Pant Set</h2>
+                            <div class="review-section">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <a href="https://amzn.to/3Vx5JQa" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(4.7 - 102 reviews)</span></a>
+                            </div>
+                            <div class="social-buttons">
+                                <button class="social-btn" onclick="shareProduct(5)"><i class="fas fa-share-alt"></i> Share</button>
+                                <button class="social-btn"><i class="fas fa-heart"></i> Save</button>
+                            </div>
+                            <div class="description-container">
+                                <p>This vibrant printed Anarkali kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
+                            </div>
+                            <div class="price-buy-row">
+                                <span class="product-price-inline">Rs 599</span>
+                                <a href="https://amzn.to/3Vx5JQa" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="https://amzn.to/4mK5TPf" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(3.7 - 8055 reviews)</span></a>
-                </div>
-                
-                <div class="social-buttons">
-                    <button class="social-btn like-btn">
-                        <i class="far fa-heart"></i> Like
-                    </button>
-                    <button class="social-btn share-btn" data-product-id="2">
-                        <i class="fas fa-share"></i> Share
-                    </button>
-                </div>
-                
-                <div class="description-container">
-                    <p>Embrace elegance in this yellow printed Anarkali kurta with palazzo and dupatta. Made froma soft and flowy Rayon blend for all-day comfort. The V-neck and calf-length design is perfect for festive events and casual outings. Add this vibrantand complete ensemble to your ethnic collection. <span class="read-more-link">....read more</span></p>
-                </div>
 
-                <div class="price-buy-row">
-                    <span class="product-price-inline">Rs 608</span>
-                    <a href="https://amzn.to/4mK5TPf" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
-                </div>
-            </div>
-        </div>
-
-<!-- Card 7: Pink Embroidered Rayon Kurta Set -->
-        <div class="card" data-search-terms="embroidered kurta set for women, pink rayon kurta pant dupatta, straight cut ethnic wear">
-            <div class="image-slider">
-                <img src="https://i.ibb.co/sdPBZLzr/Pink-Straight-Kurta-Set-with-Dupatta-01.jpg" alt="Pink straight-cut kurta with embroidery, displayed on a hanger alongside matching pant and dupatta against a clean, light background." class="product-image active">
-		<img src="https://i.ibb.co/Q7F1t42N/Pink-Straight-Kurta-Set-with-Dupatta-02.jpg" alt="A woman smiling, wearing the pink embroidered kurta set while enjoying a festive celebration with friends." class="product-image">
-		<img src="https://i.ibb.co/mVFckpVC/Pink-Straight-Kurta-Set-with-Dupatta-03.jpg" alt="Close-up view of the intricate embroidery detail on the pink rayon blend fabric of the kurta." class="product-image">
-
-                <div class="image-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-            <div class="card-content">
-                <h2>Women&#x27;s Pink Embroidered Rayon Kurta Set</h2>
-                
-                <div class="review-section">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                    </div>
-                    <a href="https://amzn.to/4nnVdH0" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(3.9 - 462 reviews)</span></a>
-                </div>
-                
-                <div class="social-buttons">
-                    <button class="social-btn like-btn">
-                        <i class="far fa-heart"></i> Like
-                    </button>
-                    <button class="social-btn share-btn" data-product-id="3">
-                        <i class="fas fa-share"></i> Share
-                    </button>
-                </div>
-                
-                <div class="description-container">
-                    <p>This pink rayon blend kurta set features elegant embroidery for a traditional look. The straight-cut, calf-length kurta offers a comfortable andflattering fit for various occasions.Ideal for casual gatherings, festive events, or as everydayethnic wear.Complete your stylish ensembl with the included pant and dupatta. <span class="read-more-link">....read more</span></p>
-                </div>
-
-                <div class="price-buy-row">
-                    <span class="product-price-inline">Rs 679</span>
-                    <a href="https://amzn.to/4nnVdH0" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
-                </div>
-            </div>
-        </div>
-
-<!-- Card 8: Indigo Hand Block Printed Halter Neck Kurti -->
-        <div class="card" data-search-terms="halter neck kurti, hand block printed kurti, indigo dabu print short kurti">
-            <div class="image-slider">
-                <img src="https://i.ibb.co/b5D1VG1n/Indigo-Halter-Neck-Short-Kurti-01.jpg" alt="Close-up detail shot of the geometric Dabu hand block print pattern and texture on the soft indigo and white fabric." class="product-image active">
-		<img src="https://i.ibb.co/h1t4qXtN/Indigo-Halter-Neck-Short-Kurti-02.jpg" alt="A woman wearing the indigo printed halter neck kurti, enjoying a casual day out at a cultural market or cafe." class="product-image">
-		<img src="https://i.ibb.co/kVhCF4Mz/Indigo-Halter-Neck-Short-Kurti-03.jpg" alt="An indigo and white hand block printed short kurti with a halter neck, displayed on a mannequin to show the front and lace-up back design." class="product-image">
-
-                <div class="image-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-            <div class="card-content">
-                <h2>Indigo Hand Block Printed Halter Neck Kurti</h2>
-                
-                <div class="review-section">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <a href="https://amzn.to/48JdiuC" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(4.5 - 13 reviews)</span></a>
-                </div>
-                
-                <div class="social-buttons">
-                    <button class="social-btn like-btn">
-                        <i class="far fa-heart"></i> Like
-                    </button>
-                    <button class="social-btn share-btn" data-product-id="4">
-                        <i class="fas fa-share"></i> Share
-                    </button>
-                </div>
-                
-                <div class="description-container">
-                    <p>This short kurti features a stylish halter neck and lace-up back design for a contemporaryethnic look. It is crafted using the traditional Dabu hand block printingtechnique with indigo dye.The unique geometric print and customizable fit make it ideal for casual and festive occasions. Embrace a blendof heritage craftsmanship and modern fashion with this statement piece. <span class="read-more-link">....read more</span></p>
-                </div>
-
-                <div class="price-buy-row">
-                    <span class="product-price-inline">Rs 439</span>
-                    <a href="https://amzn.to/48JdiuC" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
-                </div>
-            </div>
-        </div>
-
-<!-- Card 9: Elegant Chanderi Cotton Floral Anarkali Kurta Set -->
-        <div class="card" data-search-terms="chanderi cotton anarkali suit, floral embroidered kurta set, wedding party wear anarkali">
-            <div class="image-slider">
-                <img src="https://i.ibb.co/rfpxVw8Y/Chanderi-Cotton-Anarkali-Kurta-Set-02.jpg" alt="A light-colored Chanderi cotton Anarkali kurta set with floral embroidery, displayed on a mannequin with matching dupatta and pants." class="product-image active">
-		<img src="https://i.ibb.co/xKShDQZQ/Chanderi-Cotton-Anarkali-Kurta-Set-01.jpg" alt="A woman wearing the floral embroidered Anarkali kurta set, laughing with friends at a daytime wedding or festive garden party." class="product-image">
-		<img src="https://i.ibb.co/XkG1g7Ds/Chanderi-Cotton-Anarkali-Kurta-Set-03.jpg" alt="Extreme close-up on the intricate multicolor floral embroidery and light print on the soft Chanderi cotton fabric." class="product-image">
-
-                <div class="image-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-            <div class="card-content">
-                <h2>Elegant Chanderi Cotton Floral Anarkali Kurta Set</h2>
-                
-                <div class="review-section">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-                    </div>
-                    <a href="https://amzn.to/3VHBBSa" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(3.9 - 238 reviews)</span></a>
-                </div>
-                
-                <div class="social-buttons">
-                    <button class="social-btn like-btn">
-                        <i class="far fa-heart"></i> Like
-                    </button>
-                    <button class="social-btn share-btn" data-product-id="5">
-                        <i class="fas fa-share"></i> Share
-                    </button>
-                </div>
-                
-                <div class="description-container">
-                    <p>This Anarkali kurta set is crafted from premium, breathable Chanderi cotton for all-day comfort.It features intricate multicolor floral embroidery anda graceful, flared A-line silhouette. A versatile outfit suitablefor weddings, festive occasions, or daily casual wear. Arrive as a complete coordinated set with a matching dupattaand pants. <span class="read-more-link">....read more</span></p>
-                </div>
-
-                <div class="price-buy-row">
-                    <span class="product-price-inline">Rs 921</span>
-                    <a href="https://amzn.to/3VHBBSa" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
-                </div>
-            </div>
-        </div>
-
-<!-- Card 10: Elegant Banarasi Style Art Silk Saree -->
-        <div class="card" data-search-terms="Banarasi art silk saree, zari border saree with blouse, traditional festive saree">
-            <div class="image-slider">
-                <img src="https://i.ibb.co/wFRnKJZN/Elegant-Banarasi-Style-Art-Silk-Saree-02.jpg" alt="A Banarasi style art silk saree with a gold zari border, neatly folded on a clean, neutral background." class="product-image active">
-		<img src="https://i.ibb.co/rRV4Jdns/Elegant-Banarasi-Style-Art-Silk-Saree-01.jpg" alt="A woman elegantly draped in the art silk saree, adorned with gold zari, at a traditional festive gathering." class="product-image">
-		<img src="https://i.ibb.co/ycjzRk1t/Elegant-Banarasi-Style-Art-Silk-Saree-03.jpg" alt="Close-up shot of the jacquard blouse that comes with the saree." class="product-image">
-
-                <div class="image-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-            <div class="card-content">
-                <h2>Elegant Banarasi Style Art Silk Saree</h2>
-                
-                <div class="review-section">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
-                    <a href="https://amzn.to/4gMZxgw" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(4.1 - 110 reviews)</span></a>
-                </div>
-                
-                <div class="social-buttons">
-                    <button class="social-btn like-btn">
-                        <i class="far fa-heart"></i> Like
-                    </button>
-                    <button class="social-btn share-btn" data-product-id="1">
-                        <i class="fas fa-share"></i> Share
-                    </button>
-                </div>
-                
-                <div class="description-container">
-                    <p>This Banarasi-inspired saree features luxurious art silk fabric with intricate weaving. The gold-toned zari border and base add a touch of traditional elegance. Perfect for festivecelebrations and timeless Indian attire. Complete your lookwith the included matching jacquard blouse. <span class="read-more-link">....read more</span></p>
-                </div>
-
-                <div class="price-buy-row">
-                    <span class="product-price-inline">Rs 548</span>
-                    <a href="https://amzn.to/4gMZxgw" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
-                </div>
-            </div>
-        </div>
-        
-<!-- Card 11: Elegant Kanjivaram Soft Silk Banarasi Saree -->
-        <div class="card" data-search-terms="Kanjivaram soft silk saree, Banarasi saree with blouse, jacquard zari work saree">
-            <div class="image-slider">
-                <img src="https://i.ibb.co/N6qgWG3D/Elegant-Kanjivaram-Soft-Silk-Banarasi-Saree-01.jpg" alt="A Kanjivaram style soft silk saree with all-over jacquard and zari work, displayed neatly on a mannequin against a plain background." class="product-image active">
-		<img src="https://i.ibb.co/byst02j/Elegant-Kanjivaram-Soft-Silk-Banarasi-Saree-02.jpg" alt="A woman dressed in the soft silk Banarasi saree, smiling and socializing at an evening festive gathering." class="product-image">
-		<img src="https://i.ibb.co/gbLqWTSt/Elegant-Kanjivaram-Soft-Silk-Banarasi-Saree-03.jpg" alt="Close-up detail of the saree&#x27;s rich pallu, highlighting the intricate jacquard patterns and shimmering zari threads." class="product-image">
-
-                <div class="image-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-            <div class="card-content">
-                <h2>Elegant Kanjivaram Soft Silk Banarasi Saree</h2>
-                
-                <div class="review-section">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
-                    <a href="https://amzn.to/4nruNUZ" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(4.3 - 80 reviews)</span></a>
-                </div>
-                
-                <div class="social-buttons">
-                    <button class="social-btn like-btn">
-                        <i class="far fa-heart"></i> Like
-                    </button>
-                    <button class="social-btn share-btn" data-product-id="2">
-                        <i class="fas fa-share"></i> Share
-                    </button>
-                </div>
-                
-                <div class="description-container">
-                    <p>This Kanjivaram-inspired sareeis crafted from comfortable soft silk with a beautiful jacquard weave. It features rich zari work across the body and a striking pallu for a luxuriouslook. Ideal for festivals, parties, and formal evening events. Embrace timeless elegance with this complete ensemble, including an unstitched blouse piece. <span class="read-more-link">....read more</span></p>
-                </div>
-                <div class="price-buy-row">
-                    <span class="product-price-inline">Rs 1395</span>
-                    <a href="https://amzn.to/4nruNUZ" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Enhanced Share Modal -->
-        <div class="share-modal" id="shareModal">
-            <div class="share-modal-content">
-                <div class="share-modal-header">
-                    <div class="share-modal-title">Share Product</div>
-                    <button class="close-share-modal">&times;</button>
-                </div>
-                <div class="share-preview">
-                    <img id="sharePreviewImage" src="" alt="Product Image" class="share-preview-image">
-                    <div class="share-preview-title" id="sharePreviewTitle"></div>
-                    <div class="share-preview-text" id="sharePreviewText"></div>
-                </div>
-                <div class="share-platforms">
-                    <div class="share-platform whatsapp" data-platform="whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                        <span class="share-platform-name">WhatsApp</span>
-                    </div>
-                    <div class="share-platform whatsapp-reel" data-platform="whatsapp-reel">
-                        <i class="fab fa-whatsapp"></i>
-                        <span class="share-platform-name">WhatsApp Reel</span>
-                    </div>
-                    <div class="share-platform instagram" data-platform="instagram">
-                        <i class="fab fa-instagram"></i>
-                        <span class="share-platform-name">Instagram</span>
-                    </div>
-                    <div class="share-platform instagram-reel" data-platform="instagram-reel">
-                        <i class="fab fa-instagram"></i>
-                        <span class="share-platform-name">Instagram Reel</span>
-                    </div>
-                    <div class="share-platform facebook" data-platform="facebook">
-                        <i class="fab fa-facebook"></i>
-                        <span class="share-platform-name">Facebook</span>
-                    </div>
-                    <div class="share-platform twitter" data-platform="twitter">
-                        <i class="fab fa-twitter"></i>
-                        <span class="share-platform-name">Twitter</span>
-                    </div>
-                    <div class="share-platform telegram" data-platform="telegram">
-                        <i class="fab fa-telegram"></i>
-                        <span class="share-platform-name">Telegram</span>
-                    </div>
-                    <div class="share-platform copy" data-platform="copy">
-                        <i class="fas fa-copy"></i>
-                        <span class="share-platform-name">Copy Text</span>
-                    </div>
-                </div>
-                <div class="share-options">
-                    <div class="share-option">
-                        <input type="checkbox" id="includeEmoji" checked>
-                        <label for="includeEmoji">Include emojis in share text</label>
-                    </div>
-                    <div class="share-option">
-                        <input type="checkbox" id="includeFullDescription" checked>
-                        <label for="includeFullDescription">Include full description</label>
+                    <!-- No Results Message -->
+                    <div class="no-results" id="no-results">
+                        <i class="fas fa-search"></i>
+                        <h3>No matching deals found</h3>
+                        <p>Try adjusting your search terms</p>
                     </div>
                 </div>
             </div>
@@ -1315,422 +1452,334 @@
 
         <div class="bottom-disclaimer">
             <div class="disclaimer-text">
-                Disclaimer: This site may contain affiliate links from Amazon and other partner websites. 
-                If you buy through them, we may earn a small commission at no extra cost to you, 
-                helping us keep the site running.
+                Disclaimer: This is an Amazon Affiliate website. We may earn a commission when you make a purchase through our links at no extra cost to you.
             </div>
             <div class="copyright-line">
-                © 2025 DKapoore.Shop All rights reserved. | Serving worldwide online 
-                <p>Made with ❤️ in India</p>
+                &copy; 2023 DKapoore.Shop. All rights reserved.
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div class="share-modal" id="share-modal">
+        <div class="share-modal-content">
+            <div class="share-modal-header">
+                <div class="share-modal-title">Share this deal</div>
+                <button class="close-share-modal" id="close-share-modal">&times;</button>
+            </div>
+            <div class="share-preview" id="share-preview">
+                <!-- Share preview content will be generated by JavaScript -->
+            </div>
+            <div class="share-platforms">
+                <div class="share-platform whatsapp" data-platform="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="share-platform-name">WhatsApp</div>
+                </div>
+                <div class="share-platform whatsapp-reel" data-platform="whatsapp-reel">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="share-platform-name">WhatsApp Reel</div>
+                </div>
+                <div class="share-platform facebook" data-platform="facebook">
+                    <i class="fab fa-facebook"></i>
+                    <div class="share-platform-name">Facebook</div>
+                </div>
+                <div class="share-platform instagram" data-platform="instagram">
+                    <i class="fab fa-instagram"></i>
+                    <div class="share-platform-name">Instagram</div>
+                </div>
+                <div class="share-platform instagram-reel" data-platform="instagram-reel">
+                    <i class="fab fa-instagram"></i>
+                    <div class="share-platform-name">Instagram Reel</div>
+                </div>
+                <div class="share-platform twitter" data-platform="twitter">
+                    <i class="fab fa-twitter"></i>
+                    <div class="share-platform-name">Twitter</div>
+                </div>
+                <div class="share-platform telegram" data-platform="telegram">
+                    <i class="fab fa-telegram"></i>
+                    <div class="share-platform-name">Telegram</div>
+                </div>
+                <div class="share-platform copy" data-platform="copy">
+                    <i class="fas fa-copy"></i>
+                    <div class="share-platform-name">Copy Link</div>
+                </div>
+            </div>
+            <div class="share-options">
+                <div class="share-option">
+                    <input type="checkbox" id="include-affiliate" checked>
+                    <label for="include-affiliate">Include affiliate link</label>
+                </div>
+                <div class="share-option">
+                    <input type="checkbox" id="include-description" checked>
+                    <label for="include-description">Include product description</label>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        // Mobile Reel Functionality
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.card');
-            const navButtons = document.querySelectorAll('.nav-btn');
-            const progressItems = document.querySelectorAll('.progress-item');
+            const progressContainer = document.getElementById('progress-container');
+            const cardsContainer = document.getElementById('cards-container');
             const searchInput = document.getElementById('search-input');
-            const noResultsMessage = document.querySelector('.no-results');
-            const shareModal = document.getElementById('shareModal');
-            const sharePreviewImage = document.getElementById('sharePreviewImage');
-            const sharePreviewTitle = document.getElementById('sharePreviewTitle');
-            const sharePreviewText = document.getElementById('sharePreviewText');
-            const includeEmojiCheckbox = document.getElementById('includeEmoji');
-            const includeFullDescriptionCheckbox = document.getElementById('includeFullDescription');
+            const noResults = document.getElementById('no-results');
             
+            // Initialize progress bars
+            cards.forEach((card, index) => {
+                const progressItem = document.createElement('div');
+                progressItem.className = 'progress-item';
+                if (index === 0) progressItem.classList.add('active');
+                
+                const progressFill = document.createElement('div');
+                progressFill.className = 'progress-fill';
+                progressItem.appendChild(progressFill);
+                
+                progressContainer.appendChild(progressItem);
+            });
+            
+            // Update progress bars
+            function updateProgressBars() {
+                const progressItems = document.querySelectorAll('.progress-item');
+                progressItems.forEach((item, index) => {
+                    if (index === currentCardIndex) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Card navigation
             let currentCardIndex = 0;
-            let autoSlideInterval;
-            const slideInterval = 6000;
-            let currentProductData = null;
-
-            // Touch/swipe variables
-            let touchStartY = 0;
-            let touchEndY = 0;
-            let isSwiping = false;
-
-            // Read more functionality
-            document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('read-more-link')) {
-                    const description = e.target.parentElement.querySelector('p');
-                    if (description.classList.contains('expanded')) {
-                        description.classList.remove('expanded');
-                        e.target.textContent = '....read more';
+            let startY = 0;
+            let isScrolling = false;
+            
+            function showCard(index) {
+                cards.forEach((card, i) => {
+                    if (i === index) {
+                        card.classList.add('active');
                     } else {
-                        description.classList.add('expanded');
-                        e.target.textContent = '....show less';
+                        card.classList.remove('active');
                     }
-                }
-                
-                // Like button functionality
-                if (e.target.classList.contains('like-btn') || e.target.closest('.like-btn')) {
-                    const likeBtn = e.target.classList.contains('like-btn') ? e.target : e.target.closest('.like-btn');
-                    const icon = likeBtn.querySelector('i');
+                });
+                currentCardIndex = index;
+                updateProgressBars();
+            }
+            
+            // Touch events for card swiping
+            cardsContainer.addEventListener('touchstart', (e) => {
+                startY = e.touches[0].clientY;
+                isScrolling = false;
+            });
+            
+            cardsContainer.addEventListener('touchmove', (e) => {
+                if (!isScrolling) {
+                    const currentY = e.touches[0].clientY;
+                    const diffY = startY - currentY;
                     
-                    if (icon.classList.contains('far')) {
-                        icon.classList.remove('far');
-                        icon.classList.add('fas');
-                        icon.style.color = '#b21f1f';
-                    } else {
-                        icon.classList.remove('fas');
-                        icon.classList.add('far');
-                        icon.style.color = '';
+                    // Vertical swipe detection
+                    if (Math.abs(diffY) > 50) {
+                        isScrolling = true;
+                        
+                        if (diffY > 0 && currentCardIndex < cards.length - 1) {
+                            // Swipe up - next card
+                            showCard(currentCardIndex + 1);
+                        } else if (diffY < 0 && currentCardIndex > 0) {
+                            // Swipe down - previous card
+                            showCard(currentCardIndex - 1);
+                        }
                     }
-                }
-                
-                // Share button functionality
-                if (e.target.classList.contains('share-btn') || e.target.closest('.share-btn')) {
-                    const shareBtn = e.target.classList.contains('share-btn') ? e.target : e.target.closest('.share-btn');
-                    const productId = shareBtn.getAttribute('data-product-id');
-                    const productCard = document.querySelector(`.share-btn[data-product-id="${productId}"]`).closest('.card');
-                    
-                    // Get full description (even if hidden)
-                    const descriptionElement = productCard.querySelector('p');
-                    const fullDescription = descriptionElement.textContent.replace(/\.\.\.\.read more|\.\.\.\.show less/g, '').trim();
-                    
-                    // Get product data
-                    currentProductData = {
-                        title: productCard.querySelector('h2').textContent,
-                        image: productCard.querySelector('.product-image.active').src,
-                        description: fullDescription,
-                        rating: productCard.querySelector('.review-count').textContent,
-                        price: productCard.querySelector('.product-price-inline').textContent,
-                        buyLink: productCard.querySelector('.buy-btn').href
-                    };
-                    
-                    // Update share preview
-                    sharePreviewImage.src = currentProductData.image;
-                    sharePreviewTitle.textContent = currentProductData.title;
-                    sharePreviewText.textContent = currentProductData.description.substring(0, 100) + '...';
-                    
-                    // Show share modal
-                    shareModal.style.display = 'flex';
-                }
-                
-                // Close share modal
-                if (e.target.classList.contains('close-share-modal') || e.target === shareModal) {
-                    shareModal.style.display = 'none';
-                }
-                
-                // Share platform selection
-                if (e.target.classList.contains('share-platform') || e.target.closest('.share-platform')) {
-                    const platformBtn = e.target.classList.contains('share-platform') ? e.target : e.target.closest('.share-platform');
-                    const platform = platformBtn.getAttribute('data-platform');
-                    shareProduct(platform, currentProductData);
                 }
             });
             
             // Search functionality
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase().trim();
-                filterProducts(searchTerm);
-            });
-
-            // Filter products based on search term
-            function filterProducts(searchTerm) {
-                let visibleCardsCount = 0;
+                let hasResults = false;
                 
-                cards.forEach(card => {
+                cards.forEach((card, index) => {
+                    const searchTerms = card.getAttribute('data-search-terms').toLowerCase();
                     const title = card.querySelector('h2').textContent.toLowerCase();
-                    const description = card.querySelector('p').textContent.toLowerCase();
-                    const searchTerms = card.getAttribute('data-search-terms') || '';
                     
-                    if (searchTerm === '' || 
-                        title.includes(searchTerm) || 
-                        description.includes(searchTerm) ||
-                        searchTerms.includes(searchTerm)) {
+                    if (searchTerms.includes(searchTerm) || title.includes(searchTerm)) {
                         card.style.display = 'flex';
-                        visibleCardsCount++;
+                        hasResults = true;
                     } else {
                         card.style.display = 'none';
                     }
                 });
                 
-                if (visibleCardsCount === 0 && searchTerm !== '') {
-                    noResultsMessage.style.display = 'block';
+                // Show/hide no results message
+                if (searchTerm && !hasResults) {
+                    noResults.style.display = 'block';
                 } else {
-                    noResultsMessage.style.display = 'none';
-                    
+                    noResults.style.display = 'none';
+                }
+                
+                // Reset to first visible card
+                if (hasResults) {
                     const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
                     if (visibleCards.length > 0) {
-                        cards.forEach(card => card.classList.remove('active'));
-                        visibleCards[0].classList.add('active');
-                        currentCardIndex = 0;
-                        updateProgressIndicator();
+                        const firstVisibleIndex = Array.from(cards).indexOf(visibleCards[0]);
+                        showCard(firstVisibleIndex);
                     }
                 }
-                
-                restartAutoSlide();
-            }
-
-            // Category filter functionality - FIXED VERSION
-            navButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    // Allow natural navigation for all sidebar buttons
-                    // No event.preventDefault() - let links work normally
-                    console.log(`Navigating to: ${this.getAttribute('href')}`);
-                });
-            });
-
-            // Update progress indicator
-            function updateProgressIndicator() {
-                const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
-                
-                progressItems.forEach((item, index) => {
-                    item.classList.remove('active');
-                    const progressFill = item.querySelector('.progress-fill');
-                    progressFill.style.width = '0%';
-                    
-                    if (index < visibleCards.length) {
-                        item.style.display = 'flex';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-                
-                if (visibleCards.length > 0 && currentCardIndex < visibleCards.length) {
-                    progressItems[currentCardIndex].classList.add('active');
-                    
-                    const activeProgressFill = progressItems[currentCardIndex].querySelector('.progress-fill');
-                    activeProgressFill.style.width = '0%';
-                    
-                    setTimeout(() => {
-                        activeProgressFill.style.width = '100%';
-                    }, 10);
-                }
-            }
-
-            // Auto slide functionality for main carousel
-            function startAutoSlide() {
-                autoSlideInterval = setInterval(() => {
-                    showNextCard();
-                }, slideInterval);
-            }
-
-            function showNextCard() {
-                const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
-                if (visibleCards.length === 0) return;
-                
-                cards.forEach(card => card.classList.remove('active'));
-                currentCardIndex = (currentCardIndex + 1) % visibleCards.length;
-                visibleCards[currentCardIndex].classList.add('active');
-                
-                updateProgressIndicator();
-            }
-            
-            function showPreviousCard() {
-                const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
-                if (visibleCards.length === 0) return;
-                
-                cards.forEach(card => card.classList.remove('active'));
-                currentCardIndex = (currentCardIndex - 1 + visibleCards.length) % visibleCards.length;
-                visibleCards[currentCardIndex].classList.add('active');
-                
-                updateProgressIndicator();
-            }
-
-            function restartAutoSlide() {
-                clearInterval(autoSlideInterval);
-                startAutoSlide();
-            }
-
-            // Pause auto slide on hover/tap
-            const carousel = document.querySelector('.carousel');
-            carousel.addEventListener('mouseenter', () => {
-                clearInterval(autoSlideInterval);
             });
             
-            carousel.addEventListener('mouseleave', () => {
-                restartAutoSlide();
-            });
-            
-            // Touch events for vertical swipe - FIXED VERSION
-            const cardsContainer = document.querySelector('.cards-container');
-            
-            cardsContainer.addEventListener('touchstart', function(event) {
-                touchStartY = event.changedTouches[0].screenY;
-                isSwiping = true;
-                clearInterval(autoSlideInterval);
-            }, { passive: true });
-            
-            cardsContainer.addEventListener('touchmove', function(event) {
-                if (!isSwiping) return;
-                // Allow vertical scrolling
-            }, { passive: true });
-            
-            cardsContainer.addEventListener('touchend', function(event) {
-                if (!isSwiping) return;
-                
-                touchEndY = event.changedTouches[0].screenY;
-                handleSwipe();
-                restartAutoSlide();
-                isSwiping = false;
-            }, { passive: true });
-            
-            // Mouse events for desktop testing
-            cardsContainer.addEventListener('mousedown', function(event) {
-                touchStartY = event.screenY;
-                isSwiping = true;
-                clearInterval(autoSlideInterval);
-            });
-            
-            cardsContainer.addEventListener('mouseup', function(event) {
-                if (!isSwiping) return;
-                
-                touchEndY = event.screenY;
-                handleSwipe();
-                restartAutoSlide();
-                isSwiping = false;
-            });
-            
-            cardsContainer.addEventListener('mouseleave', function() {
-                if (isSwiping) {
-                    isSwiping = false;
-                    restartAutoSlide();
-                }
-            });
-            
-            function handleSwipe() {
-                const minSwipeDistance = 50;
-                const swipeDistance = touchStartY - touchEndY;
-                
-                if (Math.abs(swipeDistance) < minSwipeDistance) return;
-                
-                if (swipeDistance > minSwipeDistance) {
-                    // Swipe down - next card
-                    showNextCard();
-                } else if (swipeDistance < -minSwipeDistance) {
-                    // Swipe up - previous card  
-                    showPreviousCard();
-                }
-            }
-
-            // Enhanced Share product function
-            function shareProduct(platform, productData) {
-                const includeEmoji = includeEmojiCheckbox.checked;
-                const includeFullDesc = includeFullDescriptionCheckbox.checked;
-                
-                let shareText = '';
-                
-                if (includeEmoji) {
-                    shareText = `🎯 *${productData.title}* 🎯\n\n`;
-                    shareText += `⭐ ${productData.rating}\n\n`;
-                    shareText += `💰 *Price:* ${productData.price}\n\n`;
-                    
-                    if (includeFullDesc) {
-                        shareText += `📝 *Description:* ${productData.description}\n\n`;
-                    } else {
-                        const shortDesc = productData.description.substring(0, 100) + '...';
-                        shareText += `📝 *Description:* ${shortDesc}\n\n`;
-                    }
-                    
-                    shareText += `🛒 *Buy Now:* ${productData.buyLink}\n\n`;
-                    shareText += `🏷️ #${productData.title.replace(/\s+/g, '')} #ShoppingDeals #BestPrice\n`;
-                    shareText += `🔗 Shared via DKapoore.Shop - Your trusted shopping partner! 🛍️`;
-                } else {
-                    shareText = `*${productData.title}*\n\n`;
-                    shareText += `Rating: ${productData.rating}\n\n`;
-                    shareText += `Price: ${productData.price}\n\n`;
-                    
-                    if (includeFullDesc) {
-                        shareText += `Description: ${productData.description}\n\n`;
-                    } else {
-                        const shortDesc = productData.description.substring(0, 100) + '...';
-                        shareText += `Description: ${shortDesc}\n\n`;
-                    }
-                    
-                    shareText += `Buy Now: ${productData.buyLink}\n\n`;
-                    shareText += `Shared via DKapoore.Shop`;
-                }
-                
-                let shareUrl = '';
-                
-                switch(platform) {
-                    case 'whatsapp':
-                        shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
-                        window.open(shareUrl, '_blank');
-                        break;
-                    case 'whatsapp-reel':
-                        const whatsappReelText = `🌟 *PRODUCT SPOTLIGHT* 🌟\n\n${shareText}\n\n✨ *Limited Time Offer!* ✨`;
-                        shareUrl = `https://wa.me/?text=${encodeURIComponent(whatsappReelText)}`;
-                        window.open(shareUrl, '_blank');
-                        break;
-                    case 'instagram':
-                        const instagramText = `🔥 Amazing Find! 🔥\n\n${productData.title}\n\n⭐ ${productData.rating}\n💰 ${productData.price}\n\n${productData.description.substring(0, 150)}...\n\n🛒 Link in Bio!\n\n#${productData.title.replace(/\s+/g, '')} #Shopping #Deals #DKapooreShop`;
-                        copyToClipboard(instagramText);
-                        alert('Product details copied! Paste it in your Instagram post with the product image.');
-                        break;
-                    case 'copy':
-                        copyToClipboard(shareText);
-                        alert('Product details copied to clipboard!');
-                        break;
-                    default:
-                        // For other platforms, use basic sharing
-                        shareUrl = `${productData.buyLink}`;
-                        window.open(shareUrl, '_blank');
-                }
-                
-                shareModal.style.display = 'none';
-            }
-            
-            // Copy to clipboard function
-            function copyToClipboard(text) {
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-            }
-
-            // Image slider functionality for each product card
+            // Image slider functionality
             cards.forEach(card => {
                 const images = card.querySelectorAll('.product-image');
                 const indicators = card.querySelectorAll('.indicator');
+                
                 let currentImageIndex = 0;
-                let imageInterval;
-
-                function startImageSlider() {
-                    imageInterval = setInterval(() => {
-                        images[currentImageIndex].classList.remove('active');
-                        indicators[currentImageIndex].classList.remove('active');
-                        
-                        currentImageIndex = (currentImageIndex + 1) % images.length;
-                        
-                        images[currentImageIndex].classList.add('active');
-                        indicators[currentImageIndex].classList.add('active');
-                    }, 3000);
-                }
-
-                function stopImageSlider() {
-                    clearInterval(imageInterval);
-                }
-
-                // Start image slider only for active card
-                if (card.classList.contains('active')) {
-                    startImageSlider();
-                }
-
-                // Observe card activation
-                const observer = new MutationObserver((mutations) => {
-                    mutations.forEach((mutation) => {
-                        if (mutation.attributeName === 'class') {
-                            if (card.classList.contains('active')) {
-                                startImageSlider();
-                            } else {
-                                stopImageSlider();
-                            }
+                
+                function showImage(index) {
+                    images.forEach((img, i) => {
+                        if (i === index) {
+                            img.classList.add('active');
+                        } else {
+                            img.classList.remove('active');
                         }
                     });
+                    
+                    indicators.forEach((indicator, i) => {
+                        if (i === index) {
+                            indicator.classList.add('active');
+                        } else {
+                            indicator.classList.remove('active');
+                        }
+                    });
+                    
+                    currentImageIndex = index;
+                }
+                
+                // Auto-rotate images
+                setInterval(() => {
+                    if (card.classList.contains('active')) {
+                        currentImageIndex = (currentImageIndex + 1) % images.length;
+                        showImage(currentImageIndex);
+                    }
+                }, 3000);
+                
+                // Click on indicators
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        showImage(index);
+                    });
                 });
-
-                observer.observe(card, { attributes: true });
             });
-
-            // Initialize
-            updateProgressIndicator();
-            startAutoSlide();
+            
+            // Read more functionality
+            document.querySelectorAll('.read-more-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    const description = this.parentElement.querySelector('p');
+                    description.classList.toggle('expanded');
+                    this.textContent = description.classList.contains('expanded') ? 'Read Less' : 'Read More';
+                });
+            });
+        });
+        
+        // Share functionality
+        function shareProduct(cardIndex) {
+            const cards = document.querySelectorAll('.card');
+            const card = cards[cardIndex];
+            const title = card.querySelector('h2').textContent;
+            const image = card.querySelector('.product-image.active').src;
+            const description = card.querySelector('p').textContent;
+            const price = card.querySelector('.product-price-inline').textContent;
+            
+            // Update share preview
+            const sharePreview = document.getElementById('share-preview');
+            sharePreview.innerHTML = `
+                <img src="${image}" alt="${title}" class="share-preview-image">
+                <div class="share-preview-title">${title}</div>
+                <div class="share-preview-text">${description.substring(0, 100)}...</div>
+            `;
+            
+            // Show modal
+            document.getElementById('share-modal').style.display = 'flex';
+            
+            // Set up share platform buttons
+            document.querySelectorAll('.share-platform').forEach(platform => {
+                platform.onclick = function() {
+                    const platformType = this.getAttribute('data-platform');
+                    shareToPlatform(platformType, title, description, image, price);
+                };
+            });
+        }
+        
+        function shareToPlatform(platform, title, description, image, price) {
+            const includeAffiliate = document.getElementById('include-affiliate').checked;
+            const includeDescription = document.getElementById('include-description').checked;
+            
+            let shareText = `${title} - ${price}`;
+            
+            if (includeDescription) {
+                shareText += `\n\n${description.substring(0, 150)}...`;
+            }
+            
+            if (includeAffiliate) {
+                shareText += `\n\nCheck it out: https://amzn.to/3VF06Q4`;
+            }
+            
+            let shareUrl = '';
+            
+            switch(platform) {
+                case 'whatsapp':
+                    shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'whatsapp-reel':
+                    shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://amzn.to/3VF06Q4')}&quote=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'instagram':
+                    // Instagram doesn't support direct sharing, so we copy to clipboard
+                    copyToClipboard(shareText);
+                    alert('Product details copied to clipboard! You can now paste it in your Instagram post.');
+                    return;
+                case 'instagram-reel':
+                    copyToClipboard(shareText);
+                    alert('Product details copied to clipboard! You can now paste it in your Instagram Reel.');
+                    return;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'telegram':
+                    shareUrl = `https://t.me/share/url?url=${encodeURIComponent('https://amzn.to/3VF06Q4')}&text=${encodeURIComponent(shareText)}`;
+                    break;
+                case 'copy':
+                    copyToClipboard(shareText);
+                    alert('Product details copied to clipboard!');
+                    return;
+            }
+            
+            window.open(shareUrl, '_blank');
+        }
+        
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+        
+        // Close share modal
+        document.getElementById('close-share-modal').addEventListener('click', function() {
+            document.getElementById('share-modal').style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('share-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
         });
     </script>
 </body>
