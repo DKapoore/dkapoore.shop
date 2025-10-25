@@ -1273,6 +1273,32 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1a2a6c;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            font-weight: 500;
+            max-width: 300px;
+            animation: slideInRight 0.3s ease;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -1287,9 +1313,11 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <div class="cart-icon" id="desktopCartIcon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="desktopCartCount">0</span>
+            <div class="cart-icon">
+                <a href="Checkout & Cart Page.html" style="color: white; text-decoration: none;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="desktop-cart-count">0</span>
+                </a>
             </div>
         </div>
     </header>
@@ -1301,7 +1329,7 @@
             <p>Discover hand-picked Amazon affiliate products with exclusive deals on electronics, home, fashion & lifestyle. Shop smart with DKapoore.Shop's best offers.</p>
         </div>
         
-        <div class="desktop-cards-grid">
+        <div class="desktop-cards-grid" id="desktop-cards-grid">
             <!-- Card 1: Multicolored Printed Anarkali Kurta Pant Set -->
             <div class="desktop-card" data-search-terms="printed anarkali kurta set, women's viscose rayon kurta, multicolor ethnic wear">
                 <img src="https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg" alt="A multicolored printed Anarkali kurta set with pants and dupatta, displayed on a mannequin against a plain, light background." class="desktop-card-image">
@@ -1318,7 +1346,7 @@
                     </div>
                     <div class="desktop-price-buy-row">
                         <span class="desktop-product-price-inline">Rs 679</span>
-                        <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                        <button class="desktop-buy-btn" data-product-title="Multicolored Printed Anarkali Kurta Pant Set" data-product-price="Rs 679" data-product-image="https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -1339,7 +1367,7 @@
                     </div>
                     <div class="desktop-price-buy-row">
                         <span class="desktop-product-price-inline">Rs 589</span>
-                        <button class="desktop-buy-btn" onclick="addToCart('Elegant Brown Viscose Printed Kurta Pant Set', 'Rs 589', 'https://i.ibb.co/mrvmtHtP/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                        <button class="desktop-buy-btn" data-product-title="Elegant Brown Viscose Printed Kurta Pant Set" data-product-price="Rs 589" data-product-image="https://i.ibb.co/mrvmtHtP/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -1360,7 +1388,7 @@
                     </div>
                     <div class="desktop-price-buy-row">
                         <span class="desktop-product-price-inline">Rs 599</span>
-                        <button class="desktop-buy-btn" onclick="addToCart('Printed Alia-Cut Anarkali Kurta with Dhoti Pants', 'Rs 599', 'https://i.ibb.co/XfkYRh0J/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                        <button class="desktop-buy-btn" data-product-title="Printed Alia-Cut Anarkali Kurta with Dhoti Pants" data-product-price="Rs 599" data-product-image="https://i.ibb.co/XfkYRh0J/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -1381,7 +1409,7 @@
                     </div>
                     <div class="desktop-price-buy-row">
                         <span class="desktop-product-price-inline">Rs 599</span>
-                        <button class="desktop-buy-btn" onclick="addToCart('Women\\'s Black Viscose Rayon Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/4fQ8P8qW/Womens-Black-Viscose-Rayon-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                        <button class="desktop-buy-btn" data-product-title="Women's Black Viscose Rayon Kurta Pant Set" data-product-price="Rs 599" data-product-image="https://i.ibb.co/4fQ8P8qW/Womens-Black-Viscose-Rayon-Kurta-Pant-Set-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -1402,7 +1430,7 @@
                     </div>
                     <div class="desktop-price-buy-row">
                         <span class="desktop-product-price-inline">Rs 599</span>
-                        <button class="desktop-buy-btn" onclick="addToCart('Women\\'s Printed Anarkali Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                        <button class="desktop-buy-btn" data-product-title="Women's Printed Anarkali Kurta Pant Set" data-product-price="Rs 599" data-product-image="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -1423,7 +1451,7 @@
                     </div>
                     <div class="desktop-price-buy-row">
                         <span class="desktop-product-price-inline">Rs 599</span>
-                        <button class="desktop-buy-btn" onclick="addToCart('Women\\'s Printed Anarkali Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                        <button class="desktop-buy-btn" data-product-title="Women's Printed Anarkali Kurta Pant Set" data-product-price="Rs 599" data-product-image="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -1444,8 +1472,8 @@
             <div class="footer-section">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                     <!-- Mobile Layout (Reel-style) <li><a href="ebook.html">E-Books</a></li>
-                    <li><a href="automation-app.html">Automation Apps</a></li>-->
+                    <li><a href="amazon_deals.html">Amazon Deals</a></li>
+                    <li><a href="Checkout & Cart Page.html">Cart</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
@@ -1474,7 +1502,7 @@
                 <input type="text" placeholder="Search deals..." id="search-input">
             </div>
             <div class="mobile-cart-icon">
-                <a href="#" id="mobile-cart-btn">
+                <a href="Checkout & Cart Page.html" style="color: white; text-decoration: none;">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="mobile-cart-count" id="mobile-cart-count">0</span>
                 </a>
@@ -1540,7 +1568,7 @@
                             </div>
                             <div class="price-buy-row">
                                 <span class="product-price-inline">Rs 679</span>
-                                <button class="buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                                <button class="buy-btn" data-product-title="Multicolored Printed Anarkali Kurta Pant Set" data-product-price="Rs 679" data-product-image="https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1574,7 +1602,7 @@
                             </div>
                             <div class="price-buy-row">
                                 <span class="product-price-inline">Rs 589</span>
-                                <button class="buy-btn" onclick="addToCart('Elegant Brown Viscose Printed Kurta Pant Set', 'Rs 589', 'https://i.ibb.co/mrvmtHtP/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                                <button class="buy-btn" data-product-title="Elegant Brown Viscose Printed Kurta Pant Set" data-product-price="Rs 589" data-product-image="https://i.ibb.co/mrvmtHtP/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1608,7 +1636,7 @@
                             </div>
                             <div class="price-buy-row">
                                 <span class="product-price-inline">Rs 599</span>
-                                <button class="buy-btn" onclick="addToCart('Printed Alia-Cut Anarkali Kurta with Dhoti Pants', 'Rs 599', 'https://i.ibb.co/XfkYRh0J/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                                <button class="buy-btn" data-product-title="Printed Alia-Cut Anarkali Kurta with Dhoti Pants" data-product-price="Rs 599" data-product-image="https://i.ibb.co/XfkYRh0J/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1642,7 +1670,7 @@
                             </div>
                             <div class="price-buy-row">
                                 <span class="product-price-inline">Rs 599</span>
-                                <button class="buy-btn" onclick="addToCart('Women\\'s Black Viscose Rayon Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/4fQ8P8qW/Womens-Black-Viscose-Rayon-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                                <button class="buy-btn" data-product-title="Women's Black Viscose Rayon Kurta Pant Set" data-product-price="Rs 599" data-product-image="https://i.ibb.co/4fQ8P8qW/Womens-Black-Viscose-Rayon-Kurta-Pant-Set-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1676,7 +1704,7 @@
                             </div>
                             <div class="price-buy-row">
                                 <span class="product-price-inline">Rs 599</span>
-                                <button class="buy-btn" onclick="addToCart('Women\\'s Printed Anarkali Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                                <button class="buy-btn" data-product-title="Women's Printed Anarkali Kurta Pant Set" data-product-price="Rs 599" data-product-image="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1710,7 +1738,7 @@
                             </div>
                             <div class="price-buy-row">
                                 <span class="product-price-inline">Rs 599</span>
-                                <button class="buy-btn" onclick="addToCart('Women\\'s Printed Anarkali Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
+                                <button class="buy-btn" data-product-title="Women's Printed Anarkali Kurta Pant Set" data-product-price="Rs 599" data-product-image="https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1725,108 +1753,10 @@
             </div>
         </div>
         
-        <div class="desktop-disclaimer">
+        <div class="bottom-disclaimer">
             <p><strong>Affiliate Disclosure:</strong> DKapoore.Shop is a participant in the Amazon Associates Program. We may earn commissions from qualifying purchases made through links on this site, at no extra cost to you. This helps us maintain and improve our services.</p>
         </div>
     </div>
-
-    <!-- Mobile Layout (reel-style) -->
-    <div class="reels-container">
-        <div class="top-header">
-            <div class="logo">DKapoore.Shop</div>
-            <div class="search-bar">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search products...">
-            </div>
-            <div class="mobile-cart-icon" id="mobileCartIcon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="mobile-cart-count" id="mobileCartCount">0</span>
-            </div>
-        </div>
-        
-        <div class="main-content">
-            <div class="nav-sidebar">
-                <a href="index.html" class="nav-btn">
-                    <i class="fas fa-home"></i>
-                    <span class="tooltip">Home</span>
-                </a>
-                <a href="amazon_deals.html" class="nav-btn active">
-                    <i class="fas fa-tag"></i>
-                    <span class="tooltip">Deals</span>
-                </a>
-                <a href="automation-apps.html" class="nav-btn">
-                    <i class="fas fa-robot"></i>
-                    <span class="tooltip">Apps</span>
-                </a>
-                <a href="about.html" class="nav-btn">
-                    <i class="fas fa-info-circle"></i>
-                    <span class="tooltip">About</span>
-                </a>
-                <a href="contact.html" class="nav-btn">
-                    <i class="fas fa-envelope"></i>
-                    <span class="tooltip">Contact</span>
-                </a>
-            </div>
-            
-            <div class="carousel">
-                <div class="reel-progress" id="reelProgress">
-                    <!-- Progress bars will be dynamically generated -->
-                </div>
-                
-                <div class="cards-container" id="cardsContainer">
-                    <!-- Cards will be dynamically generated -->
-                </div>
-            </div>
-        </div>
-        
-        <div class="bottom-disclaimer">
-            <p><strong>Affiliate Disclosure:</strong> DKapoore.Shop is a participant in the Amazon Associates Program. We may earn commissions from qualifying purchases made through links on this site, at no extra cost to you.</p>
-        </div>
-    </div>
-
-    <!-- Desktop Footer -->
-    <footer class="desktop-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DKapoore.Shop</h3>
-                    <p>Your trusted source for Amazon affiliate products and exclusive deals. We help you discover the best products at the best prices.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="amazon_deals.html">Amazon Deals</a></li>
-                        <li><a href="automation-apps.html">Automation Apps</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-of-service.html">Terms of Service</a></li>
-                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-                        <li><a href="cookies-policy.html">Cookies Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Connect With Us</h3>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 DKapoore.Shop. All rights reserved.</p>
-                <p>This site contains affiliate links. We may earn a commission when you make a purchase through our links.</p>
-            </div>
-        </div>
-    </footer>
 
     <!-- Share Modal -->
     <div class="share-modal" id="shareModal">
@@ -1875,38 +1805,6 @@
         </div>
     </div>
 
-    <!-- Cart Overlay -->
-    <div class="cart-overlay" id="cartOverlay">
-        <div class="cart-sidebar" id="cartSidebar">
-            <div class="cart-header">
-                <h3 class="cart-title">Your Shopping Cart</h3>
-                <button class="close-cart">&times;</button>
-            </div>
-            <div class="cart-items" id="cartItems">
-                <!-- Cart items will be dynamically generated -->
-            </div>
-            <div class="cart-summary">
-                <div class="summary-row">
-                    <span>Subtotal:</span>
-                    <span id="cartSubtotal">₹0.00</span>
-                </div>
-                <div class="summary-row">
-                    <span>Shipping:</span>
-                    <span id="cartShipping">₹0.00</span>
-                </div>
-                <div class="summary-row">
-                    <span>Tax:</span>
-                    <span id="cartTax">₹0.00</span>
-                </div>
-                <div class="summary-row summary-total">
-                    <span>Total:</span>
-                    <span id="cartTotal">₹0.00</span>
-                </div>
-                <a href="#" class="checkout-btn" id="checkoutBtn">Proceed to Checkout</a>
-            </div>
-        </div>
-    </div>
-
     <!-- Loading Spinner -->
     <div class="loading-spinner" id="loadingSpinner">
         <div class="spinner"></div>
@@ -1916,470 +1814,41 @@
     <div class="copy-message" id="copyMessage">Link copied to clipboard!</div>
 
     <script>
-        // Product data
-        const products = [
-            {
-                id: 1,
-                title: "Multicolored Printed Anarkali Kurta Pant Set",
-                description: "Elegant multicolored printed Anarkali kurta with pant set. Perfect for festive occasions, weddings, and special events. Made from high-quality fabric for comfort and style.",
-                price: "₹679",
-                images: [
-                    "https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg",
-                    "https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-02.jpg",
-                    "https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-03.jpg"
-                ],
-                rating: 4.3,
-                reviews: 1270,
-                affiliateLink: "https://amzn.to/3VF06Q4"
-            },
-            {
-                id: 2,
-                title: "Wireless Bluetooth Earbuds with Charging Case",
-                description: "Premium wireless earbuds with noise cancellation, 30 hours of battery life, and fast charging. Perfect for music, calls, and workouts with secure fit and IPX7 waterproof rating.",
-                price: "₹1,299",
-                images: [
-                    "https://i.ibb.co/kV4nR2xP/Wireless-Bluetooth-Earbuds-01.jpg",
-                    "https://i.ibb.co/kV4nR2xP/Wireless-Bluetooth-Earbuds-02.jpg",
-                    "https://i.ibb.co/kV4nR2xP/Wireless-Bluetooth-Earbuds-03.jpg"
-                ],
-                rating: 4.5,
-                reviews: 3421,
-                affiliateLink: "https://amzn.to/3VF06Q4"
-            },
-            {
-                id: 3,
-                title: "Stainless Steel Water Bottle - 1 Litre",
-                description: "Durable stainless steel water bottle that keeps drinks cold for 24 hours or hot for 12 hours. Leak-proof design with carrying loop. Perfect for outdoor activities and daily use.",
-                price: "₹899",
-                images: [
-                    "https://i.ibb.co/kV4nR2xP/Stainless-Steel-Water-Bottle-01.jpg",
-                    "https://i.ibb.co/kV4nR2xP/Stainless-Steel-Water-Bottle-02.jpg",
-                    "https://i.ibb.co/kV4nR2xP/Stainless-Steel-Water-Bottle-03.jpg"
-                ],
-                rating: 4.7,
-                reviews: 1895,
-                affiliateLink: "https://amzn.to/3VF06Q4"
-            },
-            {
-                id: 4,
-                title: "Smart Fitness Band with Heart Rate Monitor",
-                description: "Advanced fitness tracker with heart rate monitoring, sleep tracking, and 14 sports modes. Water-resistant with 7-day battery life and smartphone notifications.",
-                price: "₹2,499",
-                images: [
-                    "https://i.ibb.co/kV4nR2xP/Smart-Fitness-Band-01.jpg",
-                    "https://i.ibb.co/kV4nR2xP/Smart-Fitness-Band-02.jpg",
-                    "https://i.ibb.co/kV4nR2xP/Smart-Fitness-Band-03.jpg"
-                ],
-                rating: 4.4,
-                reviews: 4217,
-                affiliateLink: "https://amzn.to/3VF06Q4"
-            },
-            {
-                id: 5,
-                title: "Non-Stick Cookware Set - 5 Pieces",
-                description: "Complete non-stick cookware set including frying pans, saucepans, and ladle. Even heat distribution and durable coating for healthy cooking and easy cleaning.",
-                price: "₹1,799",
-                images: [
-                    "https://i.ibb.co/kV4nR2xP/Non-Stick-Cookware-Set-01.jpg",
-                    "https://i.ibb.co/kV4nR2xP/Non-Stick-Cookware-Set-02.jpg",
-                    "https://i.ibb.co/kV4nR2xP/Non-Stick-Cookware-Set-03.jpg"
-                ],
-                rating: 4.6,
-                reviews: 2934,
-                affiliateLink: "https://amzn.to/3VF06Q4"
-            },
-            {
-                id: 6,
-                title: "LED Desk Lamp with Wireless Charging",
-                description: "Modern LED desk lamp with adjustable brightness, color temperature, and built-in wireless charging pad. USB ports for charging multiple devices simultaneously.",
-                price: "₹1,599",
-                images: [
-                    "https://i.ibb.co/kV4nR2xP/LED-Desk-Lamp-01.jpg",
-                    "https://i.ibb.co/kV4nR2xP/LED-Desk-Lamp-02.jpg",
-                    "https://i.ibb.co/kV4nR2xP/LED-Desk-Lamp-03.jpg"
-                ],
-                rating: 4.2,
-                reviews: 1567,
-                affiliateLink: "https://amzn.to/3VF06Q4"
-            }
-        ];
-
-        // Cart functionality
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-        // DOM elements
-        const desktopCartIcon = document.getElementById('desktopCartIcon');
-        const desktopCartCount = document.getElementById('desktopCartCount');
-        const mobileCartIcon = document.getElementById('mobileCartIcon');
-        const mobileCartCount = document.getElementById('mobileCartCount');
-        const cartOverlay = document.getElementById('cartOverlay');
-        const cartSidebar = document.getElementById('cartSidebar');
-        const cartItems = document.getElementById('cartItems');
-        const cartSubtotal = document.getElementById('cartSubtotal');
-        const cartShipping = document.getElementById('cartShipping');
-        const cartTax = document.getElementById('cartTax');
-        const cartTotal = document.getElementById('cartTotal');
-        const checkoutBtn = document.getElementById('checkoutBtn');
-        const closeCart = document.querySelector('.close-cart');
-        const desktopCardsGrid = document.getElementById('desktopCardsGrid');
-        const cardsContainer = document.getElementById('cardsContainer');
-        const reelProgress = document.getElementById('reelProgress');
-        const shareModal = document.getElementById('shareModal');
-        const closeShareModal = document.querySelector('.close-share-modal');
-        const sharePreview = document.getElementById('sharePreview');
-        const shareOptions = document.querySelectorAll('.share-option');
-        const copyMessage = document.getElementById('copyMessage');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeDesktopView();
-            initializeMobileView();
-            updateCartCount();
-            attachEventListeners();
-        });
-
-        // Initialize desktop view
-        function initializeDesktopView() {
-            desktopCardsGrid.innerHTML = '';
+        // Global cart functions
+        function addToCart(title, price, image) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
             
-            products.forEach(product => {
-                const card = createDesktopCard(product);
-                desktopCardsGrid.appendChild(card);
-            });
-        }
-
-        // Create desktop card
-        function createDesktopCard(product) {
-            const card = document.createElement('div');
-            card.className = 'desktop-card';
-            card.innerHTML = `
-                <img src="${product.images[0]}" alt="${product.title}" class="desktop-card-image">
-                <div class="desktop-card-content">
-                    <h2>${product.title}</h2>
-                    <div class="desktop-review-section">
-                        <div class="desktop-stars">
-                            ${generateStars(product.rating)}
-                        </div>
-                        <span class="desktop-review-count">${product.reviews.toLocaleString()}</span>
-                    </div>
-                    <div class="desktop-description-container">
-                        <p>${product.description}</p>
-                    </div>
-                    <div class="desktop-price-buy-row">
-                        <span class="desktop-product-price-inline">${product.price}</span>
-                        <button class="desktop-buy-btn" data-product-id="${product.id}">
-                            Add to Cart <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            // Add event listener to the button
-            const buyBtn = card.querySelector('.desktop-buy-btn');
-            buyBtn.addEventListener('click', function() {
-                addToCart(product);
-            });
-            
-            return card;
-        }
-
-        // Initialize mobile view
-        function initializeMobileView() {
-            cardsContainer.innerHTML = '';
-            reelProgress.innerHTML = '';
-            
-            products.forEach((product, index) => {
-                const card = createMobileCard(product, index);
-                cardsContainer.appendChild(card);
-                
-                const progressItem = document.createElement('div');
-                progressItem.className = 'progress-item';
-                progressItem.innerHTML = '<div class="progress-fill"></div>';
-                if (index === 0) {
-                    progressItem.classList.add('active');
-                }
-                reelProgress.appendChild(progressItem);
-            });
-            
-            // Show first card
-            if (products.length > 0) {
-                const firstCard = document.querySelector('.card');
-                firstCard.classList.add('active');
-            }
-            
-            // Initialize swipe functionality
-            initializeSwipe();
-        }
-
-        // Create mobile card
-        function createMobileCard(product, index) {
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.dataset.productId = product.id;
-            if (index === 0) {
-                card.classList.add('active');
-            }
-            
-            // Generate image HTML
-            let imagesHTML = '';
-            product.images.forEach((image, imgIndex) => {
-                imagesHTML += `
-                    <img src="${image}" alt="${product.title}" class="product-image ${imgIndex === 0 ? 'active' : ''}">
-                `;
-            });
-            
-            // Generate indicators HTML
-            let indicatorsHTML = '';
-            product.images.forEach((_, imgIndex) => {
-                indicatorsHTML += `
-                    <div class="indicator ${imgIndex === 0 ? 'active' : ''}"></div>
-                `;
-            });
-            
-            card.innerHTML = `
-                <div class="image-slider" id="imageSlider-${product.id}">
-                    ${imagesHTML}
-                    <div class="image-indicators">
-                        ${indicatorsHTML}
-                    </div>
-                </div>
-                <div class="card-content">
-                    <h2>${product.title}</h2>
-                    <div class="review-section">
-                        <div class="stars">
-                            ${generateStars(product.rating)}
-                        </div>
-                        <span class="review-count">${product.reviews.toLocaleString()}</span>
-                    </div>
-                    <div class="social-buttons">
-                        <button class="social-btn like-btn">
-                            <i class="far fa-heart"></i> Like
-                        </button>
-                        <button class="social-btn comment-btn">
-                            <i class="far fa-comment"></i> Comment
-                        </button>
-                        <button class="social-btn share-btn" data-product-id="${product.id}">
-                            <i class="far fa-share-square"></i> Share
-                        </button>
-                    </div>
-                    <div class="description-container">
-                        <p>${product.description}</p>
-                        <button class="read-more-link">Read More</button>
-                    </div>
-                    <div class="price-buy-row">
-                        <span class="product-price-inline">${product.price}</span>
-                        <button class="buy-btn" data-product-id="${product.id}">
-                            Add to Cart <i class="fas fa-shopping-cart"></i>
-                        </button>
-                    </div>
-                </div>
-            `;
-            
-            // Add event listeners
-            const buyBtn = card.querySelector('.buy-btn');
-            buyBtn.addEventListener('click', function() {
-                addToCart(product);
-            });
-            
-            const shareBtn = card.querySelector('.share-btn');
-            shareBtn.addEventListener('click', function() {
-                openShareModal(product);
-            });
-            
-            const readMoreLink = card.querySelector('.read-more-link');
-            const description = card.querySelector('.description-container p');
-            readMoreLink.addEventListener('click', function() {
-                if (description.classList.contains('expanded')) {
-                    description.classList.remove('expanded');
-                    readMoreLink.textContent = 'Read More';
-                } else {
-                    description.classList.add('expanded');
-                    readMoreLink.textContent = 'Read Less';
-                }
-            });
-            
-            // Initialize image slider
-            initializeImageSlider(card, product.id);
-            
-            return card;
-        }
-
-        // Generate star rating HTML
-        function generateStars(rating) {
-            let starsHTML = '';
-            const fullStars = Math.floor(rating);
-            const hasHalfStar = rating % 1 >= 0.5;
-            
-            for (let i = 0; i < 5; i++) {
-                if (i < fullStars) {
-                    starsHTML += '<i class="fas fa-star"></i>';
-                } else if (i === fullStars && hasHalfStar) {
-                    starsHTML += '<i class="fas fa-star-half-alt"></i>';
-                } else {
-                    starsHTML += '<i class="far fa-star"></i>';
-                }
-            }
-            
-            return starsHTML;
-        }
-
-        // Initialize image slider for mobile cards
-        function initializeImageSlider(card, productId) {
-            const slider = card.querySelector(`#imageSlider-${productId}`);
-            const images = slider.querySelectorAll('.product-image');
-            const indicators = slider.querySelectorAll('.indicator');
-            let currentIndex = 0;
-            
-            // Auto slide images
-            let slideInterval = setInterval(() => {
-                currentIndex = (currentIndex + 1) % images.length;
-                updateSlider(images, indicators, currentIndex);
-            }, 4000);
-            
-            // Pause on hover
-            slider.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
-            
-            slider.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % images.length;
-                    updateSlider(images, indicators, currentIndex);
-                }, 4000);
-            });
-            
-            // Click on indicators
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
-                    currentIndex = index;
-                    updateSlider(images, indicators, currentIndex);
-                    clearInterval(slideInterval);
-                });
-            });
-        }
-
-        // Update image slider
-        function updateSlider(images, indicators, currentIndex) {
-            images.forEach((img, index) => {
-                img.classList.toggle('active', index === currentIndex);
-            });
-            
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentIndex);
-            });
-        }
-
-        // Initialize swipe functionality for mobile
-        function initializeSwipe() {
-            const container = document.getElementById('cardsContainer');
-            let startY = 0;
-            let currentIndex = 0;
-            
-            container.addEventListener('touchstart', (e) => {
-                startY = e.touches[0].clientY;
-            });
-            
-            container.addEventListener('touchend', (e) => {
-                const endY = e.changedTouches[0].clientY;
-                const diff = startY - endY;
-                
-                // Minimum swipe distance
-                if (Math.abs(diff) > 50) {
-                    if (diff > 0) {
-                        // Swipe up - next card
-                        if (currentIndex < products.length - 1) {
-                            navigateToCard(currentIndex + 1);
-                            currentIndex++;
-                        }
-                    } else {
-                        // Swipe down - previous card
-                        if (currentIndex > 0) {
-                            navigateToCard(currentIndex - 1);
-                            currentIndex--;
-                        }
-                    }
-                }
-            });
-            
-            // Also support mouse wheel for desktop testing
-            container.addEventListener('wheel', (e) => {
-                e.preventDefault();
-                if (e.deltaY > 0) {
-                    // Scroll down - next card
-                    if (currentIndex < products.length - 1) {
-                        navigateToCard(currentIndex + 1);
-                        currentIndex++;
-                    }
-                } else {
-                    // Scroll up - previous card
-                    if (currentIndex > 0) {
-                        navigateToCard(currentIndex - 1);
-                        currentIndex--;
-                    }
-                }
-            });
-        }
-
-        // Navigate to specific card
-        function navigateToCard(index) {
-            const cards = document.querySelectorAll('.card');
-            const progressItems = document.querySelectorAll('.progress-item');
-            
-            cards.forEach(card => card.classList.remove('active'));
-            progressItems.forEach(item => {
-                item.classList.remove('active');
-                item.querySelector('.progress-fill').style.width = '0%';
-            });
-            
-            cards[index].classList.add('active');
-            progressItems[index].classList.add('active');
-            
-            // Reset and animate progress bar
-            const progressFill = progressItems[index].querySelector('.progress-fill');
-            progressFill.style.width = '0%';
-            setTimeout(() => {
-                progressFill.style.width = '100%';
-            }, 10);
-        }
-
-        // Add to cart function
-        function addToCart(product) {
-            // Check if product already in cart
-            const existingItem = cart.find(item => item.id === product.id);
+            // Check if item already exists in cart
+            const existingItem = cart.find(item => item.title === title);
             
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
                 cart.push({
-                    id: product.id,
-                    title: product.title,
-                    price: product.price,
-                    image: product.images[0],
+                    title: title,
+                    price: price,
+                    image: image,
                     quantity: 1
                 });
             }
             
-            // Update cart in localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
-            
-            // Update UI
             updateCartCount();
-            
-            // Show confirmation
-            showAddToCartConfirmation(product.title);
+            showAddToCartConfirmation(title);
         }
 
-        // Update cart count in UI
         function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-            desktopCartCount.textContent = totalItems;
-            mobileCartCount.textContent = totalItems;
+            
+            // Update all cart count elements
+            const cartCounts = document.querySelectorAll('.cart-count, .mobile-cart-count, #desktop-cart-count, #mobile-cart-count');
+            cartCounts.forEach(count => {
+                count.textContent = totalItems;
+            });
         }
 
-        // Show add to cart confirmation
         function showAddToCartConfirmation(productTitle) {
-            // Create a temporary notification
             const notification = document.createElement('div');
             notification.style.cssText = `
                 position: fixed;
@@ -2390,7 +1859,7 @@
                 padding: 15px 20px;
                 border-radius: 5px;
                 box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                z-index: 3000;
+                z-index: 10000;
                 font-weight: 500;
                 max-width: 300px;
                 animation: slideInRight 0.3s ease;
@@ -2402,281 +1871,186 @@
             
             document.body.appendChild(notification);
             
-            // Remove after 3 seconds
             setTimeout(() => {
                 notification.style.animation = 'slideOutRight 0.3s ease';
                 setTimeout(() => {
                     document.body.removeChild(notification);
                 }, 300);
             }, 3000);
-            
-            // Add CSS for animations if not already present
-            if (!document.querySelector('#notification-animations')) {
-                const style = document.createElement('style');
-                style.id = 'notification-animations';
-                style.textContent = `
-                    @keyframes slideInRight {
-                        from { transform: translateX(100%); opacity: 0; }
-                        to { transform: translateX(0); opacity: 1; }
-                    }
-                    @keyframes slideOutRight {
-                        from { transform: translateX(0); opacity: 1; }
-                        to { transform: translateX(100%); opacity: 0; }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
         }
 
-        // Open cart overlay
-        function openCart() {
-            cartOverlay.style.display = 'flex';
-            setTimeout(() => {
-                cartSidebar.classList.add('active');
-            }, 10);
-            updateCartDisplay();
-        }
-
-        // Close cart overlay
-        function closeCartOverlay() {
-            cartSidebar.classList.remove('active');
-            setTimeout(() => {
-                cartOverlay.style.display = 'none';
-            }, 300);
-        }
-
-        // Update cart display
-        function updateCartDisplay() {
-            cartItems.innerHTML = '';
-            
-            if (cart.length === 0) {
-                cartItems.innerHTML = `
-                    <div class="empty-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        <p>Your cart is empty</p>
-                        <button class="continue-shopping">Continue Shopping</button>
-                    </div>
-                `;
-                
-                const continueShoppingBtn = cartItems.querySelector('.continue-shopping');
-                continueShoppingBtn.addEventListener('click', closeCartOverlay);
-            } else {
-                let subtotal = 0;
-                
-                cart.forEach(item => {
-                    const priceValue = parseFloat(item.price.replace(/[^0-9.]/g, ''));
-                    const itemTotal = priceValue * item.quantity;
-                    subtotal += itemTotal;
+        // Setup cart buttons
+        function setupCartButtons() {
+            // Desktop buy buttons
+            const desktopBuyBtns = document.querySelectorAll('.desktop-buy-btn');
+            desktopBuyBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const title = this.getAttribute('data-product-title');
+                    const price = this.getAttribute('data-product-price');
+                    const image = this.getAttribute('data-product-image');
                     
-                    const cartItem = document.createElement('div');
-                    cartItem.className = 'cart-item';
-                    cartItem.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}" class="cart-item-image">
-                        <div class="cart-item-details">
-                            <h4 class="cart-item-title">${item.title}</h4>
-                            <div class="cart-item-price">${item.price}</div>
-                            <div class="cart-item-controls">
-                                <button class="quantity-btn decrease-btn" data-product-id="${item.id}">-</button>
-                                <span class="item-quantity">${item.quantity}</span>
-                                <button class="quantity-btn increase-btn" data-product-id="${item.id}">+</button>
-                                <button class="remove-item" data-product-id="${item.id}">
-                                    <i class="fas fa-trash"></i> Remove
-                                </button>
-                            </div>
-                        </div>
-                    `;
+                    addToCart(title, price, image);
+                });
+            });
+
+            // Mobile buy buttons
+            const mobileBuyBtns = document.querySelectorAll('.buy-btn');
+            mobileBuyBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const title = this.getAttribute('data-product-title');
+                    const price = this.getAttribute('data-product-price');
+                    const image = this.getAttribute('data-product-image');
                     
-                    cartItems.appendChild(cartItem);
-                });
-                
-                // Calculate totals
-                const shipping = subtotal > 500 ? 0 : 40;
-                const tax = subtotal * 0.18; // 18% tax
-                const total = subtotal + shipping + tax;
-                
-                // Update totals in UI
-                cartSubtotal.textContent = `₹${subtotal.toFixed(2)}`;
-                cartShipping.textContent = shipping === 0 ? 'FREE' : `₹${shipping.toFixed(2)}`;
-                cartTax.textContent = `₹${tax.toFixed(2)}`;
-                cartTotal.textContent = `₹${total.toFixed(2)}`;
-            }
-            
-            // Attach event listeners to cart controls
-            attachCartEventListeners();
-        }
-
-        // Attach event listeners to cart controls
-        function attachCartEventListeners() {
-            // Increase quantity buttons
-            const increaseBtns = document.querySelectorAll('.increase-btn');
-            increaseBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const productId = parseInt(this.dataset.productId);
-                    updateCartItemQuantity(productId, 1);
-                });
-            });
-            
-            // Decrease quantity buttons
-            const decreaseBtns = document.querySelectorAll('.decrease-btn');
-            decreaseBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const productId = parseInt(this.dataset.productId);
-                    updateCartItemQuantity(productId, -1);
-                });
-            });
-            
-            // Remove item buttons
-            const removeBtns = document.querySelectorAll('.remove-item');
-            removeBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const productId = parseInt(this.dataset.productId);
-                    removeCartItem(productId);
+                    addToCart(title, price, image);
                 });
             });
         }
 
-        // Update cart item quantity
-        function updateCartItemQuantity(productId, change) {
-            const item = cart.find(item => item.id === productId);
-            
-            if (item) {
-                item.quantity += change;
-                
-                // Remove if quantity is 0 or less
-                if (item.quantity <= 0) {
-                    removeCartItem(productId);
-                    return;
-                }
-                
-                // Update cart in localStorage
-                localStorage.setItem('cart', JSON.stringify(cart));
-                
-                // Update UI
-                updateCartCount();
-                updateCartDisplay();
-            }
-        }
-
-        // Remove item from cart
-        function removeCartItem(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            
-            // Update cart in localStorage
-            localStorage.setItem('cart', JSON.stringify(cart));
-            
-            // Update UI
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
             updateCartCount();
-            updateCartDisplay();
+            setupCartButtons();
+            
+            // Initialize mobile view if needed
+            if (window.innerWidth <= 767) {
+                initializeMobileView();
+            }
+        });
+
+        // Mobile view initialization
+        function initializeMobileView() {
+            const progressContainer = document.getElementById('progress-container');
+            const cards = document.querySelectorAll('.card');
+            
+            // Clear existing progress bars
+            progressContainer.innerHTML = '';
+            
+            // Create progress bars
+            cards.forEach((card, index) => {
+                const progressItem = document.createElement('div');
+                progressItem.className = 'progress-item';
+                if (index === 0) {
+                    progressItem.classList.add('active');
+                }
+                progressItem.innerHTML = '<div class="progress-fill"></div>';
+                progressContainer.appendChild(progressItem);
+            });
+            
+            // Initialize swipe functionality
+            initializeSwipe();
         }
 
-        // Open share modal
-        function openShareModal(product) {
+        // Swipe functionality for mobile
+        function initializeSwipe() {
+            const container = document.getElementById('cards-container');
+            let startY = 0;
+            let currentIndex = 0;
+            
+            container.addEventListener('touchstart', (e) => {
+                startY = e.touches[0].clientY;
+            });
+            
+            container.addEventListener('touchend', (e) => {
+                const endY = e.changedTouches[0].clientY;
+                const diff = startY - endY;
+                
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0 && currentIndex < document.querySelectorAll('.card').length - 1) {
+                        // Swipe up - next card
+                        navigateToCard(currentIndex + 1);
+                        currentIndex++;
+                    } else if (diff < 0 && currentIndex > 0) {
+                        // Swipe down - previous card
+                        navigateToCard(currentIndex - 1);
+                        currentIndex--;
+                    }
+                }
+            });
+        }
+
+        function navigateToCard(index) {
+            const cards = document.querySelectorAll('.card');
+            const progressItems = document.querySelectorAll('.progress-item');
+            
+            cards.forEach(card => card.classList.remove('active'));
+            progressItems.forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.progress-fill').style.width = '0%';
+            });
+            
+            if (cards[index]) {
+                cards[index].classList.add('active');
+                progressItems[index].classList.add('active');
+                
+                const progressFill = progressItems[index].querySelector('.progress-fill');
+                progressFill.style.width = '0%';
+                setTimeout(() => {
+                    progressFill.style.width = '100%';
+                }, 10);
+            }
+        }
+
+        // Share functionality
+        function shareProduct(index) {
+            const cards = document.querySelectorAll('.card');
+            const card = cards[index];
+            if (!card) return;
+            
+            const title = card.querySelector('h2').textContent;
+            const image = card.querySelector('.product-image.active').src;
+            const description = card.querySelector('.description-container p').textContent;
+            
+            const shareModal = document.getElementById('shareModal');
+            const sharePreview = document.getElementById('sharePreview');
+            
             sharePreview.innerHTML = `
-                <img src="${product.images[0]}" alt="${product.title}" class="share-preview-image">
-                <h4 class="share-preview-title">${product.title}</h4>
-                <p class="share-preview-text">${product.description.substring(0, 100)}...</p>
+                <img src="${image}" alt="${title}" class="share-preview-image">
+                <h4 class="share-preview-title">${title}</h4>
+                <p class="share-preview-text">${description.substring(0, 100)}...</p>
             `;
             
-            // Store current product for sharing
-            shareModal.currentProduct = product;
-            
             shareModal.style.display = 'flex';
+            
+            // Store current product for sharing
+            shareModal.currentProduct = { title, image, description };
         }
 
         // Close share modal
-        function closeShareModal() {
-            shareModal.style.display = 'none';
-        }
+        document.querySelector('.close-share-modal').addEventListener('click', function() {
+            document.getElementById('shareModal').style.display = 'none';
+        });
 
-        // Show copy message
-        function showCopyMessage() {
-            copyMessage.classList.add('show');
-            setTimeout(() => {
-                copyMessage.classList.remove('show');
-            }, 2000);
-        }
+        // Share options
+        document.querySelectorAll('.share-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const platform = this.dataset.platform;
+                const product = document.getElementById('shareModal').currentProduct;
+                
+                if (platform === 'copy') {
+                    navigator.clipboard.writeText(window.location.href)
+                        .then(() => {
+                            document.getElementById('copyMessage').classList.add('show');
+                            setTimeout(() => {
+                                document.getElementById('copyMessage').classList.remove('show');
+                            }, 2000);
+                        })
+                        .catch(err => {
+                            console.error('Failed to copy: ', err);
+                        });
+                } else {
+                    alert(`Sharing to ${platform} would happen here in a real implementation`);
+                }
+                
+                document.getElementById('shareModal').style.display = 'none';
+            });
+        });
 
-        // Attach event listeners
-        function attachEventListeners() {
-            // Cart icons
-            desktopCartIcon.addEventListener('click', openCart);
-            mobileCartIcon.addEventListener('click', openCart);
-            
-            // Close cart
-            closeCart.addEventListener('click', closeCartOverlay);
-            
-            // Close cart when clicking outside
-            cartOverlay.addEventListener('click', function(e) {
-                if (e.target === cartOverlay) {
-                    closeCartOverlay();
-                }
-            });
-            
-            // Checkout button
-            checkoutBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (cart.length > 0) {
-                    // Show loading spinner
-                    loadingSpinner.style.display = 'flex';
-                    
-                    // In a real implementation, this would redirect to a checkout page
-                    // For demo purposes, we'll simulate a checkout process
-                    setTimeout(() => {
-                        loadingSpinner.style.display = 'none';
-                        
-                        // For Amazon affiliate products, we would redirect to Amazon
-                        // Since we have multiple products, we'll redirect to the first one
-                        if (cart.length > 0) {
-                            const firstProduct = products.find(p => p.id === cart[0].id);
-                            if (firstProduct) {
-                                window.open(firstProduct.affiliateLink, '_blank');
-                            }
-                        }
-                        
-                        // Clear cart after checkout (optional)
-                        // cart = [];
-                        // localStorage.setItem('cart', JSON.stringify(cart));
-                        // updateCartCount();
-                        // closeCartOverlay();
-                    }, 2000);
-                }
-            });
-            
-            // Share modal
-            closeShareModal.addEventListener('click', closeShareModal);
-            
-            // Close share modal when clicking outside
-            shareModal.addEventListener('click', function(e) {
-                if (e.target === shareModal) {
-                    closeShareModal();
-                }
-            });
-            
-            // Share options
-            shareOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    const platform = this.dataset.platform;
-                    const product = shareModal.currentProduct;
-                    
-                    if (platform === 'copy') {
-                        // Copy link to clipboard
-                        navigator.clipboard.writeText(product.affiliateLink)
-                            .then(() => {
-                                showCopyMessage();
-                            })
-                            .catch(err => {
-                                console.error('Failed to copy: ', err);
-                            });
-                    } else {
-                        // In a real implementation, you would share to the specific platform
-                        // For demo, we'll just show a message
-                        alert(`Sharing to ${platform} would happen here in a real implementation`);
-                    }
-                    
-                    closeShareModal();
-                });
-            });
-        }
+        // Close share modal when clicking outside
+        document.getElementById('shareModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
     </script>
 </body>
 </html>
