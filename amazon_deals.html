@@ -906,177 +906,166 @@
         .share-preview-text {
             font-size: 12px;
             color: #666;
-            line-height: 1.3;
-        }
-
-        .share-platforms {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-            padding: 0 20px;
-        }
-
-        .share-platform {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 10px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .share-platform:hover {
-            background: #f5f5f5;
-            transform: translateY(-2px);
-        }
-
-        .share-platform i {
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-
-        .share-platform.whatsapp i { color: #25D366; }
-        .share-platform.whatsapp-reel i { color: #25D366; }
-        .share-platform.facebook i { color: #1877F2; }
-        .share-platform.instagram i { color: #E4405F; }
-        .share-platform.instagram-reel i { color: #E4405F; }
-        .share-platform.twitter i { color: #1DA1F2; }
-        .share-platform.telegram i { color: #0088CC; }
-        .share-platform.copy i { color: #666; }
-
-        .share-platform-name {
-            font-size: 10px;
-            color: #333;
-            text-align: center;
-            line-height: 1.2;
+            margin-bottom: 10px;
         }
 
         .share-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
             padding: 0 20px 20px;
         }
 
         .share-option {
             display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .share-option input {
-            margin-right: 8px;
-        }
-
-        .share-option label {
-            font-size: 12px;
-            color: #333;
-        }
-
-        .bottom-disclaimer {
-            background: white;
-            display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 8px;
+            padding: 10px 5px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .share-option:hover {
+            background: #e9ecef;
+        }
+
+        .share-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            padding: 8px 10px;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
-            z-index: 1000;
-            border-top: 1px solid #eaeaea;
+            font-size: 18px;
+            color: white;
         }
-        
-        .disclaimer-text {
-            font-size: 10px;
-            color: #666;
-            line-height: 1.3;
-            text-align: center;
-            width: 100%;
-            margin-bottom: 5px;
+
+        .share-icon.whatsapp {
+            background: #25D366;
         }
-        
-        .copyright-line {
-            font-size: 8.5px;
-            color: #666;
-            width: 100%;
-            text-align: center;
-            font-weight: 600;
-            line-height: 1.2;
+
+        .share-icon.facebook {
+            background: #3b5998;
         }
-        
-        .no-results {
+
+        .share-icon.twitter {
+            background: #1DA1F2;
+        }
+
+        .share-icon.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .share-icon.telegram {
+            background: #0088cc;
+        }
+
+        .share-icon.messenger {
+            background: #006AFF;
+        }
+
+        .share-icon.email {
+            background: #666;
+        }
+
+        .share-icon.copy {
+            background: #6c757d;
+        }
+
+        .share-option span {
+            font-size: 11px;
+            color: #333;
             text-align: center;
-            padding: 40px 20px;
-            color: #666;
+        }
+
+        .copy-message {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 3000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .copy-message.show {
+            opacity: 1;
+        }
+
+        /* Cart Overlay Styles */
+        .cart-overlay {
             display: none;
-            position: relative;
-            z-index: 5;
-        }
-        
-        .no-results i {
-            font-size: 40px;
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-        
-        /* Cart Page Styles */
-        .cart-page {
-            display: none;
-            width: 100%;
-            height: 100vh;
-            background: white;
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 3000;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: flex-end;
+        }
+
+        .cart-sidebar {
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            display: flex;
             flex-direction: column;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
         }
-        
+
+        .cart-sidebar.active {
+            transform: translateX(0);
+        }
+
         .cart-header {
-            height: 80px;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 0 15px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .cart-title {
-            font-weight: 700;
-            font-size: 18px;
-            color: white;
-            display: flex;
             align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            color: white;
         }
-        
+
+        .cart-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
         .close-cart {
             background: none;
             border: none;
+            font-size: 1.5rem;
             color: white;
-            font-size: 24px;
             cursor: pointer;
         }
-        
-        .cart-content {
+
+        .cart-items {
             flex: 1;
             overflow-y: auto;
             padding: 15px;
         }
-        
-        .cart-items-list {
-            margin-bottom: 20px;
-        }
-        
+
         .cart-item {
             display: flex;
             padding: 15px 0;
             border-bottom: 1px solid #eee;
         }
-        
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-        
+
         .cart-item-image {
             width: 80px;
             height: 80px;
@@ -1084,203 +1073,232 @@
             border-radius: 8px;
             margin-right: 15px;
         }
-        
+
         .cart-item-details {
             flex: 1;
         }
-        
+
         .cart-item-title {
-            font-size: 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
             margin-bottom: 5px;
             color: #1a2a6c;
         }
-        
+
         .cart-item-price {
+            font-size: 1rem;
             font-weight: 700;
-            color: #1a2a6c;
-            font-size: 18px;
+            color: #b21f1f;
             margin-bottom: 10px;
         }
-        
-        .cart-item-actions {
+
+        .cart-item-controls {
             display: flex;
             align-items: center;
+            gap: 10px;
         }
-        
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            margin-right: 15px;
-        }
-        
+
         .quantity-btn {
             width: 30px;
             height: 30px;
+            border-radius: 50%;
             background: #f0f2f5;
             border: none;
-            border-radius: 4px;
-            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
         }
-        
-        .quantity-input {
-            width: 40px;
-            height: 30px;
+
+        .quantity-btn:hover {
+            background: #e4e6e9;
+        }
+
+        .item-quantity {
+            font-weight: 600;
+            min-width: 30px;
             text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 0 5px;
         }
-        
-        .remove-btn {
+
+        .remove-item {
+            margin-left: auto;
             background: none;
             border: none;
             color: #b21f1f;
             cursor: pointer;
             font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
-        
+
+        .remove-item:hover {
+            text-decoration: underline;
+        }
+
         .cart-summary {
-            background: white;
-            border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 20px;
+            border-top: 1px solid #eee;
+            background: #f8f9fa;
         }
-        
-        .summary-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: #1a2a6c;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
-        }
-        
+
         .summary-row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
         }
-        
+
         .summary-total {
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #1a2a6c;
-            margin-top: 10px;
+            border-top: 1px solid #ddd;
             padding-top: 10px;
-            border-top: 1px solid #eee;
         }
-        
+
         .checkout-btn {
+            width: 100%;
             background: linear-gradient(to right, #1a2a6c, #b21f1f);
             color: white;
             border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
+            padding: 15px;
+            border-radius: 8px;
             font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
+            margin-top: 15px;
             transition: all 0.3s ease;
             text-align: center;
             text-decoration: none;
             display: block;
-            width: 100%;
-            margin-top: 20px;
-            font-size: 1rem;
         }
-        
+
         .checkout-btn:hover {
             opacity: 0.9;
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(26, 42, 108, 0.3);
         }
-        
+
         .empty-cart {
             text-align: center;
             padding: 40px 20px;
+            color: #666;
         }
-        
+
         .empty-cart i {
-            font-size: 60px;
-            color: #ccc;
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+
+        .empty-cart p {
             margin-bottom: 20px;
         }
-        
-        .empty-cart h3 {
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
+
         .continue-shopping {
-            display: inline-block;
-            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            background: #1a2a6c;
             color: white;
+            border: none;
             padding: 10px 20px;
             border-radius: 5px;
-            text-decoration: none;
-            margin-top: 15px;
-            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Bottom Disclaimer */
+        .bottom-disclaimer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #f1f1f1;
+            padding: 8px 15px;
+            font-size: 0.7rem;
+            color: #666;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        /* Media Queries for Responsive Design */
-        @media (max-width: 768px) {
-            /* Mobile Layout */
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .desktop-header, .desktop-container, .desktop-footer {
+                display: block;
+            }
+            
+            .reels-container {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .desktop-header, .desktop-container, .desktop-footer {
+                display: none;
+            }
+            
             .reels-container {
                 display: flex;
             }
             
-            .desktop-header,
-            .desktop-container,
-            .desktop-footer {
-                display: none;
+            .cart-sidebar {
+                max-width: 100%;
             }
         }
         
-        @media (min-width: 769px) {
-            /* Desktop Layout */
-            .reels-container {
-                display: none;
-            }
-            
-            .desktop-header,
-            .desktop-container,
-            .desktop-footer {
-                display: block;
-            }
-            
-            body {
-                overflow-y: auto;
-            }
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #1a2a6c;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Desktop Layout -->
+    <!-- Desktop Header -->
     <header class="desktop-header">
         <div class="header-container">
-            <a href="index.html" class="desktop-logo">
-                <img src="dkapoore.shop_logo.png" alt="DKapoore.Shop Logo" style="height:80px;">
-            </a>
+            <a href="index.html" class="desktop-logo">DKapoore.Shop</a>
             <ul class="desktop-nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="amazon_deals.html" class="active">Amazon Deals</a></li>
-                <!-- Desktop Layout <li><a href="ebook.html">E-Books</a></li>
-                <li><a href="automation-app.html">Automation Apps</a></li>-->
+                <li><a href="automation-apps.html">Automation Apps</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="cart-icon">
-                    <a href="#" id="desktop-cart-btn">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count" id="desktop-cart-count">0</span>
-                    </a>
-                </li>
             </ul>
+            <div class="cart-icon" id="desktopCartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="desktopCartCount">0</span>
+            </div>
         </div>
     </header>
 
+    <!-- Desktop Content -->
     <div class="desktop-container">
         <div class="desktop-section-title">
             <h2>Amazon Deals</h2>
+            <p>Discover hand-picked Amazon affiliate products with exclusive deals on electronics, home, fashion & lifestyle. Shop smart with DKapoore.Shop's best offers.</p>
         </div>
         
         <div class="desktop-cards-grid">
@@ -1706,509 +1724,959 @@
                 </div>
             </div>
         </div>
+        
+        <div class="desktop-disclaimer">
+            <p><strong>Affiliate Disclosure:</strong> DKapoore.Shop is a participant in the Amazon Associates Program. We may earn commissions from qualifying purchases made through links on this site, at no extra cost to you. This helps us maintain and improve our services.</p>
+        </div>
+    </div>
 
-        <div class="bottom-disclaimer">
-            <div class="disclaimer-text">
-                Disclaimer: This is an Amazon Affiliate website. We may earn a commission when you make a purchase through our links at no extra cost to you.
+    <!-- Mobile Layout (reel-style) -->
+    <div class="reels-container">
+        <div class="top-header">
+            <div class="logo">DKapoore.Shop</div>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search products...">
             </div>
-            <div class="copyright-line">
-                &copy; 2023 DKapoore.Shop. All rights reserved.
+            <div class="mobile-cart-icon" id="mobileCartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="mobile-cart-count" id="mobileCartCount">0</span>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="nav-sidebar">
+                <a href="index.html" class="nav-btn">
+                    <i class="fas fa-home"></i>
+                    <span class="tooltip">Home</span>
+                </a>
+                <a href="amazon_deals.html" class="nav-btn active">
+                    <i class="fas fa-tag"></i>
+                    <span class="tooltip">Deals</span>
+                </a>
+                <a href="automation-apps.html" class="nav-btn">
+                    <i class="fas fa-robot"></i>
+                    <span class="tooltip">Apps</span>
+                </a>
+                <a href="about.html" class="nav-btn">
+                    <i class="fas fa-info-circle"></i>
+                    <span class="tooltip">About</span>
+                </a>
+                <a href="contact.html" class="nav-btn">
+                    <i class="fas fa-envelope"></i>
+                    <span class="tooltip">Contact</span>
+                </a>
+            </div>
+            
+            <div class="carousel">
+                <div class="reel-progress" id="reelProgress">
+                    <!-- Progress bars will be dynamically generated -->
+                </div>
+                
+                <div class="cards-container" id="cardsContainer">
+                    <!-- Cards will be dynamically generated -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="bottom-disclaimer">
+            <p><strong>Affiliate Disclosure:</strong> DKapoore.Shop is a participant in the Amazon Associates Program. We may earn commissions from qualifying purchases made through links on this site, at no extra cost to you.</p>
+        </div>
+    </div>
+
+    <!-- Desktop Footer -->
+    <footer class="desktop-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DKapoore.Shop</h3>
+                    <p>Your trusted source for Amazon affiliate products and exclusive deals. We help you discover the best products at the best prices.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="amazon_deals.html">Amazon Deals</a></li>
+                        <li><a href="automation-apps.html">Automation Apps</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                        <li><a href="cookies-policy.html">Cookies Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 DKapoore.Shop. All rights reserved.</p>
+                <p>This site contains affiliate links. We may earn a commission when you make a purchase through our links.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Share Modal -->
+    <div class="share-modal" id="shareModal">
+        <div class="share-modal-content">
+            <div class="share-modal-header">
+                <h3 class="share-modal-title">Share Product</h3>
+                <button class="close-share-modal">&times;</button>
+            </div>
+            <div class="share-preview" id="sharePreview">
+                <!-- Share preview content will be dynamically generated -->
+            </div>
+            <div class="share-options">
+                <button class="share-option" data-platform="whatsapp">
+                    <div class="share-icon whatsapp"><i class="fab fa-whatsapp"></i></div>
+                    <span>WhatsApp</span>
+                </button>
+                <button class="share-option" data-platform="facebook">
+                    <div class="share-icon facebook"><i class="fab fa-facebook-f"></i></div>
+                    <span>Facebook</span>
+                </button>
+                <button class="share-option" data-platform="twitter">
+                    <div class="share-icon twitter"><i class="fab fa-twitter"></i></div>
+                    <span>Twitter</span>
+                </button>
+                <button class="share-option" data-platform="instagram">
+                    <div class="share-icon instagram"><i class="fab fa-instagram"></i></div>
+                    <span>Instagram</span>
+                </button>
+                <button class="share-option" data-platform="telegram">
+                    <div class="share-icon telegram"><i class="fab fa-telegram"></i></div>
+                    <span>Telegram</span>
+                </button>
+                <button class="share-option" data-platform="messenger">
+                    <div class="share-icon messenger"><i class="fab fa-facebook-messenger"></i></div>
+                    <span>Messenger</span>
+                </button>
+                <button class="share-option" data-platform="email">
+                    <div class="share-icon email"><i class="fas fa-envelope"></i></div>
+                    <span>Email</span>
+                </button>
+                <button class="share-option" data-platform="copy">
+                    <div class="share-icon copy"><i class="fas fa-copy"></i></div>
+                    <span>Copy Link</span>
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Cart Page -->
-    <div class="cart-page" id="cart-page">
-        <div class="cart-header">
-            <div class="cart-title">
-                <i class="fas fa-shopping-cart"></i> Your Cart
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-sidebar" id="cartSidebar">
+            <div class="cart-header">
+                <h3 class="cart-title">Your Shopping Cart</h3>
+                <button class="close-cart">&times;</button>
             </div>
-            <button class="close-cart" id="close-cart">&times;</button>
-        </div>
-        <div class="cart-content">
-            <div class="cart-items-list" id="cart-items-list">
-                <!-- Cart items will be dynamically inserted here -->
-                <div class="empty-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h3>Your cart is empty</h3>
-                    <p>Add some amazing products to your cart</p>
-                    <a href="#" class="continue-shopping" id="continue-shopping">Continue Shopping</a>
-                </div>
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be dynamically generated -->
             </div>
-            
             <div class="cart-summary">
-                <h3 class="summary-title">Order Summary</h3>
                 <div class="summary-row">
                     <span>Subtotal:</span>
-                    <span id="subtotal">Rs 0</span>
+                    <span id="cartSubtotal">₹0.00</span>
                 </div>
                 <div class="summary-row">
                     <span>Shipping:</span>
-                    <span id="shipping">Rs 0</span>
+                    <span id="cartShipping">₹0.00</span>
                 </div>
                 <div class="summary-row">
                     <span>Tax:</span>
-                    <span id="tax">Rs 0</span>
+                    <span id="cartTax">₹0.00</span>
                 </div>
                 <div class="summary-row summary-total">
                     <span>Total:</span>
-                    <span id="total">Rs 0</span>
+                    <span id="cartTotal">₹0.00</span>
                 </div>
-                <button class="checkout-btn" id="checkout-btn" disabled>Proceed to Checkout</button>
+                <a href="#" class="checkout-btn" id="checkoutBtn">Proceed to Checkout</a>
             </div>
         </div>
     </div>
 
-    <!-- Share Modal -->
-    <div class="share-modal" id="share-modal">
-        <div class="share-modal-content">
-            <div class="share-modal-header">
-                <div class="share-modal-title">Share this deal</div>
-                <button class="close-share-modal" id="close-share-modal">&times;</button>
-            </div>
-            <div class="share-preview" id="share-preview">
-                <!-- Share preview content will be generated by JavaScript -->
-            </div>
-            <div class="share-platforms">
-                <div class="share-platform whatsapp" data-platform="whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                    <div class="share-platform-name">WhatsApp</div>
-                </div>
-                <div class="share-platform whatsapp-reel" data-platform="whatsapp-reel">
-                    <i class="fab fa-whatsapp"></i>
-                    <div class="share-platform-name">WhatsApp Reel</div>
-                </div>
-                <div class="share-platform facebook" data-platform="facebook">
-                    <i class="fab fa-facebook"></i>
-                    <div class="share-platform-name">Facebook</div>
-                </div>
-                <div class="share-platform instagram" data-platform="instagram">
-                    <i class="fab fa-instagram"></i>
-                    <div class="share-platform-name">Instagram</div>
-                </div>
-                <div class="share-platform instagram-reel" data-platform="instagram-reel">
-                    <i class="fab fa-instagram"></i>
-                    <div class="share-platform-name">Instagram Reel</div>
-                </div>
-                <div class="share-platform twitter" data-platform="twitter">
-                    <i class="fab fa-twitter"></i>
-                    <div class="share-platform-name">Twitter</div>
-                </div>
-                <div class="share-platform telegram" data-platform="telegram">
-                    <i class="fab fa-telegram"></i>
-                    <div class="share-platform-name">Telegram</div>
-                </div>
-                <div class="share-platform copy" data-platform="copy">
-                    <i class="fas fa-copy"></i>
-                    <div class="share-platform-name">Copy Link</div>
-                </div>
-            </div>
-            <div class="share-options">
-                <div class="share-option">
-                    <input type="checkbox" id="include-affiliate" checked>
-                    <label for="include-affiliate">Include affiliate link</label>
-                </div>
-                <div class="share-option">
-                    <input type="checkbox" id="include-description" checked>
-                    <label for="include-description">Include product description</label>
-                </div>
-            </div>
-        </div>
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
     </div>
+
+    <!-- Copy Message -->
+    <div class="copy-message" id="copyMessage">Link copied to clipboard!</div>
 
     <script>
+        // Product data
+        const products = [
+            {
+                id: 1,
+                title: "Multicolored Printed Anarkali Kurta Pant Set",
+                description: "Elegant multicolored printed Anarkali kurta with pant set. Perfect for festive occasions, weddings, and special events. Made from high-quality fabric for comfort and style.",
+                price: "₹679",
+                images: [
+                    "https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg",
+                    "https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-02.jpg",
+                    "https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-03.jpg"
+                ],
+                rating: 4.3,
+                reviews: 1270,
+                affiliateLink: "https://amzn.to/3VF06Q4"
+            },
+            {
+                id: 2,
+                title: "Wireless Bluetooth Earbuds with Charging Case",
+                description: "Premium wireless earbuds with noise cancellation, 30 hours of battery life, and fast charging. Perfect for music, calls, and workouts with secure fit and IPX7 waterproof rating.",
+                price: "₹1,299",
+                images: [
+                    "https://i.ibb.co/kV4nR2xP/Wireless-Bluetooth-Earbuds-01.jpg",
+                    "https://i.ibb.co/kV4nR2xP/Wireless-Bluetooth-Earbuds-02.jpg",
+                    "https://i.ibb.co/kV4nR2xP/Wireless-Bluetooth-Earbuds-03.jpg"
+                ],
+                rating: 4.5,
+                reviews: 3421,
+                affiliateLink: "https://amzn.to/3VF06Q4"
+            },
+            {
+                id: 3,
+                title: "Stainless Steel Water Bottle - 1 Litre",
+                description: "Durable stainless steel water bottle that keeps drinks cold for 24 hours or hot for 12 hours. Leak-proof design with carrying loop. Perfect for outdoor activities and daily use.",
+                price: "₹899",
+                images: [
+                    "https://i.ibb.co/kV4nR2xP/Stainless-Steel-Water-Bottle-01.jpg",
+                    "https://i.ibb.co/kV4nR2xP/Stainless-Steel-Water-Bottle-02.jpg",
+                    "https://i.ibb.co/kV4nR2xP/Stainless-Steel-Water-Bottle-03.jpg"
+                ],
+                rating: 4.7,
+                reviews: 1895,
+                affiliateLink: "https://amzn.to/3VF06Q4"
+            },
+            {
+                id: 4,
+                title: "Smart Fitness Band with Heart Rate Monitor",
+                description: "Advanced fitness tracker with heart rate monitoring, sleep tracking, and 14 sports modes. Water-resistant with 7-day battery life and smartphone notifications.",
+                price: "₹2,499",
+                images: [
+                    "https://i.ibb.co/kV4nR2xP/Smart-Fitness-Band-01.jpg",
+                    "https://i.ibb.co/kV4nR2xP/Smart-Fitness-Band-02.jpg",
+                    "https://i.ibb.co/kV4nR2xP/Smart-Fitness-Band-03.jpg"
+                ],
+                rating: 4.4,
+                reviews: 4217,
+                affiliateLink: "https://amzn.to/3VF06Q4"
+            },
+            {
+                id: 5,
+                title: "Non-Stick Cookware Set - 5 Pieces",
+                description: "Complete non-stick cookware set including frying pans, saucepans, and ladle. Even heat distribution and durable coating for healthy cooking and easy cleaning.",
+                price: "₹1,799",
+                images: [
+                    "https://i.ibb.co/kV4nR2xP/Non-Stick-Cookware-Set-01.jpg",
+                    "https://i.ibb.co/kV4nR2xP/Non-Stick-Cookware-Set-02.jpg",
+                    "https://i.ibb.co/kV4nR2xP/Non-Stick-Cookware-Set-03.jpg"
+                ],
+                rating: 4.6,
+                reviews: 2934,
+                affiliateLink: "https://amzn.to/3VF06Q4"
+            },
+            {
+                id: 6,
+                title: "LED Desk Lamp with Wireless Charging",
+                description: "Modern LED desk lamp with adjustable brightness, color temperature, and built-in wireless charging pad. USB ports for charging multiple devices simultaneously.",
+                price: "₹1,599",
+                images: [
+                    "https://i.ibb.co/kV4nR2xP/LED-Desk-Lamp-01.jpg",
+                    "https://i.ibb.co/kV4nR2xP/LED-Desk-Lamp-02.jpg",
+                    "https://i.ibb.co/kV4nR2xP/LED-Desk-Lamp-03.jpg"
+                ],
+                rating: 4.2,
+                reviews: 1567,
+                affiliateLink: "https://amzn.to/3VF06Q4"
+            }
+        ];
+
         // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // DOM elements
+        const desktopCartIcon = document.getElementById('desktopCartIcon');
+        const desktopCartCount = document.getElementById('desktopCartCount');
+        const mobileCartIcon = document.getElementById('mobileCartIcon');
+        const mobileCartCount = document.getElementById('mobileCartCount');
+        const cartOverlay = document.getElementById('cartOverlay');
+        const cartSidebar = document.getElementById('cartSidebar');
+        const cartItems = document.getElementById('cartItems');
+        const cartSubtotal = document.getElementById('cartSubtotal');
+        const cartShipping = document.getElementById('cartShipping');
+        const cartTax = document.getElementById('cartTax');
+        const cartTotal = document.getElementById('cartTotal');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const closeCart = document.querySelector('.close-cart');
+        const desktopCardsGrid = document.getElementById('desktopCardsGrid');
+        const cardsContainer = document.getElementById('cardsContainer');
+        const reelProgress = document.getElementById('reelProgress');
+        const shareModal = document.getElementById('shareModal');
+        const closeShareModal = document.querySelector('.close-share-modal');
+        const sharePreview = document.getElementById('sharePreview');
+        const shareOptions = document.querySelectorAll('.share-option');
+        const copyMessage = document.getElementById('copyMessage');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+
+        // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize cart from localStorage or create empty cart
-           // Load cart data from localStorage
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// Update cart count on both desktop & mobile icons
-function updateCartCount() {
-  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-  document.getElementById("desktop-cart-count").innerText = count;
-  document.getElementById("mobile-cart-count").innerText = count;
-}
-
-// Add item to cart
-function addToCart(title, price, image) {
-  const existing = cart.find(item => item.title === title);
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    cart.push({ title, price, image, quantity: 1 });
-  }
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-  alert(`${title} added to cart!`);
-}
-
-// Open cart page overlay
-function openCart() {
-  renderCart();
-  document.querySelector(".cart-page").style.display = "flex";
-}
-
-// Close cart overlay
-function closeCart() {
-  document.querySelector(".cart-page").style.display = "none";
-}
-
-// Render cart items dynamically
-function renderCart() {
-  const container = document.querySelector(".cart-items-list");
-  const summary = document.querySelector(".cart-summary");
-  container.innerHTML = "";
-
-  if (cart.length === 0) {
-    container.innerHTML = `
-      <div class="empty-cart">
-        <i class="fas fa-shopping-cart"></i>
-        <h3>Your cart is empty!</h3>
-        <a href="amazon_deals.html" class="continue-shopping">Continue Shopping</a>
-      </div>`;
-    summary.style.display = "none";
-    return;
-  }
-
-  summary.style.display = "block";
-
-  cart.forEach((item, index) => {
-    const div = document.createElement("div");
-    div.className = "cart-item";
-    div.innerHTML = `
-      <img src="${item.image}" class="cart-item-image" alt="${item.title}">
-      <div class="cart-item-details">
-        <div class="cart-item-title">${item.title}</div>
-        <div class="cart-item-price">${item.price}</div>
-        <div class="cart-item-actions">
-          <div class="quantity-control">
-            <button class="quantity-btn" onclick="changeQuantity(${index}, -1)">-</button>
-            <input type="text" class="quantity-input" value="${item.quantity}" readonly>
-            <button class="quantity-btn" onclick="changeQuantity(${index}, 1)">+</button>
-          </div>
-          <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
-        </div>
-      </div>
-    `;
-    container.appendChild(div);
-  });
-
-  updateSummary();
-}
-
-// Update subtotal and total in summary
-function updateSummary() {
-  const subtotal = cart.reduce((sum, item) => {
-    const price = parseFloat(item.price.replace(/[^\d.]/g, ""));
-    return sum + price * item.quantity;
-  }, 0);
-  document.getElementById("subtotal").innerText = "₹" + subtotal.toFixed(2);
-  document.getElementById("total").innerText = "₹" + subtotal.toFixed(2);
-}
-
-// Change item quantity
-function changeQuantity(index, delta) {
-  cart[index].quantity += delta;
-  if (cart[index].quantity <= 0) {
-    cart.splice(index, 1);
-  }
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-  renderCart();
-}
-
-// Remove item from cart
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCount();
-  renderCart();
-}
-
-// Checkout (Amazon redirect simulation)
-function checkout() {
-  alert("Redirecting to Amazon for checkout...");
-  window.open("https://www.amazon.in", "_blank");
-}
-
-// Initial cart setup
-updateCartCount();
-
-// Event Listeners for cart icons
-document.getElementById("desktop-cart-btn").addEventListener("click", (e) => {
-  e.preventDefault();
-  openCart();
-});
-document.getElementById("mobile-cart-btn").addEventListener("click", (e) => {
-  e.preventDefault();
-  openCart();
-});
-document.querySelector(".close-cart").addEventListener("click", closeCart);
-
-        // Mobile Reel Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card');
-            const progressContainer = document.getElementById('progress-container');
-            const cardsContainer = document.getElementById('cards-container');
-            const searchInput = document.getElementById('search-input');
-            const noResults = document.getElementById('no-results');
-            
-            // Initialize progress bars
-            cards.forEach((card, index) => {
-                const progressItem = document.createElement('div');
-                progressItem.className = 'progress-item';
-                if (index === 0) progressItem.classList.add('active');
-                
-                const progressFill = document.createElement('div');
-                progressFill.className = 'progress-fill';
-                progressItem.appendChild(progressFill);
-                
-                progressContainer.appendChild(progressItem);
-            });
-            
-            // Update progress bars
-            function updateProgressBars() {
-                const progressItems = document.querySelectorAll('.progress-item');
-                progressItems.forEach((item, index) => {
-                    if (index === currentCardIndex) {
-                        item.classList.add('active');
-                    } else {
-                        item.classList.remove('active');
-                    }
-                });
-            }
-            
-            // Card navigation
-            let currentCardIndex = 0;
-            let startY = 0;
-            let isScrolling = false;
-            
-            function showCard(index) {
-                cards.forEach((card, i) => {
-                    if (i === index) {
-                        card.classList.add('active');
-                    } else {
-                        card.classList.remove('active');
-                    }
-                });
-                currentCardIndex = index;
-                updateProgressBars();
-            }
-            
-            // Touch events for card swiping
-            cardsContainer.addEventListener('touchstart', (e) => {
-                startY = e.touches[0].clientY;
-                isScrolling = false;
-            });
-            
-            cardsContainer.addEventListener('touchmove', (e) => {
-                if (!isScrolling) {
-                    const currentY = e.touches[0].clientY;
-                    const diffY = startY - currentY;
-                    
-                    // Vertical swipe detection
-                    if (Math.abs(diffY) > 50) {
-                        isScrolling = true;
-                        
-                        if (diffY > 0 && currentCardIndex < cards.length - 1) {
-                            // Swipe up - next card
-                            showCard(currentCardIndex + 1);
-                        } else if (diffY < 0 && currentCardIndex > 0) {
-                            // Swipe down - previous card
-                            showCard(currentCardIndex - 1);
-                        }
-                    }
-                }
-            });
-            
-            // Search functionality
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase().trim();
-                let hasResults = false;
-                
-                cards.forEach((card, index) => {
-                    const searchTerms = card.getAttribute('data-search-terms').toLowerCase();
-                    const title = card.querySelector('h2').textContent.toLowerCase();
-                    
-                    if (searchTerms.includes(searchTerm) || title.includes(searchTerm)) {
-                        card.style.display = 'flex';
-                        hasResults = true;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-                
-                // Show/hide no results message
-                if (searchTerm && !hasResults) {
-                    noResults.style.display = 'block';
-                } else {
-                    noResults.style.display = 'none';
-                }
-                
-                // Reset to first visible card
-                if (hasResults) {
-                    const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
-                    if (visibleCards.length > 0) {
-                        const firstVisibleIndex = Array.from(cards).indexOf(visibleCards[0]);
-                        showCard(firstVisibleIndex);
-                    }
-                }
-            });
-            
-            // Image slider functionality
-            cards.forEach(card => {
-                const images = card.querySelectorAll('.product-image');
-                const indicators = card.querySelectorAll('.indicator');
-                
-                let currentImageIndex = 0;
-                
-                function showImage(index) {
-                    images.forEach((img, i) => {
-                        if (i === index) {
-                            img.classList.add('active');
-                        } else {
-                            img.classList.remove('active');
-                        }
-                    });
-                    
-                    indicators.forEach((indicator, i) => {
-                        if (i === index) {
-                            indicator.classList.add('active');
-                        } else {
-                            indicator.classList.remove('active');
-                        }
-                    });
-                    
-                    currentImageIndex = index;
-                }
-                
-                // Auto-rotate images
-                setInterval(() => {
-                    if (card.classList.contains('active')) {
-                        currentImageIndex = (currentImageIndex + 1) % images.length;
-                        showImage(currentImageIndex);
-                    }
-                }, 3000);
-                
-                // Click on indicators
-                indicators.forEach((indicator, index) => {
-                    indicator.addEventListener('click', () => {
-                        showImage(index);
-                    });
-                });
-            });
-            
-            // Read more functionality
-            document.querySelectorAll('.read-more-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    const description = this.parentElement.querySelector('p');
-                    description.classList.toggle('expanded');
-                    this.textContent = description.classList.contains('expanded') ? 'Read Less' : 'Read More';
-                });
-            });
+            initializeDesktopView();
+            initializeMobileView();
+            updateCartCount();
+            attachEventListeners();
         });
-        
-        // Share functionality
-        function shareProduct(cardIndex) {
-            const cards = document.querySelectorAll('.card');
-            const card = cards[cardIndex];
-            const title = card.querySelector('h2').textContent;
-            const image = card.querySelector('.product-image.active').src;
-            const description = card.querySelector('p').textContent;
-            const price = card.querySelector('.product-price-inline').textContent;
+
+        // Initialize desktop view
+        function initializeDesktopView() {
+            desktopCardsGrid.innerHTML = '';
             
-            // Update share preview
-            const sharePreview = document.getElementById('share-preview');
-            sharePreview.innerHTML = `
-                <img src="${image}" alt="${title}" class="share-preview-image">
-                <div class="share-preview-title">${title}</div>
-                <div class="share-preview-text">${description.substring(0, 100)}...</div>
+            products.forEach(product => {
+                const card = createDesktopCard(product);
+                desktopCardsGrid.appendChild(card);
+            });
+        }
+
+        // Create desktop card
+        function createDesktopCard(product) {
+            const card = document.createElement('div');
+            card.className = 'desktop-card';
+            card.innerHTML = `
+                <img src="${product.images[0]}" alt="${product.title}" class="desktop-card-image">
+                <div class="desktop-card-content">
+                    <h2>${product.title}</h2>
+                    <div class="desktop-review-section">
+                        <div class="desktop-stars">
+                            ${generateStars(product.rating)}
+                        </div>
+                        <span class="desktop-review-count">${product.reviews.toLocaleString()}</span>
+                    </div>
+                    <div class="desktop-description-container">
+                        <p>${product.description}</p>
+                    </div>
+                    <div class="desktop-price-buy-row">
+                        <span class="desktop-product-price-inline">${product.price}</span>
+                        <button class="desktop-buy-btn" data-product-id="${product.id}">
+                            Add to Cart <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
             `;
             
-            // Show modal
-            document.getElementById('share-modal').style.display = 'flex';
+            // Add event listener to the button
+            const buyBtn = card.querySelector('.desktop-buy-btn');
+            buyBtn.addEventListener('click', function() {
+                addToCart(product);
+            });
             
-            // Set up share platform buttons
-            document.querySelectorAll('.share-platform').forEach(platform => {
-                platform.onclick = function() {
-                    const platformType = this.getAttribute('data-platform');
-                    shareToPlatform(platformType, title, description, image, price);
-                };
+            return card;
+        }
+
+        // Initialize mobile view
+        function initializeMobileView() {
+            cardsContainer.innerHTML = '';
+            reelProgress.innerHTML = '';
+            
+            products.forEach((product, index) => {
+                const card = createMobileCard(product, index);
+                cardsContainer.appendChild(card);
+                
+                const progressItem = document.createElement('div');
+                progressItem.className = 'progress-item';
+                progressItem.innerHTML = '<div class="progress-fill"></div>';
+                if (index === 0) {
+                    progressItem.classList.add('active');
+                }
+                reelProgress.appendChild(progressItem);
+            });
+            
+            // Show first card
+            if (products.length > 0) {
+                const firstCard = document.querySelector('.card');
+                firstCard.classList.add('active');
+            }
+            
+            // Initialize swipe functionality
+            initializeSwipe();
+        }
+
+        // Create mobile card
+        function createMobileCard(product, index) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.productId = product.id;
+            if (index === 0) {
+                card.classList.add('active');
+            }
+            
+            // Generate image HTML
+            let imagesHTML = '';
+            product.images.forEach((image, imgIndex) => {
+                imagesHTML += `
+                    <img src="${image}" alt="${product.title}" class="product-image ${imgIndex === 0 ? 'active' : ''}">
+                `;
+            });
+            
+            // Generate indicators HTML
+            let indicatorsHTML = '';
+            product.images.forEach((_, imgIndex) => {
+                indicatorsHTML += `
+                    <div class="indicator ${imgIndex === 0 ? 'active' : ''}"></div>
+                `;
+            });
+            
+            card.innerHTML = `
+                <div class="image-slider" id="imageSlider-${product.id}">
+                    ${imagesHTML}
+                    <div class="image-indicators">
+                        ${indicatorsHTML}
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2>${product.title}</h2>
+                    <div class="review-section">
+                        <div class="stars">
+                            ${generateStars(product.rating)}
+                        </div>
+                        <span class="review-count">${product.reviews.toLocaleString()}</span>
+                    </div>
+                    <div class="social-buttons">
+                        <button class="social-btn like-btn">
+                            <i class="far fa-heart"></i> Like
+                        </button>
+                        <button class="social-btn comment-btn">
+                            <i class="far fa-comment"></i> Comment
+                        </button>
+                        <button class="social-btn share-btn" data-product-id="${product.id}">
+                            <i class="far fa-share-square"></i> Share
+                        </button>
+                    </div>
+                    <div class="description-container">
+                        <p>${product.description}</p>
+                        <button class="read-more-link">Read More</button>
+                    </div>
+                    <div class="price-buy-row">
+                        <span class="product-price-inline">${product.price}</span>
+                        <button class="buy-btn" data-product-id="${product.id}">
+                            Add to Cart <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            // Add event listeners
+            const buyBtn = card.querySelector('.buy-btn');
+            buyBtn.addEventListener('click', function() {
+                addToCart(product);
+            });
+            
+            const shareBtn = card.querySelector('.share-btn');
+            shareBtn.addEventListener('click', function() {
+                openShareModal(product);
+            });
+            
+            const readMoreLink = card.querySelector('.read-more-link');
+            const description = card.querySelector('.description-container p');
+            readMoreLink.addEventListener('click', function() {
+                if (description.classList.contains('expanded')) {
+                    description.classList.remove('expanded');
+                    readMoreLink.textContent = 'Read More';
+                } else {
+                    description.classList.add('expanded');
+                    readMoreLink.textContent = 'Read Less';
+                }
+            });
+            
+            // Initialize image slider
+            initializeImageSlider(card, product.id);
+            
+            return card;
+        }
+
+        // Generate star rating HTML
+        function generateStars(rating) {
+            let starsHTML = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            
+            for (let i = 0; i < 5; i++) {
+                if (i < fullStars) {
+                    starsHTML += '<i class="fas fa-star"></i>';
+                } else if (i === fullStars && hasHalfStar) {
+                    starsHTML += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    starsHTML += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            return starsHTML;
+        }
+
+        // Initialize image slider for mobile cards
+        function initializeImageSlider(card, productId) {
+            const slider = card.querySelector(`#imageSlider-${productId}`);
+            const images = slider.querySelectorAll('.product-image');
+            const indicators = slider.querySelectorAll('.indicator');
+            let currentIndex = 0;
+            
+            // Auto slide images
+            let slideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                updateSlider(images, indicators, currentIndex);
+            }, 4000);
+            
+            // Pause on hover
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    updateSlider(images, indicators, currentIndex);
+                }, 4000);
+            });
+            
+            // Click on indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateSlider(images, indicators, currentIndex);
+                    clearInterval(slideInterval);
+                });
             });
         }
-        
-        function shareToPlatform(platform, title, description, image, price) {
-            const includeAffiliate = document.getElementById('include-affiliate').checked;
-            const includeDescription = document.getElementById('include-description').checked;
+
+        // Update image slider
+        function updateSlider(images, indicators, currentIndex) {
+            images.forEach((img, index) => {
+                img.classList.toggle('active', index === currentIndex);
+            });
             
-            let shareText = `${title} - ${price}`;
-            
-            if (includeDescription) {
-                shareText += `\n\n${description.substring(0, 150)}...`;
-            }
-            
-            if (includeAffiliate) {
-                shareText += `\n\nCheck it out: https://amzn.to/3VF06Q4`;
-            }
-            
-            let shareUrl = '';
-            
-            switch(platform) {
-                case 'whatsapp':
-                    shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
-                    break;
-                case 'whatsapp-reel':
-                    shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
-                    break;
-                case 'facebook':
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://amzn.to/3VF06Q4')}&quote=${encodeURIComponent(shareText)}`;
-                    break;
-                case 'instagram':
-                    // Instagram doesn't support direct sharing, so we copy to clipboard
-                    copyToClipboard(shareText);
-                    alert('Product details copied to clipboard! You can now paste it in your Instagram post.');
-                    return;
-                case 'instagram-reel':
-                    copyToClipboard(shareText);
-                    alert('Product details copied to clipboard! You can now paste it in your Instagram Reel.');
-                    return;
-                case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`;
-                    break;
-                case 'telegram':
-                    shareUrl = `https://t.me/share/url?url=${encodeURIComponent('https://amzn.to/3VF06Q4')}&text=${encodeURIComponent(shareText)}`;
-                    break;
-                case 'copy':
-                    copyToClipboard(shareText);
-                    alert('Product details copied to clipboard!');
-                    return;
-            }
-            
-            window.open(shareUrl, '_blank');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
+            });
         }
-        
-        function copyToClipboard(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
+
+        // Initialize swipe functionality for mobile
+        function initializeSwipe() {
+            const container = document.getElementById('cardsContainer');
+            let startY = 0;
+            let currentIndex = 0;
+            
+            container.addEventListener('touchstart', (e) => {
+                startY = e.touches[0].clientY;
+            });
+            
+            container.addEventListener('touchend', (e) => {
+                const endY = e.changedTouches[0].clientY;
+                const diff = startY - endY;
+                
+                // Minimum swipe distance
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) {
+                        // Swipe up - next card
+                        if (currentIndex < products.length - 1) {
+                            navigateToCard(currentIndex + 1);
+                            currentIndex++;
+                        }
+                    } else {
+                        // Swipe down - previous card
+                        if (currentIndex > 0) {
+                            navigateToCard(currentIndex - 1);
+                            currentIndex--;
+                        }
+                    }
+                }
+            });
+            
+            // Also support mouse wheel for desktop testing
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                if (e.deltaY > 0) {
+                    // Scroll down - next card
+                    if (currentIndex < products.length - 1) {
+                        navigateToCard(currentIndex + 1);
+                        currentIndex++;
+                    }
+                } else {
+                    // Scroll up - previous card
+                    if (currentIndex > 0) {
+                        navigateToCard(currentIndex - 1);
+                        currentIndex--;
+                    }
+                }
+            });
         }
-        
+
+        // Navigate to specific card
+        function navigateToCard(index) {
+            const cards = document.querySelectorAll('.card');
+            const progressItems = document.querySelectorAll('.progress-item');
+            
+            cards.forEach(card => card.classList.remove('active'));
+            progressItems.forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.progress-fill').style.width = '0%';
+            });
+            
+            cards[index].classList.add('active');
+            progressItems[index].classList.add('active');
+            
+            // Reset and animate progress bar
+            const progressFill = progressItems[index].querySelector('.progress-fill');
+            progressFill.style.width = '0%';
+            setTimeout(() => {
+                progressFill.style.width = '100%';
+            }, 10);
+        }
+
+        // Add to cart function
+        function addToCart(product) {
+            // Check if product already in cart
+            const existingItem = cart.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    title: product.title,
+                    price: product.price,
+                    image: product.images[0],
+                    quantity: 1
+                });
+            }
+            
+            // Update cart in localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update UI
+            updateCartCount();
+            
+            // Show confirmation
+            showAddToCartConfirmation(product.title);
+        }
+
+        // Update cart count in UI
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            desktopCartCount.textContent = totalItems;
+            mobileCartCount.textContent = totalItems;
+        }
+
+        // Show add to cart confirmation
+        function showAddToCartConfirmation(productTitle) {
+            // Create a temporary notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #1a2a6c;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 3000;
+                font-weight: 500;
+                max-width: 300px;
+                animation: slideInRight 0.3s ease;
+            `;
+            notification.innerHTML = `
+                <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
+                Added "${productTitle}" to cart
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+            
+            // Add CSS for animations if not already present
+            if (!document.querySelector('#notification-animations')) {
+                const style = document.createElement('style');
+                style.id = 'notification-animations';
+                style.textContent = `
+                    @keyframes slideInRight {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOutRight {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+
+        // Open cart overlay
+        function openCart() {
+            cartOverlay.style.display = 'flex';
+            setTimeout(() => {
+                cartSidebar.classList.add('active');
+            }, 10);
+            updateCartDisplay();
+        }
+
+        // Close cart overlay
+        function closeCartOverlay() {
+            cartSidebar.classList.remove('active');
+            setTimeout(() => {
+                cartOverlay.style.display = 'none';
+            }, 300);
+        }
+
+        // Update cart display
+        function updateCartDisplay() {
+            cartItems.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Your cart is empty</p>
+                        <button class="continue-shopping">Continue Shopping</button>
+                    </div>
+                `;
+                
+                const continueShoppingBtn = cartItems.querySelector('.continue-shopping');
+                continueShoppingBtn.addEventListener('click', closeCartOverlay);
+            } else {
+                let subtotal = 0;
+                
+                cart.forEach(item => {
+                    const priceValue = parseFloat(item.price.replace(/[^0-9.]/g, ''));
+                    const itemTotal = priceValue * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" class="cart-item-image">
+                        <div class="cart-item-details">
+                            <h4 class="cart-item-title">${item.title}</h4>
+                            <div class="cart-item-price">${item.price}</div>
+                            <div class="cart-item-controls">
+                                <button class="quantity-btn decrease-btn" data-product-id="${item.id}">-</button>
+                                <span class="item-quantity">${item.quantity}</span>
+                                <button class="quantity-btn increase-btn" data-product-id="${item.id}">+</button>
+                                <button class="remove-item" data-product-id="${item.id}">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    cartItems.appendChild(cartItem);
+                });
+                
+                // Calculate totals
+                const shipping = subtotal > 500 ? 0 : 40;
+                const tax = subtotal * 0.18; // 18% tax
+                const total = subtotal + shipping + tax;
+                
+                // Update totals in UI
+                cartSubtotal.textContent = `₹${subtotal.toFixed(2)}`;
+                cartShipping.textContent = shipping === 0 ? 'FREE' : `₹${shipping.toFixed(2)}`;
+                cartTax.textContent = `₹${tax.toFixed(2)}`;
+                cartTotal.textContent = `₹${total.toFixed(2)}`;
+            }
+            
+            // Attach event listeners to cart controls
+            attachCartEventListeners();
+        }
+
+        // Attach event listeners to cart controls
+        function attachCartEventListeners() {
+            // Increase quantity buttons
+            const increaseBtns = document.querySelectorAll('.increase-btn');
+            increaseBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = parseInt(this.dataset.productId);
+                    updateCartItemQuantity(productId, 1);
+                });
+            });
+            
+            // Decrease quantity buttons
+            const decreaseBtns = document.querySelectorAll('.decrease-btn');
+            decreaseBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = parseInt(this.dataset.productId);
+                    updateCartItemQuantity(productId, -1);
+                });
+            });
+            
+            // Remove item buttons
+            const removeBtns = document.querySelectorAll('.remove-item');
+            removeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const productId = parseInt(this.dataset.productId);
+                    removeCartItem(productId);
+                });
+            });
+        }
+
+        // Update cart item quantity
+        function updateCartItemQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                item.quantity += change;
+                
+                // Remove if quantity is 0 or less
+                if (item.quantity <= 0) {
+                    removeCartItem(productId);
+                    return;
+                }
+                
+                // Update cart in localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+                
+                // Update UI
+                updateCartCount();
+                updateCartDisplay();
+            }
+        }
+
+        // Remove item from cart
+        function removeCartItem(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            
+            // Update cart in localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update UI
+            updateCartCount();
+            updateCartDisplay();
+        }
+
+        // Open share modal
+        function openShareModal(product) {
+            sharePreview.innerHTML = `
+                <img src="${product.images[0]}" alt="${product.title}" class="share-preview-image">
+                <h4 class="share-preview-title">${product.title}</h4>
+                <p class="share-preview-text">${product.description.substring(0, 100)}...</p>
+            `;
+            
+            // Store current product for sharing
+            shareModal.currentProduct = product;
+            
+            shareModal.style.display = 'flex';
+        }
+
         // Close share modal
-        document.getElementById('close-share-modal').addEventListener('click', function() {
-            document.getElementById('share-modal').style.display = 'none';
-        });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('share-modal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
+        function closeShareModal() {
+            shareModal.style.display = 'none';
+        }
+
+        // Show copy message
+        function showCopyMessage() {
+            copyMessage.classList.add('show');
+            setTimeout(() => {
+                copyMessage.classList.remove('show');
+            }, 2000);
+        }
+
+        // Attach event listeners
+        function attachEventListeners() {
+            // Cart icons
+            desktopCartIcon.addEventListener('click', openCart);
+            mobileCartIcon.addEventListener('click', openCart);
+            
+            // Close cart
+            closeCart.addEventListener('click', closeCartOverlay);
+            
+            // Close cart when clicking outside
+            cartOverlay.addEventListener('click', function(e) {
+                if (e.target === cartOverlay) {
+                    closeCartOverlay();
+                }
+            });
+            
+            // Checkout button
+            checkoutBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (cart.length > 0) {
+                    // Show loading spinner
+                    loadingSpinner.style.display = 'flex';
+                    
+                    // In a real implementation, this would redirect to a checkout page
+                    // For demo purposes, we'll simulate a checkout process
+                    setTimeout(() => {
+                        loadingSpinner.style.display = 'none';
+                        
+                        // For Amazon affiliate products, we would redirect to Amazon
+                        // Since we have multiple products, we'll redirect to the first one
+                        if (cart.length > 0) {
+                            const firstProduct = products.find(p => p.id === cart[0].id);
+                            if (firstProduct) {
+                                window.open(firstProduct.affiliateLink, '_blank');
+                            }
+                        }
+                        
+                        // Clear cart after checkout (optional)
+                        // cart = [];
+                        // localStorage.setItem('cart', JSON.stringify(cart));
+                        // updateCartCount();
+                        // closeCartOverlay();
+                    }, 2000);
+                }
+            });
+            
+            // Share modal
+            closeShareModal.addEventListener('click', closeShareModal);
+            
+            // Close share modal when clicking outside
+            shareModal.addEventListener('click', function(e) {
+                if (e.target === shareModal) {
+                    closeShareModal();
+                }
+            });
+            
+            // Share options
+            shareOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const platform = this.dataset.platform;
+                    const product = shareModal.currentProduct;
+                    
+                    if (platform === 'copy') {
+                        // Copy link to clipboard
+                        navigator.clipboard.writeText(product.affiliateLink)
+                            .then(() => {
+                                showCopyMessage();
+                            })
+                            .catch(err => {
+                                console.error('Failed to copy: ', err);
+                            });
+                    } else {
+                        // In a real implementation, you would share to the specific platform
+                        // For demo, we'll just show a message
+                        alert(`Sharing to ${platform} would happen here in a real implementation`);
+                    }
+                    
+                    closeShareModal();
+                });
+            });
+        }
     </script>
 </body>
 </html>
