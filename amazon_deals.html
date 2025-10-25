@@ -4,7 +4,7 @@
     <!-- Enhanced SEO Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazon Deals</title>
+    <title>Amazon Deals - DKapoore.Shop</title>
     <meta name="description" content="Discover hand-picked Amazon affiliate products with exclusive deals on electronics, home, fashion & lifestyle. Shop smart with DKapoore.Shop's best offers.">
     <meta name="keywords" content="Amazon affiliate products, Amazon deals, online shopping discounts, electronics affiliate offers, fashion affiliate deals, home and kitchen affiliate products, best Amazon affiliate deals, DKapoore Shop">
     <meta name="author" content="DKapoore.Shop">
@@ -165,6 +165,27 @@
         
         .desktop-nav-menu a:hover {
             color: #ffdd00;
+        }
+        
+        .cart-icon {
+            position: relative;
+            margin-left: 20px;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ffdd00;
+            color: #1a2a6c;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
         
         /* Desktop Footer Styling */
@@ -424,6 +445,26 @@
             align-items: center;
         }
         
+        .mobile-cart-icon {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .mobile-cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ffdd00;
+            color: #1a2a6c;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
         
         .search-bar {
             display: flex;
@@ -977,6 +1018,211 @@
             color: #ccc;
         }
         
+        /* Cart Page Styles */
+        .cart-page {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 3000;
+            flex-direction: column;
+        }
+        
+        .cart-header {
+            height: 80px;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cart-title {
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .close-cart {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        .cart-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+        }
+        
+        .cart-items-list {
+            margin-bottom: 20px;
+        }
+        
+        .cart-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-title {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #1a2a6c;
+        }
+        
+        .cart-item-price {
+            font-weight: 700;
+            color: #1a2a6c;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            background: #f0f2f5;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-input {
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 0 5px;
+        }
+        
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #b21f1f;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .cart-summary {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+        
+        .summary-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #1a2a6c;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .summary-total {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #1a2a6c;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+        
+        .checkout-btn {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+        
+        .checkout-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(26, 42, 108, 0.3);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .empty-cart i {
+            font-size: 60px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .empty-cart h3 {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .continue-shopping {
+            display: inline-block;
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+        
         /* Media Queries for Responsive Design */
         @media (max-width: 768px) {
             /* Mobile Layout */
@@ -1022,6 +1268,12 @@
                 <!-- Desktop Layout <li><a href="ebook.html">E-Books</a></li>
                 <li><a href="automation-app.html">Automation Apps</a></li>-->
                 <li><a href="contact.html">Contact</a></li>
+                <li class="cart-icon">
+                    <a href="#" id="desktop-cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="desktop-cart-count">0</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </header>
@@ -1047,8 +1299,8 @@
                         <p>Enhance your ethnic collection with this vibrant multicolored Anarkali kurta set. Made from soft viscose rayon for a comfortable and flattering drape. Ideal for festive events, weddings, office wear, or casual outings. Complete your look with this elegant and versatile three-piece ensemble.</p>
                     </div>
                     <div class="desktop-price-buy-row">
+                        <span class="desktop-product-price-inline">Rs 679</span>
                         <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                       <!--<a href="https://amzn.to/3VF06Q4" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
                     </div>
                 </div>
             </div>
@@ -1068,8 +1320,8 @@
                         <p>Adorn yourself in this exquisite brown viscose rayon kurta set with elegant prints. The luxurious fabric ensures a breathable and comfortable feel all day long. Its timeless design is perfect for weddings, festivals, and special traditional occasions. Embrace timeless charm and versatile style with this complete ensemble.</p>
                     </div>
                     <div class="desktop-price-buy-row">
-                        <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                        <!--<a href="https://amzn.to/3VBpAh9" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
+                        <span class="desktop-product-price-inline">Rs 589</span>
+                        <button class="desktop-buy-btn" onclick="addToCart('Elegant Brown Viscose Printed Kurta Pant Set', 'Rs 589', 'https://i.ibb.co/mrvmtHtP/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -1089,8 +1341,8 @@
                         <p>This elegant 3-piece set features a flared Alia-cut kurta and trendy dhoti pants. Made from breathable polyester for a comfortable, all-day wear. Ideal for creating a sophisticated and stylish professional look. Elevate your ethnic workwear wardrobe with this complete ensemble.</p>
                     </div>
                     <div class="desktop-price-buy-row">
-                        <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                        <!--<a href="https://amzn.to/4nP24Jn" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
+                        <span class="desktop-product-price-inline">Rs 599</span>
+                        <button class="desktop-buy-btn" onclick="addToCart('Printed Alia-Cut Anarkali Kurta with Dhoti Pants', 'Rs 599', 'https://i.ibb.co/XfkYRh0J/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -1110,8 +1362,8 @@
                         <p>This elegant black kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
                     </div>
                     <div class="desktop-price-buy-row">
-                        <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                        <!--<a href="https://amzn.to/3Vx5JQa" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
+                        <span class="desktop-product-price-inline">Rs 599</span>
+                        <button class="desktop-buy-btn" onclick="addToCart('Women\\'s Black Viscose Rayon Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/4fQ8P8qW/Womens-Black-Viscose-Rayon-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -1131,8 +1383,8 @@
                         <p>This vibrant printed Anarkali kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
                     </div>
                     <div class="desktop-price-buy-row">
-                        <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                        <!--<a href="https://amzn.to/3Vx5JQa" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
+                        <span class="desktop-product-price-inline">Rs 599</span>
+                        <button class="desktop-buy-btn" onclick="addToCart('Women\\'s Printed Anarkali Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -1152,8 +1404,8 @@
                         <p>This vibrant printed Anarkali kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
                     </div>
                     <div class="desktop-price-buy-row">
-                        <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                        <!--<a href="https://amzn.to/3Vx5JQa" target="_blank" class="desktop-buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
+                        <span class="desktop-product-price-inline">Rs 599</span>
+                        <button class="desktop-buy-btn" onclick="addToCart('Women\\'s Printed Anarkali Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                     </div>
                 </div>
             </div>
@@ -1202,6 +1454,12 @@
             <div class="search-bar">
                 <i class="fas fa-search"></i>
                 <input type="text" placeholder="Search deals..." id="search-input">
+            </div>
+            <div class="mobile-cart-icon">
+                <a href="#" id="mobile-cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="mobile-cart-count" id="mobile-cart-count">0</span>
+                </a>
             </div>
         </div>
 
@@ -1263,8 +1521,8 @@
                                 <p>Enhance your ethnic collection with this vibrant multicolored Anarkali kurta set. Made from soft viscose rayon for a comfortable and flattering drape. Ideal for festive events, weddings, office wear, or casual outings. Complete your look with this elegant and versatile three-piece ensemble.</p>
                             </div>
                             <div class="price-buy-row">
-                                <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                                <!--<a href="https://amzn.to/3VF06Q4" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
+                                <span class="product-price-inline">Rs 679</span>
+                                <button class="buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1297,8 +1555,8 @@
                                 <p>Adorn yourself in this exquisite brown viscose rayon kurta set with elegant prints. The luxurious fabric ensures a breathable and comfortable feel all day long. Its timeless design is perfect for weddings, festivals, and special traditional occasions. Embrace timeless charm and versatile style with this complete ensemble.</p>
                             </div>
                             <div class="price-buy-row">
-                                <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                                <!--<a href="https://amzn.to/3VBpAh9" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
+                                <span class="product-price-inline">Rs 589</span>
+                                <button class="buy-btn" onclick="addToCart('Elegant Brown Viscose Printed Kurta Pant Set', 'Rs 589', 'https://i.ibb.co/mrvmtHtP/Elegant-Brown-Viscose-Printed-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1331,8 +1589,8 @@
                                 <p>This elegant 3-piece set features a flared Alia-cut kurta and trendy dhoti pants. Made from breathable polyester for a comfortable, all-day wear. Ideal for creating a sophisticated and stylish professional look. Elevate your ethnic workwear wardrobe with this complete ensemble.</p>
                             </div>
                             <div class="price-buy-row">
-                                <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                                <!--<a href="https://amzn.to/4nP24Jn" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
+                                <span class="product-price-inline">Rs 599</span>
+                                <button class="buy-btn" onclick="addToCart('Printed Alia-Cut Anarkali Kurta with Dhoti Pants', 'Rs 599', 'https://i.ibb.co/XfkYRh0J/Printed-Alia-Cut-Anarkali-Kurta-with-Dhoti-Pants-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1365,8 +1623,8 @@
                                 <p>This elegant black kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
                             </div>
                             <div class="price-buy-row">
-                                <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                                <!--<a href="https://amzn.to/3Vx5JQa" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
+                                <span class="product-price-inline">Rs 599</span>
+                                <button class="buy-btn" onclick="addToCart('Women\\'s Black Viscose Rayon Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/4fQ8P8qW/Womens-Black-Viscose-Rayon-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1399,8 +1657,8 @@
                                 <p>This vibrant printed Anarkali kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
                             </div>
                             <div class="price-buy-row">
-                                <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                                <!--<a href="https://amzn.to/3Vx5JQa" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
+                                <span class="product-price-inline">Rs 599</span>
+                                <button class="buy-btn" onclick="addToCart('Women\\'s Printed Anarkali Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1433,8 +1691,8 @@
                                 <p>This vibrant printed Anarkali kurta set is crafted from premium viscose rayon for a soft and comfortable feel. The versatile design makes it perfect for both formal and casual occasions. Complete with pants and dupatta for a sophisticated traditional look. Embrace timeless elegance with this essential ethnic wear piece.</p>
                             </div>
                             <div class="price-buy-row">
-                                <button class="desktop-buy-btn" onclick="addToCart('Multicolored Printed Anarkali Kurta Pant Set', 'Rs 679', 'https://i.ibb.co/5gHGYCd9/Multicolored-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                                <!--<a href="https://amzn.to/3Vx5JQa" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>-->
+                                <span class="product-price-inline">Rs 599</span>
+                                <button class="buy-btn" onclick="addToCart('Women\\'s Printed Anarkali Kurta Pant Set', 'Rs 599', 'https://i.ibb.co/2s2h1qgW/Womens-Printed-Anarkali-Kurta-Pant-Set-01.jpg')">Add to Cart <i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1455,6 +1713,48 @@
             </div>
             <div class="copyright-line">
                 &copy; 2023 DKapoore.Shop. All rights reserved.
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Page -->
+    <div class="cart-page" id="cart-page">
+        <div class="cart-header">
+            <div class="cart-title">
+                <i class="fas fa-shopping-cart"></i> Your Cart
+            </div>
+            <button class="close-cart" id="close-cart">&times;</button>
+        </div>
+        <div class="cart-content">
+            <div class="cart-items-list" id="cart-items-list">
+                <!-- Cart items will be dynamically inserted here -->
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Your cart is empty</h3>
+                    <p>Add some amazing products to your cart</p>
+                    <a href="#" class="continue-shopping" id="continue-shopping">Continue Shopping</a>
+                </div>
+            </div>
+            
+            <div class="cart-summary">
+                <h3 class="summary-title">Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">Rs 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span id="shipping">Rs 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax:</span>
+                    <span id="tax">Rs 0</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>Total:</span>
+                    <span id="total">Rs 0</span>
+                </div>
+                <button class="checkout-btn" id="checkout-btn" disabled>Proceed to Checkout</button>
             </div>
         </div>
     </div>
@@ -1517,10 +1817,138 @@
     </div>
 
     <script>
-        // Add to Cart functionality
-            function addToCart(title, price, image) {
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Cart functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart from localStorage or create empty cart
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Update cart display
+            updateCartDisplay();
+            
+            // Cart button event listeners
+            document.getElementById('desktop-cart-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                showCart();
+            });
+            
+            document.getElementById('mobile-cart-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                showCart();
+            });
+            
+            // Close cart event listener
+            document.getElementById('close-cart').addEventListener('click', function() {
+                hideCart();
+            });
+            
+            // Continue shopping button
+            document.getElementById('continue-shopping').addEventListener('click', function(e) {
+                e.preventDefault();
+                hideCart();
+            });
+            
+            // Checkout button event listener
+            document.getElementById('checkout-btn').addEventListener('click', function() {
+                if (cart.length > 0) {
+                    alert('Thank you for your interest! This is a demo page. In a real implementation, you would be redirected to the checkout process.');
+                    // In a real implementation, you would redirect to checkout page
+                    // window.location.href = 'checkout.html';
+                }
+            });
+            
+            function showCart() {
+                document.getElementById('cart-page').style.display = 'flex';
+            }
+            
+            function hideCart() {
+                document.getElementById('cart-page').style.display = 'none';
+            }
+            
+            function updateCartDisplay() {
+                const cartItemsList = document.getElementById('cart-items-list');
+                const desktopCartCount = document.getElementById('desktop-cart-count');
+                const mobileCartCount = document.getElementById('mobile-cart-count');
+                const subtotalEl = document.getElementById('subtotal');
+                const shippingEl = document.getElementById('shipping');
+                const taxEl = document.getElementById('tax');
+                const totalEl = document.getElementById('total');
+                const checkoutBtn = document.getElementById('checkout-btn');
                 
+                // Update cart count
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                desktopCartCount.textContent = totalItems;
+                mobileCartCount.textContent = totalItems;
+                
+                if (cart.length === 0) {
+                    // Show empty cart message
+                    cartItemsList.innerHTML = `
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h3>Your cart is empty</h3>
+                            <p>Add some amazing products to your cart</p>
+                            <a href="#" class="continue-shopping" id="continue-shopping">Continue Shopping</a>
+                        </div>
+                    `;
+                    
+                    // Reset totals
+                    subtotalEl.textContent = 'Rs 0';
+                    shippingEl.textContent = 'Rs 0';
+                    taxEl.textContent = 'Rs 0';
+                    totalEl.textContent = 'Rs 0';
+                    
+                    // Disable checkout button
+                    checkoutBtn.disabled = true;
+                    return;
+                }
+                
+                // Calculate totals
+                const subtotal = cart.reduce((total, item) => {
+                    const price = parseInt(item.price.replace('Rs ', '').replace(',', ''));
+                    return total + (price * item.quantity);
+                }, 0);
+                
+                const shipping = subtotal > 500 ? 0 : 50;
+                const tax = Math.round(subtotal * 0.18); // 18% tax
+                const total = subtotal + shipping + tax;
+                
+                // Update totals display
+                subtotalEl.textContent = `Rs ${subtotal.toLocaleString()}`;
+                shippingEl.textContent = `Rs ${shipping}`;
+                taxEl.textContent = `Rs ${tax.toLocaleString()}`;
+                totalEl.textContent = `Rs ${total.toLocaleString()}`;
+                
+                // Enable checkout button
+                checkoutBtn.disabled = false;
+                
+                // Generate cart items HTML
+                let cartItemsHTML = '';
+                cart.forEach((item, index) => {
+                    cartItemsHTML += `
+                        <div class="cart-item">
+                            <img src="${item.image}" alt="${item.title}" class="cart-item-image">
+                            <div class="cart-item-details">
+                                <h3 class="cart-item-title">${item.title}</h3>
+                                <div class="cart-item-price">${item.price}</div>
+                                <div class="cart-item-actions">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn" onclick="updateQuantity(${index}, ${item.quantity - 1})">-</button>
+                                        <input type="number" class="quantity-input" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, parseInt(this.value))">
+                                        <button class="quantity-btn" onclick="updateQuantity(${index}, ${item.quantity + 1})">+</button>
+                                    </div>
+                                    <button class="remove-btn" onclick="removeFromCart(${index})">
+                                        <i class="fas fa-trash"></i> Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                cartItemsList.innerHTML = cartItemsHTML;
+            }
+            
+            // Add to Cart functionality
+            window.addToCart = function(title, price, image) {
                 // Check if item already exists in cart
                 const existingItemIndex = cart.findIndex(item => item.title === title);
                 
@@ -1543,32 +1971,24 @@
                 // Show confirmation
                 alert('Product added to cart!');
                 
-                // Update cart count in header if exists
-                updateCartCount();
-            }
-
-            // Update cart count in header
-            function updateCartCount() {
-                const cart = JSON.parse(localStorage.getItem('cart')) || [];
-                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-                
-                // Update desktop cart count
-                const desktopCartCount = document.getElementById('cart-count');
-                if (desktopCartCount) {
-                    desktopCartCount.textContent = totalItems;
-                }
-                
-                // Update mobile cart count
-                const mobileCartCount = document.getElementById('mobile-cart-count');
-                if (mobileCartCount) {
-                    mobileCartCount.textContent = totalItems;
-                }
-            }
-
-            // Initialize cart count on page load
-            document.addEventListener('DOMContentLoaded', function() {
-                updateCartCount();
-            });
+                // Update cart display
+                updateCartDisplay();
+            };
+            
+            // Make functions available globally
+            window.updateQuantity = function(index, newQuantity) {
+                if (newQuantity < 1) newQuantity = 1;
+                cart[index].quantity = newQuantity;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+            };
+            
+            window.removeFromCart = function(index) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+            };
+        });
 
         // Mobile Reel Functionality
         document.addEventListener('DOMContentLoaded', function() {
