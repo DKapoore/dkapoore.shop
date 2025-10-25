@@ -610,6 +610,152 @@
                 updateCartDisplay();
             };
         });
+        // Global cart functions
+window.addToCart = function(title, price, image) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Check if item already exists in cart
+    const existingItem = cart.find(item => item.title === title);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            title: title,
+            price: price,
+            image: image,
+            quantity: 1
+        });
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+    
+    // Show success message
+    showNotification(`"${title}" added to cart!`);
+};
+
+window.removeFromCart = function(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+};
+
+window.updateQuantity = function(index, newQuantity) {
+    if (newQuantity < 1) newQuantity = 1;
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart[index].quantity = newQuantity;
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+};
+
+// Notification function
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #1a2a6c;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 10000;
+        font-weight: 500;
+    `;
+    notification.innerHTML = `
+        <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
+        ${message}
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 3000);
+}
+
+// Update cart display function को improve करें
+function updateCartDisplay() {
+    const cartItemsList = document.getElementById('cart-items-list');
+    const cartCount = document.getElementById('cart-count');
+    const subtotalEl = document.getElementById('subtotal');
+    const shippingEl = document.getElementById('shipping');
+    const taxEl = document.getElementById('tax');
+    const totalEl = document.getElementById('total');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Update cart count in header
+    cartCount.textContent = cart.reduce((total, item) => total + item.quantity, 0);
+    
+    if (cart.length === 0) {
+        cartItemsList.innerHTML = `
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>Your cart is empty</h3>
+                <p>Add some amazing products to your cart</p>
+                <a href="amazon_deals.html" class="continue-shopping">Continue Shopping</a>
+            </div>
+        `;
+        
+        subtotalEl.textContent = 'Rs 0';
+        shippingEl.textContent = 'Rs 0';
+        taxEl.textContent = 'Rs 0';
+        totalEl.textContent = 'Rs 0';
+        checkoutBtn.disabled = true;
+        return;
+    }
+    
+    // Calculate totals
+    const subtotal = cart.reduce((total, item) => {
+        const price = parseInt(item.price.replace('Rs ', '').replace(',', ''));
+        return total + (price * item.quantity);
+    }, 0);
+    
+    const shipping = subtotal > 500 ? 0 : 50;
+    const tax = Math.round(subtotal * 0.18);
+    const total = subtotal + shipping + tax;
+    
+    // Update totals display
+    subtotalEl.textContent = `Rs ${subtotal.toLocaleString()}`;
+    shippingEl.textContent = `Rs ${shipping}`;
+    taxEl.textContent = `Rs ${tax.toLocaleString()}`;
+    totalEl.textContent = `Rs ${total.toLocaleString()}`;
+    
+    // Enable checkout button
+    checkoutBtn.disabled = false;
+    
+    // Generate cart items HTML
+    let cartItemsHTML = '';
+    cart.forEach((item, index) => {
+        cartItemsHTML += `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.title}" class="cart-item-image">
+                <div class="cart-item-details">
+                    <h3 class="cart-item-title">${item.title}</h3>
+                    <div class="cart-item-price">${item.price}</div>
+                    <div class="cart-item-actions">
+                        <div class="quantity-control">
+                            <button class="quantity-btn" onclick="updateQuantity(${index}, ${item.quantity - 1})">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" onchange="updateQuantity(${index}, parseInt(this.value))">
+                            <button class="quantity-btn" onclick="updateQuantity(${index}, ${item.quantity + 1})">+</button>
+                        </div>
+                        <button class="remove-btn" onclick="removeFromCart(${index})">
+                            <i class="fas fa-trash"></i> Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    cartItemsList.innerHTML = cartItemsHTML;
+}
+       
     </script>
 </body>
 </html>
