@@ -676,6 +676,9 @@
     </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3445766076306689"
      crossorigin="anonymous"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+
 </head>
 <body>
     <!-- Header & Navigation -->
@@ -692,6 +695,21 @@
                 <li><a href="#automation-apps">Automation Apps</a></li> -->
                 <li><a href="about_us.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <div id="g_id_onload"
+                           data-client_id="307222542930-g216lfrg872u7mpc62mmeq1t85jm5c9v.apps.googleusercontent.com"
+                           data-callback="handleCredentialResponse"
+                           data-auto_prompt="false">
+                      </div>
+                      <div class="g_id_signin"
+                           data-type="standard"
+                           data-size="medium"
+                           data-theme="outline"
+                           data-text="signin_with"
+                           data-shape="rectangular"
+                           data-logo_alignment="left">
+                      </div>
+                 </li>
             </ul>
         </div>
     </header>
@@ -1193,6 +1211,19 @@ window.addEventListener('resize', () => {
         goToSlide(currentSlide);
     }
 });   
+        function handleCredentialResponse(response) {
+  const data = jwt_decode(response.credential);
+  console.log("User Info:", data);
+  const userSection = document.createElement('div');
+  userSection.style.textAlign = "center";
+  userSection.style.marginTop = "20px";
+  userSection.innerHTML = `
+      <h3>Welcome, ${data.name}</h3>
+      <img src="${data.picture}" alt="Profile" style="border-radius:50%;width:80px;height:80px;">
+      <p>${data.email}</p>
+  `;
+  document.querySelector('.hero .container').appendChild(userSection);
+}
     </script>
 </body>
 </html>
