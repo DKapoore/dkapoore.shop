@@ -4,7 +4,7 @@
     <!-- Enhanced SEO Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automation App | DKapoore.Shop</title>
+    <title>Automation Apps | DKapoore.Shop</title>
     <meta name="description" content="Boost productivity with smart automation apps! Smart Folder Manager auto-organizes files, documents & media. One-time purchase, lifetime access. Download now!">
     <meta name="keywords" content="automation apps, smart folder manager, file organizer, auto folder sorter, document organizer, PC cleanup tool, desktop productivity software, file management software, automation tools, productivity apps, Windows automation software">
     <meta name="author" content="DKapoore.Shop">
@@ -52,114 +52,6 @@
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3445766076306689" crossorigin="anonymous"></script>
     
-    <!-- Enhanced Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Automation Apps",
-        "description": "Automation Apps - Smart Folder Manager & Productivity Tools",
-        "description": "Discover powerful automation apps including Smart Folder Manager for automatic file organization and productivity enhancement",
-        "url": "https://dkapoore.shop/automation-apps.html",
-        "breadcrumb": {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "Home",
-                    "item": "https://dkapoore.shop/"
-                },
-               	{
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Amazon Deals",
-                    "item": "https://dkapoore.shop/amazon_deals.html"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Automation Apps",
-                    "item": "https://dkapoore.shop/automation-apps.html"
-                }
-
-            ]
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "DKapoore.Shop",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://dkapoore.shop/images/logo.png",
-                "width": 200,
-                "height": 60
-            },
-            "url": "https://dkapoore.shop/",
-            "sameAs": [
-                "https://www.facebook.com/dkapoore.shop",
-                "https://twitter.com/dkapoore",
-                "https://www.instagram.com/dkapoore"
-            ]
-        },
-        "mainEntity": {
-            "@type": "ItemList",
-            "name": "Automation Apps Collection",
-            "description": "Curated collection of automation and productivity apps",
-            "numberOfItems": 2,
-            "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "item": {
-                        "@type": "SoftwareApplication",
-                        "name": "Smart Folder Manager",
-                        "applicationCategory": "UtilityApplication",
-                        "operatingSystem": "Windows",
-                        "description": "Organize your messy folders in one click with Smart Folder Manager! Auto-sort files into categories like Images, Videos, Docs & more",
-                         "offers": {
-                            "@type": "Offer",
-                            "price": "299",
-                            "priceCurrency": "INR"
-                        },
-                        "aggregateRating": {
-                            "@type": "AggregateRating",
-                            "ratingValue": "5",
-                            "ratingCount": "100"
-                        }
-                    }
-                }
-            ]
-        }
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "DKapoore.Shop - Automation Apps",
-        "description": "Your destination for automation apps and productivity tools including Smart Folder Manager for automatic file organization",
-        "url": "https://dkapoore.shop/automation-apps.html",
-        "telephone": "+91-9766893279",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "India",
-            "addressLocality": "Nashik",
-            "addressRegion": "Maharashtra",
-            "postalCode": "422003",
-            "addressCountry": "IN"
-        },
-        "openingHours": "Mo-Su 00:00-23:59",
-        "priceRange": "₹",
-        "image": "https://dkapoore.shop/images/logo.png",
-        "sameAs": [
-            "https://www.facebook.com/dkapoore.shop",
-            "https://twitter.com/dkapoore",
-            "https://www.instagram.com/dkapoore"
-        ]
-    }
-    </script>
-    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -173,24 +65,452 @@
         
         body {
             background: #f8f9fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            padding: 20px;
-            overflow-y: auto;
         }
         
+        /* Desktop Header & Footer Styles */
+        .desktop-header {
+            display: none;
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .desktop-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .desktop-nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .desktop-nav-menu li {
+            margin-left: 25px;
+        }
+        
+        .desktop-nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+        
+        .desktop-nav-menu a:hover {
+            color: #ffdd00;
+        }
+        
+        .cart-icon {
+            position: relative;
+            margin-left: 20px;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ffdd00;
+            color: #1a2a6c;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        /* Desktop Footer Styling */
+        .desktop-footer {
+            background: #111;
+            color: white;
+            padding: 40px 0 20px;
+            display: none;
+        }
+
+        .desktop-footer .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: #ffdd00;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #ffdd00;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            color: #999;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+        
+        /* Desktop Layout */
+        .desktop-container {
+            display: none;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 15px 50px;
+        }
+        
+        .desktop-section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .desktop-section-title h2 {
+            font-size: 2.2rem;
+            color: #1a2a6c;
+            margin-bottom: 15px;
+        }
+        
+        .desktop-section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Category Filter Styles */
+        .category-filter-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-filter-title {
+            font-size: 1.1rem;
+            color: #1a2a6c;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .category-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: #1a2a6c;
+            color: white;
+            border-color: #1a2a6c;
+        }
+        
+        .desktop-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .desktop-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .desktop-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .desktop-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .desktop-card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .desktop-card h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #1a2a6c;
+        }
+        
+        .desktop-review-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            gap: 8px;
+        }
+        
+        .desktop-stars {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .desktop-stars i {
+            color: #fdbb2d;
+            font-size: 14px;
+        }
+        
+        .desktop-review-count {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .desktop-description-container {
+            position: relative;
+            margin-bottom: 8px;
+            flex-grow: 1;
+        }
+        
+        .desktop-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+            padding: 2px 0;
+        }
+        
+        .desktop-price-buy-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: space-between;
+            margin-top: 8px;
+            width: 100%;
+        }
+        
+        .desktop-product-price-inline {
+            color: #1a2a6c;
+            font-weight: 700;
+            font-size: 23px;
+            padding: 0;
+            box-shadow: none;
+        }
+        
+        .desktop-buy-btn {
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            font-size: 14px;
+        }
+        
+        .desktop-buy-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(26, 42, 108, 0.3);
+        }
+        
+        .desktop-buy-btn i {
+            margin-left: 8px;
+        }
+        
+        .desktop-disclaimer {
+            background: #f1f1f1;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 50px;
+        }
+        
+        /* Product Badges */
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: white;
+            z-index: 5;
+        }
+        
+        .badge-hot {
+            background: #dc3545;
+        }
+        
+        .badge-trending {
+            background: #fd7e14;
+        }
+        
+        .badge-bestseller {
+            background: #28a745;
+        }
+        
+        /* Pagination */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .pagination {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .page-item {
+            display: inline-block;
+        }
+        
+        .page-link {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            color: #1a2a6c;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .page-link:hover {
+            background: #f8f9fa;
+        }
+        
+        .page-item.active .page-link {
+            background: #1a2a6c;
+            color: white;
+            border-color: #1a2a6c;
+        }
+        
+        .page-item.disabled .page-link {
+            color: #6c757d;
+            pointer-events: none;
+            background: #f8f9fa;
+        }
+        
+        /* Products per page selector */
+        .page-size-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 20px;
+        }
+        
+        .page-size-selector select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+        }
+        
+        /* No Products Message */
+        .no-products {
+            text-align: center;
+            padding: 50px 20px;
+            color: #666;
+            grid-column: 1 / -1;
+        }
+        
+        .no-products i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ddd;
+        }
+        
+        /* Mobile Layout (reel-style) */
         .reels-container {
             position: relative;
-            width: 360px;
-            height: 640px;
+            width: 100%;
+            height: 100vh;
             background: white;
-            border-radius: 12px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .top-header {
@@ -212,9 +532,25 @@
             align-items: center;
         }
         
-        .logo i {
-            margin-right: 8px;
-            color: #ffdd00;
+        .mobile-cart-icon {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .mobile-cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ffdd00;
+            color: #1a2a6c;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
         }
         
         .search-bar {
@@ -251,6 +587,7 @@
             display: flex;
             flex: 1;
             overflow: hidden;
+            height: calc(100% - 80px - 60px);
         }
         
         .nav-sidebar {
@@ -344,7 +681,7 @@
             background: #1a2a6c;
             border-radius: 2px;
             transition: width 0.1s linear;
-         }
+        }
         
         .cards-container {
             flex: 1;
@@ -352,8 +689,7 @@
             overflow: hidden;
             touch-action: pan-y;
             z-index: 1;
-            display: block;
-            margin-top: 10px;
+            height: calc(100% - 120px);
         }
         
         .card {
@@ -406,20 +742,6 @@
             opacity: 1;
         }
         
-        .product-price {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: white;
-            color: #b21f1f;
-            padding: 5px 5px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 150px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            z-index: 20;
-        }
-
         .product-price-inline {
             background: transparent;
             color: #1a2a6c;
@@ -528,7 +850,7 @@
             color: #666;
             line-height: 1.4;
             display: -webkit-box;
-            -webkit-line-clamp: 7;
+            -webkit-line-clamp: 6;
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -671,362 +993,1096 @@
         .share-preview-text {
             font-size: 12px;
             color: #666;
-            line-height: 1.3;
-        }
-
-        .share-platforms {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-            padding: 0 20px;
-        }
-
-        .share-platform {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 10px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .share-platform:hover {
-            background: #f5f5f5;
-            transform: translateY(-2px);
-        }
-
-        .share-platform i {
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-
-        .share-platform.whatsapp i { color: #25D366; }
-        .share-platform.whatsapp-reel i { color: #25D366; }
-        .share-platform.facebook i { color: #1877F2; }
-        .share-platform.instagram i { color: #E4405F; }
-        .share-platform.instagram-reel i { color: #E4405F; }
-        .share-platform.twitter i { color: #1DA1F2; }
-        .share-platform.telegram i { color: #0088CC; }
-        .share-platform.copy i { color: #666; }
-
-        .share-platform-name {
-            font-size: 10px;
-            color: #333;
-            text-align: center;
-            line-height: 1.2;
+            margin-bottom: 10px;
         }
 
         .share-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
             padding: 0 20px 20px;
         }
 
         .share-option {
             display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .share-option input {
-            margin-right: 8px;
-        }
-
-        .share-option label {
-            font-size: 12px;
-            color: #333;
-        }
-
-        .bottom-disclaimer {
-            background: white;
-            display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 8px;
+            padding: 10px 5px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        .share-option:hover {
+            background: #e9ecef;
+        }
+
+        .share-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            padding: 8px 10px;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+            font-size: 18px;
+            color: white;
+        }
+
+        .share-icon.whatsapp {
+            background: #25D366;
+        }
+
+        .share-icon.facebook {
+            background: #3b5998;
+        }
+
+        .share-icon.twitter {
+            background: #1DA1F2;
+        }
+
+        .share-icon.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .share-icon.telegram {
+            background: #0088cc;
+        }
+
+        .share-icon.messenger {
+            background: #006AFF;
+        }
+
+        .share-icon.email {
+            background: #666;
+        }
+
+        .share-icon.copy {
+            background: #6c757d;
+        }
+
+        .share-option span {
+            font-size: 11px;
+            color: #333;
+            text-align: center;
+        }
+
+        .copy-message {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 3000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .copy-message.show {
+            opacity: 1;
+        }
+
+        /* Bottom Disclaimer */
+        .bottom-disclaimer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #f1f1f1;
+            padding: 8px 15px;
+            font-size: 0.7rem;
+            color: #666;
+            text-align: center;
             z-index: 1000;
-            border-top: 1px solid #eaeaea;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        .disclaimer-text {
-            font-size: 10px;
-            color: #666;
-            line-height: 1.3;
-            text-align: center;
-            width: 100%;
-            margin-bottom: 5px;
-        }
-        
-        .copyright-line {
-            font-size: 8.5px;
-            color: #666;
-            width: 100%;
-            text-align: center;
-            font-weight: 600;
-            line-height: 1.2;
-        }
-        
-        .no-results {
-            text-align: center;
-            padding: 40px 20px;
-            color: #666;
-            display: none;
-            position: relative;
-            z-index: 5;
-        }
-        
-        .no-results i {
-            font-size: 40px;
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-        
-        @media (max-width: 480px) {
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .desktop-header, .desktop-container, .desktop-footer {
+                display: block;
+            }
+            
             .reels-container {
-                width: 100%;
-                height: 100vh;
-                max-width: none;
-                border-radius: 0;
+                display: none;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .desktop-header, .desktop-container, .desktop-footer {
+                display: none;
             }
             
-            body {
-                padding: 0;
+            .reels-container {
+                display: flex;
             }
-            
-            .card {
-                width: 100%;
-                max-width: none;
-            }
+        }
+        
+        /* Loading Spinner */
+        .loading-spinner {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #1a2a6c;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1a2a6c;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            font-weight: 500;
+            max-width: 300px;
+            animation: slideInRight 0.3s ease;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOutRight {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
         }
     </style>
 </head>
 <body>
+    <!-- Desktop Header -->
+    <header class="desktop-header">
+        <div class="header-container">
+            <a href="index.html" class="desktop-logo">DKapoore.Shop</a>
+            <ul class="desktop-nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="amazon_deals.html">Amazon Deals</a></li>
+                <li><a href="automation-apps.html" class="active">Automation Apps</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="cart-icon">
+                <a href="cart.html" style="color: white; text-decoration: none;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="desktop-cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Desktop Content -->
+    <div class="desktop-container">
+        <div class="desktop-section-title">
+            <h2>Automation Apps</h2>
+            <p>Discover powerful automation apps to boost your productivity. Smart tools for file management, organization, and workflow automation.</p>
+        </div>
+        
+        <!-- Category Filter -->
+        <div class="category-filter-container">
+            <div class="category-filter-title">Filter by Category:</div>
+            <div class="category-filter" id="categoryFilter">
+                <button class="category-btn active" data-category="all">All Apps</button>
+                <!-- Categories will be dynamically added here -->
+            </div>
+        </div>
+        
+        <!-- Products Grid -->
+        <div class="desktop-cards-grid" id="desktop-cards-grid">
+            <!-- Products will be dynamically loaded here -->
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination-container">
+            <div class="pagination" id="desktopPagination">
+                <!-- Pagination will be dynamically generated here -->
+            </div>
+            <div class="page-size-selector">
+                <span>Show:</span>
+                <select id="pageSizeSelect">
+                    <option value="6">6</option>
+                    <option value="12" selected>12</option>
+                    <option value="18">18</option>
+                    <option value="24">24</option>
+                </select>
+                <span>per page</span>
+            </div>
+        </div>
+        
+        <div class="desktop-disclaimer">
+            <p>Disclaimer: All automation apps are developed by DKapoore.Shop. One-time purchase includes lifetime access and updates. Download links will be provided after purchase.</p>
+        </div>
+    </div>
+
+    <footer class="desktop-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DKapoore.Shop</h3>
+                    <p>Your trusted platform for automation apps, productivity tools, and smart solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Checkout & Cart Page.html">Cart</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Email: dkapoore@gmail.com</p>
+                    <p>WhatsApp: +91-9766893279</p>
+                    <p>Location: Nashik, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DKapoore.Shop All rights reserved. | Serving worldwide online</p>
+                <p>Made with ❤️ in India</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Layout (Reel-style) -->
     <div class="reels-container">
         <div class="top-header">
             <div class="logo">
-                <img src="dkapoore.shop_logo.png" alt="DKapoore.Shop Logo" style="height:50px;">
+                <i class="fas fa-robot"></i> DKapoore.Shop
             </div>
             <div class="search-bar">
                 <i class="fas fa-search"></i>
-                <input type="text" id="search-input" placeholder="Search products...">
+                <input type="text" placeholder="Search apps..." id="search-input">
+            </div>
+            <div class="mobile-cart-icon">
+                <a href="Checkout & Cart Page.html" style="color: white; text-decoration: none;">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="mobile-cart-count" id="mobile-cart-count">0</span>
+                </a>
             </div>
         </div>
 
         <div class="main-content">
             <div class="nav-sidebar">
-                <a href="index.html" class="nav-btn" data-category="home">
+                <a href="index.html" class="nav-btn" title="Home">
                     <i class="fas fa-home"></i>
                     <span class="tooltip">Home</span>
                 </a>
-
-                <a href="amazon_deals.html" class="nav-btn" data-category="shopping">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="tooltip">Shopping</span>
+                <a href="amazon_deals.html" class="nav-btn" title="Amazon Deals">
+                    <i class="fas fa-tag"></i>
+                    <span class="tooltip">Amazon Deals</span>
                 </a>
-
-                <a href="ebook.html" class="nav-btn" data-category="ebooks">
+                <a href="ebook.html" class="nav-btn" title="E-Books">
                     <i class="fas fa-book"></i>
-                    <span class="tooltip">E-books</span>
+                    <span class="tooltip">E-Books</span>
                 </a>
-
-                <a href="automation-app.html" class="nav-btn active" data-category="apps">
-                    <i class="fas fa-mobile-alt"></i>
-                    <span class="tooltip">Apps</span>
+                <a href="automation-app.html" class="nav-btn active" title="Automation Apps">
+                    <i class="fas fa-robot"></i>
+                    <span class="tooltip">Automation Apps</span>
                 </a>
-
-                <a href="contact.html" class="nav-btn" data-category="contact">
-                    <i class="fas fa-phone"></i>
-                    <span class="tooltip">Contact Us</span>
+                <a href="contact.html" class="nav-btn" title="Contact">
+                    <i class="fas fa-envelope"></i>
+                    <span class="tooltip">Contact</span>
                 </a>
             </div>
 
             <div class="carousel">
-                <div class="reel-progress">  
-                    
-                <div class="progress-item active">
-                    <div class="progress-fill" style="width: 0%">
-                </div>
-            </div>
-            
-                </div>
-                <div class="cards-container">
-                    <div class="no-results">
-                        <i class="fas fa-search"></i>
-                        <h3>No products found</h3>
-                        <p>Try different keywords or browse categories</p>
-                    </div>
-                    
-        <!-- Card 1: Smart Folder Manager -->
-        <div class="card active" data-search-terms="Smart Folder Manager, file organizer, auto folder sorter, document organizer, PC cleanup tool, desktop productivity software, file management software, one-time purchase, folder auto scan, custom categories, undo file move, organize files Windows, advanced file manager">
-            <div class="image-slider">
-                <img src="https://i.ibb.co/6R9Sv67D/Smart-Folder-Manager-01.jpg" alt="Smart Folder Manager software interface with auto-sorting files" class="product-image active">
-<img src="https://i.ibb.co/RpvftjFS/Smart-Folder-Manager-03.jpg" alt="Organized folders by categories like Images, Videos, Docs" class="product-image">
-<img src="https://i.ibb.co/m5NszrPk/Smart-Folder-Manager-02.jpg" alt="Advanced version with settings, logs, and reports" class="product-image">
-
-                <div class="image-indicators">
-                    <div class="indicator active"></div>
-                    <div class="indicator"></div>
-                    <div class="indicator"></div>
-                </div>
-            </div>
-            <div class="card-content">
-                <h2>Smart Folder Manager</h2>
-                
-                <div class="review-section">
-                    <div class="stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <a href="https://dkapoore.gumroad.com/l/SmartFolderManager" target="_blank" style="text-decoration: none; color: inherit;"><span class="review-count">(5 - 115 reviews)</span></a>
-                </div>
-                
-                <div class="social-buttons">
-                    <button class="social-btn like-btn">
-                        <i class="far fa-heart"></i> Like
-                    </button>
-                    <button class="social-btn share-btn" data-product-id="1">
-                        <i class="fas fa-share"></i> Share
-                    </button>
-                </div>
-                
-                <div class="description-container">
-                    <p>Organize your messy folders inone click with Smart Folder Manager! Auto-sort files into categories like Images, Videos, Docs &amp; more. Choose Basic or Advanced – one-time purchase, lifetime use. <span class="read-more-link">....read more</span></p>
+                <div class="reel-progress" id="progress-container">
+                    <!-- Progress bars will be generated by JavaScript -->
                 </div>
 
-                <div class="price-buy-row">
-                    <span class="product-price-inline">Rs 299</span>
-                    <a href="https://dkapoore.gumroad.com/l/SmartFolderManager" target="_blank" class="buy-btn">Buy Now <i class="fas fa-shopping-cart"></i></a>
+                <div class="cards-container" id="cards-container">
+                    <!-- Cards will be dynamically loaded here -->
+                    
+                    <!-- No Products Message -->
+                    <div class="no-products" id="no-products" style="display: none;">
+                        <i class="fas fa-box-open"></i>
+                        <h3>No apps found</h3>
+                        <p>Try selecting a different category or check back later for new apps</p>
+                    </div>
                 </div>
             </div>
         </div>
         
-                </div>
-            </div>
+        <!-- Mobile Pagination -->
+        <div class="mobile-pagination" style="background: #f8f9fa; padding: 15px; display: flex; justify-content: center; align-items: center; gap: 10px; border-top: 1px solid #ddd;">
+            <button id="mobile-prev-btn" style="background: #1a2a6c; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Previous</button>
+            <span id="mobile-page-info" style="font-weight: 600; color: #1a2a6c;">Page 1</span>
+            <button id="mobile-next-btn" style="background: #1a2a6c; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer;">Next</button>
         </div>
-
-        <!-- Enhanced Share Modal -->
-        <div class="share-modal" id="shareModal">
-            <div class="share-modal-content">
-                <div class="share-modal-header">
-                    <div class="share-modal-title">Share Product</div>
-                    <button class="close-share-modal">&times;</button>
-                </div>
-                
-                <div class="share-preview">
-                    <img id="sharePreviewImage" src="" alt="Product Image" class="share-preview-image">
-                    <div class="share-preview-title" id="sharePreviewTitle"></div>
-                    <div class="share-preview-text" id="sharePreviewText"></div>
-                </div>
-                
-                <div class="share-platforms">
-                    <div class="share-platform whatsapp" data-platform="whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                        <span class="share-platform-name">WhatsApp</span>
-                    </div>
-                    <div class="share-platform whatsapp-reel" data-platform="whatsapp-reel">
-                        <i class="fab fa-whatsapp"></i>
-                        <span class="share-platform-name">WhatsApp Reel</span>
-                    </div>
-                    <div class="share-platform instagram" data-platform="instagram">
-                        <i class="fab fa-instagram"></i>
-                        <span class="share-platform-name">Instagram</span>
-                    </div>
-                    <div class="share-platform instagram-reel" data-platform="instagram-reel">
-                        <i class="fab fa-instagram"></i>
-                        <span class="share-platform-name">Instagram Reel</span>
-                    </div>
-                    <div class="share-platform facebook" data-platform="facebook">
-                        <i class="fab fa-facebook"></i>
-                        <span class="share-platform-name">Facebook</span>
-                    </div>
-                    <div class="share-platform twitter" data-platform="twitter">
-                        <i class="fab fa-twitter"></i>
-                        <span class="share-platform-name">Twitter</span>
-                    </div>
-                    <div class="share-platform telegram" data-platform="telegram">
-                        <i class="fab fa-telegram"></i>
-                        <span class="share-platform-name">Telegram</span>
-                    </div>
-                    <div class="share-platform copy" data-platform="copy">
-                        <i class="fas fa-copy"></i>
-                        <span class="share-platform-name">Copy Text</span>
-                    </div>
-                </div>
-                
-                <div class="share-options">
-                    <div class="share-option">
-                        <input type="checkbox" id="includeEmoji" checked>
-                        <label for="includeEmoji">Include emojis in share text</label>
-                    </div>
-                    <div class="share-option">
-                        <input type="checkbox" id="includeFullDescription" checked>
-                        <label for="includeFullDescription">Include full description</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        
         <div class="bottom-disclaimer">
-            <div class="disclaimer-text">
-                Disclaimer: This site may contain affiliate links from Amazon and other partner websites. 
-                If you buy through them, we may earn a small commission at no extra cost to you, 
-                helping us keep the site running.
+            <p><strong>App Disclosure:</strong> All automation apps are developed by DKapoore.Shop. One-time purchase includes lifetime access and updates. Download links provided after purchase.</p>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div class="share-modal" id="shareModal">
+        <div class="share-modal-content">
+            <div class="share-modal-header">
+                <h3 class="share-modal-title">Share App</h3>
+                <button class="close-share-modal">&times;</button>
             </div>
-            <div class="copyright-line">
-                © 2025 DKapoore.Shop All rights reserved. | Serving worldwide online 
-                <p>Made with ❤️ in India</p>
+            <div class="share-preview" id="sharePreview">
+                <!-- Share preview content will be dynamically generated -->
+            </div>
+            <div class="share-options">
+                <button class="share-option" data-platform="whatsapp">
+                    <div class="share-icon whatsapp"><i class="fab fa-whatsapp"></i></div>
+                    <span>WhatsApp</span>
+                </button>
+                <button class="share-option" data-platform="facebook">
+                    <div class="share-icon facebook"><i class="fab fa-facebook-f"></i></div>
+                    <span>Facebook</span>
+                </button>
+                <button class="share-option" data-platform="twitter">
+                    <div class="share-icon twitter"><i class="fab fa-twitter"></i></div>
+                    <span>Twitter</span>
+                </button>
+                <button class="share-option" data-platform="instagram">
+                    <div class="share-icon instagram"><i class="fab fa-instagram"></i></div>
+                    <span>Instagram</span>
+                </button>
+                <button class="share-option" data-platform="telegram">
+                    <div class="share-icon telegram"><i class="fab fa-telegram"></i></div>
+                    <span>Telegram</span>
+                </button>
+                <button class="share-option" data-platform="messenger">
+                    <div class="share-icon messenger"><i class="fab fa-facebook-messenger"></i></div>
+                    <span>Messenger</span>
+                </button>
+                <button class="share-option" data-platform="email">
+                    <div class="share-icon email"><i class="fas fa-envelope"></i></div>
+                    <span>Email</span>
+                </button>
+                <button class="share-option" data-platform="copy">
+                    <div class="share-icon copy"><i class="fas fa-copy"></i></div>
+                    <span>Copy Link</span>
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Google AdSense Ad Unit -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-3445766076306689"
-         data-ad-slot="YOUR_AD_SLOT_ID"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Copy Message -->
+    <div class="copy-message" id="copyMessage">Link copied to clipboard!</div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.card');
-            const navButtons = document.querySelectorAll('.nav-btn');
-            const progressItems = document.querySelectorAll('.progress-item');
-            const searchInput = document.getElementById('search-input');
-            const noResultsMessage = document.querySelector('.no-results');
-            const shareModal = document.getElementById('shareModal');
-            const sharePreviewImage = document.getElementById('sharePreviewImage');
-            const sharePreviewTitle = document.getElementById('sharePreviewTitle');
-            const sharePreviewText = document.getElementById('sharePreviewText');
-            const includeEmojiCheckbox = document.getElementById('includeEmoji');
-            const includeFullDescriptionCheckbox = document.getElementById('includeFullDescription');
+        // CONFIG
+        const PUBLIC_PAGE_TYPE = 'automation_apps';
+        let PUBLIC_products = [];
+        let PUBLIC_categories = [];
+        let PUBLIC_currentCategory = 'all';
+        let PUBLIC_currentPage = 1;
+        let PUBLIC_productsPerPage = 12;
+        let currentMobileIndex = 0;
+        let MOBILE_reelTimer = null;
+
+        /* Utility to get LocalStorage key */
+        function publicStorageKey(pageType) {
+            switch(pageType) {
+                case 'amazon_deals': return 'products_amazon_deals';
+                case 'ebooks': return 'products_ebooks';
+                case 'automation_apps': return 'products_automation_apps';
+                default: return 'products_automation_apps';
+            }
+        }
+        function publicCategoryKey(pageType) {
+            return `productCategories_${pageType}`;
+        }
+
+        /* Load products & categories from LocalStorage */
+        function loadPublicData() {
+            const key = publicStorageKey(PUBLIC_PAGE_TYPE);
+            const catKey = publicCategoryKey(PUBLIC_PAGE_TYPE);
+
+            // products
+            const raw = localStorage.getItem(key);
+            if (raw) {
+                try {
+                    PUBLIC_products = JSON.parse(raw);
+                } catch (e) {
+                    console.error('Invalid products JSON in LocalStorage', e);
+                    PUBLIC_products = [];
+                }
+            } else {
+                // fallback default products for automation apps
+                PUBLIC_products = [
+                    {
+                        id: 'smart-folder-manager',
+                        title: 'Smart Folder Manager',
+                        description: 'Organize your messy folders in one click with Smart Folder Manager! Auto-sort files into categories like Images, Videos, Docs & more. Choose Basic or Advanced – one-time purchase, lifetime use.',
+                        price: 'Rs 299',
+                        rating: 5,
+                        reviews: '115',
+                        images: [
+                            'https://i.ibb.co/6R9Sv67D/Smart-Folder-Manager-01.jpg',
+                            'https://i.ibb.co/RpvftjFS/Smart-Folder-Manager-03.jpg',
+                            'https://i.ibb.co/m5NszrPk/Smart-Folder-Manager-02.jpg'
+                        ],
+                        link: 'https://dkapoore.gumroad.com/l/SmartFolderManager',
+                        category: 'File Management',
+                        status: 'active',
+                        searchTerms: 'Smart Folder Manager, file organizer, auto folder sorter, document organizer, PC cleanup tool, desktop productivity software, file management software, one-time purchase, folder auto scan, custom categories, undo file move, organize files Windows, advanced file manager',
+                        isAffiliate: true,
+                        isCart: false
+                    }
+                ];
+                localStorage.setItem(key, JSON.stringify(PUBLIC_products));
+            }
+
+            // categories
+            const rawCats = localStorage.getItem(catKey);
+            if (rawCats) {
+                try {
+                    PUBLIC_categories = JSON.parse(rawCats);
+                } catch (e) {
+                    PUBLIC_categories = [];
+                }
+            } else {
+                PUBLIC_categories = Array.from(new Set(PUBLIC_products.map(p => p.category))).filter(Boolean);
+                localStorage.setItem(catKey, JSON.stringify(PUBLIC_categories));
+            }
+
+            // render UI
+            renderCategoryFilter();
+            renderProducts();
+            window.addEventListener('resize', renderProducts);
+            updateCartCount();
+            setupEventListeners();
+        }
+
+        /* Category filter UI */
+        function renderCategoryFilter() {
+            const container = document.getElementById('categoryFilter');
+            if (!container) return;
+            container.innerHTML = '<button data-category="all" class="category-btn active">All Apps</button>';
+            PUBLIC_categories.forEach(cat => {
+                const b = document.createElement('button');
+                b.className = 'category-btn';
+                b.textContent = cat;
+                b.setAttribute('data-category', cat);
+                b.addEventListener('click', () => {
+                    document.querySelectorAll('.category-btn').forEach(x => x.classList.remove('active'));
+                    b.classList.add('active');
+                    PUBLIC_currentCategory = cat;
+                    PUBLIC_currentPage = 1;
+                    renderProducts();
+                });
+                container.appendChild(b);
+            });
+        }
+
+        /* Top level render function decides desktop or mobile */
+        function renderProducts() {
+            if (window.innerWidth >= 768) {
+                renderDesktopProducts();
+            } else {
+                renderMobileReel();
+            }
+        }
+
+        /* Desktop: grid + footer pagination */
+        function renderDesktopProducts() {
+            const grid = document.getElementById('desktop-cards-grid');
+            const paginationContainer = document.getElementById('desktopPagination');
+            if (!grid || !paginationContainer) return;
+
+            // filter active products + by category
+            let filtered = PUBLIC_products.filter(p => p.status !== 'inactive');
+            if (PUBLIC_currentCategory && PUBLIC_currentCategory !== 'all') {
+                filtered = filtered.filter(p => p.category === PUBLIC_currentCategory);
+            }
+
+            const totalPages = Math.max(1, Math.ceil(filtered.length / PUBLIC_productsPerPage));
+            if (PUBLIC_currentPage > totalPages) PUBLIC_currentPage = totalPages;
+
+            const start = (PUBLIC_currentPage - 1) * PUBLIC_productsPerPage;
+            const pageItems = filtered.slice(start, start + PUBLIC_productsPerPage);
+
+            // render cards
+            grid.innerHTML = '';
+            if (pageItems.length === 0) {
+                grid.innerHTML = `
+                    <div class="no-products">
+                        <i class="fas fa-box-open"></i>
+                        <h3>No apps found</h3>
+                        <p>Try selecting a different category or check back later for new apps</p>
+                    </div>
+                `;
+            } else {
+                pageItems.forEach(p => {
+                    const card = createDesktopCard(p);
+                    grid.appendChild(card);
+                });
+            }
+
+            // render pagination footer
+            renderFooterPagination(totalPages, paginationContainer);
+        }
+
+        /* Mobile: Reels — show exactly the same products as desktop pageItems but in auto-play reel */
+        function renderMobileReel() {
+            const container = document.getElementById('cards-container');
+            const progressContainer = document.getElementById('progress-container');
+            const noProducts = document.getElementById('no-products');
+            const pageInfo = document.getElementById('mobile-page-info');
             
-            let currentCardIndex = 0;
-            let autoSlideInterval;
-            const slideInterval = 6000;
-            let currentProductData = null;
+            if (!container) return;
 
-            // Touch/swipe variables
-            let touchStartY = 0;
-            let touchEndY = 0;
-            let isSwiping = false;
+            // Same filtering as desktop
+            let filtered = PUBLIC_products.filter(p => p.status !== 'inactive');
+            if (PUBLIC_currentCategory && PUBLIC_currentCategory !== 'all') {
+                filtered = filtered.filter(p => p.category === PUBLIC_currentCategory);
+            }
+            const totalPages = Math.max(1, Math.ceil(filtered.length / PUBLIC_productsPerPage));
+            if (PUBLIC_currentPage > totalPages) PUBLIC_currentPage = totalPages;
+            const start = (PUBLIC_currentPage - 1) * PUBLIC_productsPerPage;
+            const pageItems = filtered.slice(start, start + PUBLIC_productsPerPage);
 
-            // Read more functionality
-            document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('read-more-link')) {
-                    const description = e.target.parentElement.querySelector('p');
-                    if (description.classList.contains('expanded')) {
-                        description.classList.remove('expanded');
-                        e.target.textContent = '....read more';
-                    } else {
-                        description.classList.add('expanded');
-                        e.target.textContent = '....show less';
+            // Update mobile page info
+            if (pageInfo) {
+                pageInfo.textContent = `Page ${PUBLIC_currentPage} of ${totalPages}`;
+            }
+            
+            // Update mobile pagination buttons
+            const prevBtn = document.getElementById('mobile-prev-btn');
+            const nextBtn = document.getElementById('mobile-next-btn');
+            if (prevBtn) {
+                prevBtn.disabled = PUBLIC_currentPage === 1;
+                prevBtn.style.opacity = PUBLIC_currentPage === 1 ? '0.5' : '1';
+            }
+            if (nextBtn) {
+                nextBtn.disabled = PUBLIC_currentPage === totalPages;
+                nextBtn.style.opacity = PUBLIC_currentPage === totalPages ? '0.5' : '1';
+            }
+
+            // Clear container
+            container.innerHTML = '';
+
+            // Show no products message if needed
+            if (pageItems.length === 0) {
+                noProducts.style.display = 'block';
+                progressContainer.innerHTML = '';
+                return;
+            } else {
+                noProducts.style.display = 'none';
+            }
+
+            // Create progress bars
+            progressContainer.innerHTML = '';
+            pageItems.forEach((product, index) => {
+                const progressItem = document.createElement('div');
+                progressItem.className = 'progress-item';
+                if (index === 0) {
+                    progressItem.classList.add('active');
+                }
+                progressItem.innerHTML = '<div class="progress-fill"></div>';
+                progressContainer.appendChild(progressItem);
+            });
+
+            // Create cards
+            pageItems.forEach((product, index) => {
+                const card = createMobileCard(product, index);
+                container.appendChild(card);
+            });
+
+            // Show first card
+            if (pageItems.length > 0) {
+                const firstCard = container.querySelector('.card');
+                if (firstCard) {
+                    firstCard.classList.add('active');
+                }
+            }
+
+            currentMobileIndex = 0;
+
+            // Start/Restart autoplay
+            const cards = container.querySelectorAll('.card');
+            cards.forEach((c, i) => c.classList.remove('active'));
+            if (cards[0]) cards[0].classList.add('active');
+
+            if (MOBILE_reelTimer) clearInterval(MOBILE_reelTimer);
+            let current = 0;
+            MOBILE_reelTimer = setInterval(() => {
+                cards[current]?.classList.remove('active');
+                current = (current + 1) % cards.length;
+                cards[current]?.classList.add('active');
+                currentMobileIndex = current;
+                
+                // Update progress bars
+                const progressItems = document.querySelectorAll('.progress-item');
+                progressItems.forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.progress-fill').style.width = '0%';
+                });
+                
+                if (progressItems[current]) {
+                    progressItems[current].classList.add('active');
+                    const progressFill = progressItems[current].querySelector('.progress-fill');
+                    progressFill.style.width = '0%';
+                    setTimeout(() => {
+                        progressFill.style.width = '100%';
+                    }, 10);
+                }
+            }, 5000);
+        }
+
+        /* Footer Pagination shared renderer */
+        function renderFooterPagination(totalPages, container) {
+            container.innerHTML = '';
+            // Previous
+            const prev = document.createElement('li');
+            prev.className = 'page-item' + (PUBLIC_currentPage === 1 ? ' disabled' : '');
+            prev.innerHTML = `<a class="page-link" href="#" ${PUBLIC_currentPage === 1 ? 'tabindex="-1"' : ''}>Previous</a>`;
+            prev.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (PUBLIC_currentPage > 1) {
+                    PUBLIC_currentPage--;
+                    renderProducts();
+                }
+            });
+            container.appendChild(prev);
+
+            // Page numbers
+            const maxVisiblePages = 5;
+            let startPage = Math.max(1, PUBLIC_currentPage - Math.floor(maxVisiblePages / 2));
+            let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+            
+            if (endPage - startPage + 1 < maxVisiblePages) {
+                startPage = Math.max(1, endPage - maxVisiblePages + 1);
+            }
+            
+            for (let i = startPage; i <= endPage; i++) {
+                const pageLi = document.createElement('li');
+                pageLi.className = 'page-item' + (i === PUBLIC_currentPage ? ' active' : '');
+                pageLi.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+                pageLi.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    PUBLIC_currentPage = i;
+                    renderProducts();
+                });
+                container.appendChild(pageLi);
+            }
+
+            // Next
+            const next = document.createElement('li');
+            next.className = 'page-item' + (PUBLIC_currentPage === totalPages ? ' disabled' : '');
+            next.innerHTML = `<a class="page-link" href="#" ${PUBLIC_currentPage === totalPages ? 'tabindex="-1"' : ''}>Next</a>`;
+            next.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (PUBLIC_currentPage < totalPages) {
+                    PUBLIC_currentPage++;
+                    renderProducts();
+                }
+            });
+            container.appendChild(next);
+        }
+
+        /* Helper: escape HTML */
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str).replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]; });
+        }
+
+        // Create desktop card element
+        function createDesktopCard(product) {
+            const card = document.createElement('div');
+            card.className = 'desktop-card';
+            card.setAttribute('data-search-terms', product.searchTerms);
+            
+            // Generate stars HTML
+            const starsHtml = generateStarsHtml(product.rating);
+            
+            // Generate badge HTML if applicable
+            let badgeHtml = '';
+            if (product.status === 'hot') {
+                badgeHtml = '<div class="product-badge badge-hot">HOT</div>';
+            } else if (product.status === 'trending') {
+                badgeHtml = '<div class="product-badge badge-trending">TRENDING</div>';
+            } else if (product.status === 'bestseller') {
+                badgeHtml = '<div class="product-badge badge-bestseller">BEST SELLER</div>';
+            }
+            
+            // Generate action button based on product type
+            let actionButton = '';
+            if (product.isAffiliate) {
+                actionButton = `<a href="${product.link}" target="_blank" class="desktop-buy-btn">Download Now <i class="fas fa-download"></i></a>`;
+            } else if (product.isCart) {
+                actionButton = `<button class="desktop-buy-btn" 
+                                data-product-title="${escapeHtml(product.title)}" 
+                                data-product-price="${escapeHtml(product.price)}" 
+                                data-product-image="${product.images[0]}">
+                            Add to Cart <i class="fas fa-shopping-cart"></i>
+                        </button>`;
+            }
+            
+            card.innerHTML = `
+                ${badgeHtml}
+                <img src="${product.images[0]}" alt="${escapeHtml(product.title)}" class="desktop-card-image" onerror="this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">
+                <div class="desktop-card-content">
+                    <h2>${escapeHtml(product.title)}</h2>
+                    <div class="desktop-review-section">
+                        <div class="desktop-stars">
+                            ${starsHtml}
+                        </div>
+                        <a href="${product.link}" target="_blank" style="text-decoration: none; color: inherit;">
+                            <span class="desktop-review-count">(${product.rating} - ${product.reviews} reviews)</span>
+                        </a>
+                    </div>
+                    <div class="desktop-description-container">
+                        <p>${escapeHtml(product.description)}</p>
+                    </div>
+                    <div class="desktop-price-buy-row">
+                        <span class="desktop-product-price-inline">${escapeHtml(product.price)}</span>
+                        ${actionButton}
+                    </div>
+                </div>
+            `;
+            
+            // Add event listener to cart button if applicable
+            if (product.isCart) {
+                const buyBtn = card.querySelector('.desktop-buy-btn');
+                buyBtn.addEventListener('click', function() {
+                    const title = this.getAttribute('data-product-title');
+                    const price = this.getAttribute('data-product-price');
+                    const image = this.getAttribute('data-product-image');
+                    
+                    addToCart(title, price, image);
+                });
+            }
+            
+            return card;
+        }
+
+        // Create mobile card element
+        function createMobileCard(product, index) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.setAttribute('data-search-terms', product.searchTerms);
+            
+            // Generate stars HTML
+            const starsHtml = generateStarsHtml(product.rating);
+            
+            // Generate badge HTML if applicable
+            let badgeHtml = '';
+            if (product.status === 'hot') {
+                badgeHtml = '<div class="product-badge badge-hot">HOT</div>';
+            } else if (product.status === 'trending') {
+                badgeHtml = '<div class="product-badge badge-trending">TRENDING</div>';
+            } else if (product.status === 'bestseller') {
+                badgeHtml = '<div class="product-badge badge-bestseller">BEST SELLER</div>';
+            }
+            
+            // Generate action button based on product type
+            let actionButton = '';
+            if (product.isAffiliate) {
+                actionButton = `<a href="${product.link}" target="_blank" class="buy-btn">Download Now <i class="fas fa-download"></i></a>`;
+            } else if (product.isCart) {
+                actionButton = `<button class="buy-btn" 
+                                data-product-title="${escapeHtml(product.title)}" 
+                                data-product-price="${escapeHtml(product.price)}" 
+                                data-product-image="${product.images[0]}">
+                            Add to Cart <i class="fas fa-shopping-cart"></i>
+                        </button>`;
+            }
+            
+            // Generate image slider HTML
+            let imageSliderHtml = '';
+            let imageIndicatorsHtml = '';
+            
+            if (product.images && product.images.length > 0) {
+                product.images.forEach((image, imgIndex) => {
+                    const activeClass = imgIndex === 0 ? 'active' : '';
+                    imageSliderHtml += `<img src="${image}" alt="${escapeHtml(product.title)}" class="product-image ${activeClass}" onerror="this.src='https://via.placeholder.com/300x200?text=Image+Not+Found'">`;
+                    
+                    const indicatorActive = imgIndex === 0 ? 'active' : '';
+                    imageIndicatorsHtml += `<div class="indicator ${indicatorActive}"></div>`;
+                });
+            }
+            
+            card.innerHTML = `
+                ${badgeHtml}
+                <div class="image-slider">
+                    ${imageSliderHtml}
+                    <div class="image-indicators">
+                        ${imageIndicatorsHtml}
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2>${escapeHtml(product.title)}</h2>
+                    <div class="review-section">
+                        <div class="stars">
+                            ${starsHtml}
+                        </div>
+                        <a href="${product.link}" target="_blank" style="text-decoration: none; color: inherit;">
+                            <span class="review-count">(${product.rating} - ${product.reviews} reviews)</span>
+                        </a>
+                    </div>
+                    <div class="social-buttons">
+                        <button class="social-btn" onclick="shareProduct(${index})"><i class="fas fa-share-alt"></i> Share</button>
+                        <button class="social-btn like-btn"><i class="far fa-heart"></i> Like</button>
+                    </div>
+                    <div class="description-container">
+                        <p>${escapeHtml(product.description)}</p>
+                    </div>
+                    <div class="price-buy-row">
+                        <span class="product-price-inline">${escapeHtml(product.price)}</span>
+                        ${actionButton}
+                    </div>
+                </div>
+            `;
+            
+            // Add event listener to cart button if applicable
+            if (product.isCart) {
+                const buyBtn = card.querySelector('.buy-btn');
+                buyBtn.addEventListener('click', function() {
+                    const title = this.getAttribute('data-product-title');
+                    const price = this.getAttribute('data-product-price');
+                    const image = this.getAttribute('data-product-image');
+                    
+                    addToCart(title, price, image);
+                });
+            }
+            
+            // Add read more functionality
+            const description = card.querySelector('.description-container p');
+            const readMoreLink = document.createElement('span');
+            readMoreLink.className = 'read-more-link';
+            readMoreLink.textContent = '....read more';
+            readMoreLink.addEventListener('click', function() {
+                if (description.classList.contains('expanded')) {
+                    description.classList.remove('expanded');
+                    this.textContent = '....read more';
+                } else {
+                    description.classList.add('expanded');
+                    this.textContent = '....show less';
+                }
+            });
+            description.parentNode.appendChild(readMoreLink);
+            
+            return card;
+        }
+
+        // Generate stars HTML based on rating
+        function generateStarsHtml(rating) {
+            let starsHtml = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            
+            for (let i = 1; i <= 5; i++) {
+                if (i <= fullStars) {
+                    starsHtml += '<i class="fas fa-star"></i>';
+                } else if (i === fullStars + 1 && hasHalfStar) {
+                    starsHtml += '<i class="fas fa-star-half-alt"></i>';
+                } else {
+                    starsHtml += '<i class="far fa-star"></i>';
+                }
+            }
+            
+            return starsHtml;
+        }
+
+        // Initialize desktop view
+        function initializeDesktopView() {
+            // Add event listeners for desktop-specific functionality
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    filterProductsBySearch(searchTerm);
+                });
+            }
+            
+            // Page size selector
+            const pageSizeSelect = document.getElementById('pageSizeSelect');
+            if (pageSizeSelect) {
+                pageSizeSelect.value = PUBLIC_productsPerPage;
+                pageSizeSelect.addEventListener('change', function() {
+                    PUBLIC_productsPerPage = parseInt(this.value);
+                    PUBLIC_currentPage = 1;
+                    renderProducts();
+                });
+            }
+        }
+
+        // Initialize mobile view
+        function initializeMobileView() {
+            const container = document.getElementById('cards-container');
+            let startY = 0;
+            
+            // Mobile pagination event listeners
+            const prevBtn = document.getElementById('mobile-prev-btn');
+            const nextBtn = document.getElementById('mobile-next-btn');
+            
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    if (PUBLIC_currentPage > 1) {
+                        PUBLIC_currentPage--;
+                        renderProducts();
+                    }
+                });
+            }
+            
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    const filteredProducts = getFilteredProducts();
+                    const totalPages = Math.ceil(filteredProducts.length / PUBLIC_productsPerPage);
+                    
+                    if (PUBLIC_currentPage < totalPages) {
+                        PUBLIC_currentPage++;
+                        renderProducts();
+                    }
+                });
+            }
+            
+            container.addEventListener('touchstart', (e) => {
+                startY = e.touches[0].clientY;
+            });
+            
+            container.addEventListener('touchend', (e) => {
+                const endY = e.changedTouches[0].clientY;
+                const diff = startY - endY;
+                
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0 && currentMobileIndex < getFilteredProducts().length - 1) {
+                        // Swipe up - next card
+                        navigateToCard(currentMobileIndex + 1);
+                        currentMobileIndex++;
+                    } else if (diff < 0 && currentMobileIndex > 0) {
+                        // Swipe down - previous card
+                        navigateToCard(currentMobileIndex - 1);
+                        currentMobileIndex--;
                     }
                 }
+            });
+        }
+
+        // Get filtered products based on current category
+        function getFilteredProducts() {
+            let filteredProducts = [...PUBLIC_products];
+            if (PUBLIC_currentCategory !== 'all') {
+                filteredProducts = filteredProducts.filter(product => product.category === PUBLIC_currentCategory);
+            }
+            return filteredProducts.filter(product => product.status !== 'inactive');
+        }
+
+        // Navigate to specific card in mobile view
+        function navigateToCard(index) {
+            const cards = document.querySelectorAll('.card');
+            const progressItems = document.querySelectorAll('.progress-item');
+            
+            cards.forEach(card => card.classList.remove('active'));
+            progressItems.forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.progress-fill').style.width = '0%';
+            });
+            
+            if (cards[index]) {
+                cards[index].classList.add('active');
+                progressItems[index].classList.add('active');
                 
-                // Like button functionality
+                const progressFill = progressItems[index].querySelector('.progress-fill');
+                progressFill.style.width = '0%';
+                setTimeout(() => {
+                    progressFill.style.width = '100%';
+                }, 10);
+            }
+        }
+
+        // Filter products by search term
+        function filterProductsBySearch(searchTerm) {
+            const cards = document.querySelectorAll('.desktop-card, .card');
+            
+            cards.forEach(card => {
+                const searchTerms = card.getAttribute('data-search-terms').toLowerCase();
+                const title = card.querySelector('h2').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (searchTerms.includes(searchTerm) || title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Cart buttons
+            setupCartButtons();
+            
+            // Share modal
+            document.querySelector('.close-share-modal').addEventListener('click', function() {
+                document.getElementById('shareModal').style.display = 'none';
+            });
+            
+            // Share options
+            document.querySelectorAll('.share-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const platform = this.dataset.platform;
+                    const product = document.getElementById('shareModal').currentProduct;
+                    
+                    if (platform === 'copy') {
+                        navigator.clipboard.writeText(window.location.href)
+                            .then(() => {
+                                document.getElementById('copyMessage').classList.add('show');
+                                setTimeout(() => {
+                                    document.getElementById('copyMessage').classList.remove('show');
+                                }, 2000);
+                            })
+                            .catch(err => {
+                                console.error('Failed to copy: ', err);
+                            });
+                    } else {
+                        alert(`Sharing to ${platform} would happen here in a real implementation`);
+                    }
+                    
+                    document.getElementById('shareModal').style.display = 'none';
+                });
+            });
+            
+            // Close share modal when clicking outside
+            document.getElementById('shareModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+            
+            // Like button functionality
+            document.addEventListener('click', function(e) {
                 if (e.target.classList.contains('like-btn') || e.target.closest('.like-btn')) {
                     const likeBtn = e.target.classList.contains('like-btn') ? e.target : e.target.closest('.like-btn');
                     const icon = likeBtn.querySelector('i');
@@ -1041,472 +2097,143 @@
                         icon.style.color = '';
                     }
                 }
-                
-                // Share button functionality
-                if (e.target.classList.contains('share-btn') || e.target.closest('.share-btn')) {
-                    const shareBtn = e.target.classList.contains('share-btn') ? e.target : e.target.closest('.share-btn');
-                    const productId = shareBtn.getAttribute('data-product-id');
-                    const productCard = document.querySelector(`.share-btn[data-product-id="${productId}"]`).closest('.card');
-                    
-                    // Get full description (even if hidden)
-                    const descriptionElement = productCard.querySelector('p');
-                    const fullDescription = descriptionElement.textContent.replace(/\.\.\.\.read more|\.\.\.\.show less/g, '').trim();
-                    
-                    // Get product data
-                    currentProductData = {
-                        title: productCard.querySelector('h2').textContent,
-                        image: productCard.querySelector('.product-image.active').src,
-                        description: fullDescription,
-                        rating: productCard.querySelector('.review-count').textContent,
-                        price: productCard.querySelector('.product-price-inline').textContent,
-                        buyLink: productCard.querySelector('.buy-btn').href
-                    };
-                    
-                    // Update share preview
-                    sharePreviewImage.src = currentProductData.image;
-                    sharePreviewTitle.textContent = currentProductData.title;
-                    sharePreviewText.textContent = currentProductData.description.substring(0, 100) + '...';
-                    
-                    // Show share modal
-                    shareModal.style.display = 'flex';
-                }
-                
-                // Close share modal
-                if (e.target.classList.contains('close-share-modal') || e.target === shareModal) {
-                    shareModal.style.display = 'none';
-                }
-                
-                // Share platform selection
-                if (e.target.classList.contains('share-platform') || e.target.closest('.share-platform')) {
-                    const platformBtn = e.target.classList.contains('share-platform') ? e.target : e.target.closest('.share-platform');
-                    const platform = platformBtn.getAttribute('data-platform');
-                    shareProduct(platform, currentProductData);
-                }
             });
             
-            // Search functionality
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase().trim();
-                filterProducts(searchTerm);
-            });
-
-            // Filter products based on search term
-            function filterProducts(searchTerm) {
-                let visibleCardsCount = 0;
-                
-                cards.forEach(card => {
-                    const title = card.querySelector('h2').textContent.toLowerCase();
-                    const description = card.querySelector('p').textContent.toLowerCase();
-                    const searchTerms = card.getAttribute('data-search-terms') || '';
-                    const category = card.getAttribute('data-category') || '';
-                    
-                    if (searchTerm === '' || 
-                        title.includes(searchTerm) || 
-                        description.includes(searchTerm) ||
-                        searchTerms.includes(searchTerm) ||
-                        category.includes(searchTerm)) {
-                        card.style.display = 'flex';
-                        visibleCardsCount++;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-                
-                if (visibleCardsCount === 0 && searchTerm !== '') {
-                    noResultsMessage.style.display = 'block';
+            // Window resize handler
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 768) {
+                    initializeDesktopView();
                 } else {
-                    noResultsMessage.style.display = 'none';
-                    
-                    const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
-                    if (visibleCards.length > 0) {
-                        cards.forEach(card => card.classList.remove('active'));
-                        visibleCards[0].classList.add('active');
-                        currentCardIndex = 0;
-                        updateProgressIndicator();
-                    }
+                    initializeMobileView();
                 }
-                
-                restartAutoSlide();
-            }
+                renderProducts();
+            });
+        }
 
-            // Category filter functionality
-                    navButtons.forEach(button => {
-                    button.addEventListener('click', function(event) {
-                    const category = this.getAttribute('data-category');
-                    const href = this.getAttribute('href');
-        
-                // Agar current page pe hi category filter karna hai
-                    if (href.includes('automation-app.html') || href === '#') {
-                    event.preventDefault();
-                // Yahan category filter code rakho
-                    }
-                // Otherwise link naturally navigate karega
+        // Setup cart buttons
+        function setupCartButtons() {
+            // Desktop buy buttons (will be handled in createDesktopCard)
+            // Mobile buy buttons (will be handled in createMobileCard)
+        }
+
+        // Global cart functions
+        function addToCart(title, price, image) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Check if item already exists in cart
+            const existingItem = cart.find(item => item.title === title);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    title: title,
+                    price: price,
+                    image: image,
+                    quantity: 1
                 });
-            });
-              
-                    noResultsMessage.style.display = 'none';
-                    
-                    const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
-                    if (visibleCards.length > 0) {
-                        cards.forEach(card => card.classList.remove('active'));
-                        visibleCards[0].classList.add('active');
-                        currentCardIndex = 0;
-                        updateProgressIndicator();
-                    }
-                    
-                    restartAutoSlide();
-                });
-            });
-
-            // Update progress indicator
-            function updateProgressIndicator() {
-                const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
-                
-                progressItems.forEach((item, index) => {
-                    item.classList.remove('active');
-                    const progressFill = item.querySelector('.progress-fill');
-                    progressFill.style.width = '0%';
-                    
-                    if (index < visibleCards.length) {
-                        item.style.display = 'flex';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-                
-                if (visibleCards.length > 0 && currentCardIndex < visibleCards.length) {
-                    progressItems[currentCardIndex].classList.add('active');
-                    
-                    const activeProgressFill = progressItems[currentCardIndex].querySelector('.progress-fill');
-                    activeProgressFill.style.width = '0%';
-                    
-                    setTimeout(() => {
-                        activeProgressFill.style.width = '100%';
-                    }, 10);
-                }
-            }
-
-            // Auto slide functionality for main carousel
-            function startAutoSlide() {
-                autoSlideInterval = setInterval(() => {
-                    showNextCard();
-                }, slideInterval);
-            }
-
-            function showNextCard() {
-                const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
-                if (visibleCards.length === 0) return;
-                
-                cards.forEach(card => card.classList.remove('active'));
-                currentCardIndex = (currentCardIndex + 1) % visibleCards.length;
-                visibleCards[currentCardIndex].classList.add('active');
-                
-                updateProgressIndicator();
             }
             
-            function showPreviousCard() {
-                const visibleCards = Array.from(cards).filter(card => card.style.display !== 'none');
-                if (visibleCards.length === 0) return;
-                
-                cards.forEach(card => card.classList.remove('active'));
-                currentCardIndex = (currentCardIndex - 1 + visibleCards.length) % visibleCards.length;
-                visibleCards[currentCardIndex].classList.add('active');
-                
-                updateProgressIndicator();
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            showAddToCartConfirmation(title);
+        }
+
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            
+            // Update all cart count elements
+            const cartCounts = document.querySelectorAll('.cart-count, .mobile-cart-count, #desktop-cart-count, #mobile-cart-count');
+            cartCounts.forEach(count => {
+                count.textContent = totalItems;
+            });
+        }
+
+        function showAddToCartConfirmation(productTitle) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #1a2a6c;
+                color: white;
+                padding: 15px 20px;
+                border-radius: 5px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 10000;
+                font-weight: 500;
+                max-width: 300px;
+                animation: slideInRight 0.3s ease;
+            `;
+            notification.innerHTML = `
+                <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
+                Added "${productTitle}" to cart
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Share functionality
+        function shareProduct(index) {
+            const cards = document.querySelectorAll('.card');
+            const card = cards[index];
+            if (!card) return;
+            
+            const title = card.querySelector('h2').textContent;
+            const image = card.querySelector('.product-image.active').src;
+            const description = card.querySelector('.description-container p').textContent;
+            
+            const shareModal = document.getElementById('shareModal');
+            const sharePreview = document.getElementById('sharePreview');
+            
+            sharePreview.innerHTML = `
+                <img src="${image}" alt="${title}" class="share-preview-image">
+                <h4 class="share-preview-title">${title}</h4>
+                <p class="share-preview-text">${description.substring(0, 100)}...</p>
+            `;
+            
+            shareModal.style.display = 'flex';
+            
+            // Store current product for sharing
+            shareModal.currentProduct = { title, image, description };
+        }
+
+        // Listen for storage events to update products when changed in admin
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'products_automation_apps' || e.key === 'productCategories_automation_apps') {
+                loadPublicData();
             }
+        });
 
-            function restartAutoSlide() {
-                clearInterval(autoSlideInterval);
-                startAutoSlide();
+        // Also check for changes in the same tab
+        setInterval(function() {
+            const currentProducts = JSON.stringify(PUBLIC_products);
+            const storedProducts = localStorage.getItem('products_automation_apps');
+            
+            if (currentProducts !== storedProducts) {
+                loadPublicData();
             }
+        }, 1000);
 
-            // Pause auto slide on hover/tap
-            const carousel = document.querySelector('.carousel');
-            carousel.addEventListener('mouseenter', () => {
-                clearInterval(autoSlideInterval);
-            });
+        /* Initialization */
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPublicData();
             
-            carousel.addEventListener('mouseleave', () => {
-                restartAutoSlide();
-            });
-            
-            // Touch events for vertical swipe
-            const cardsContainer = document.querySelector('.cards-container');
-            
-            cardsContainer.addEventListener('touchstart', function(event) {
-                touchStartY = event.changedTouches[0].screenY;
-                isSwiping = true;
-                clearInterval(autoSlideInterval);
-            }, { passive: true });
-            
-            cardsContainer.addEventListener('touchmove', function(event) {
-                if (!isSwiping) return;
-                if (Math.abs(event.changedTouches[0].screenY - touchStartY) > 10) {
-                    event.preventDefault();
-                }
-            }, { passive: false });
-            
-            cardsContainer.addEventListener('touchend', function(event) {
-                if (!isSwiping) return;
-                
-                touchEndY = event.changedTouches[0].screenY;
-                handleSwipe();
-                restartAutoSlide();
-                isSwiping = false;
-            }, { passive: true });
-            
-            cardsContainer.addEventListener('mousedown', function(event) {
-                touchStartY = event.screenY;
-                isSwiping = true;
-                clearInterval(autoSlideInterval);
-                event.preventDefault();
-            });
-            
-            cardsContainer.addEventListener('mousemove', function(event) {
-                if (!isSwiping) return;
-                event.preventDefault();
-            });
-            
-            cardsContainer.addEventListener('mouseup', function(event) {
-                if (!isSwiping) return;
-                
-                touchEndY = event.screenY;
-                handleSwipe();
-                restartAutoSlide();
-                isSwiping = false;
-            });
-            
-            cardsContainer.addEventListener('mouseleave', function() {
-                if (isSwiping) {
-                    isSwiping = false;
-                    restartAutoSlide();
-                }
-            });
-            
-            function handleSwipe() {
-                const minSwipeDistance = 50;
-                const swipeDistance = touchStartY - touchEndY;
-                
-                if (swipeDistance > minSwipeDistance) {
-                    showNextCard();
-                } else if (swipeDistance < -minSwipeDistance) {
-                    showPreviousCard();
-                }
+            // Initialize appropriate view based on screen size
+            if (window.innerWidth >= 768) {
+                initializeDesktopView();
+            } else {
+                initializeMobileView();
             }
-
-            // Enhanced Share product function with emojis and professional formatting
-            function shareProduct(platform, productData) {
-                const includeEmoji = includeEmojiCheckbox.checked;
-                const includeFullDesc = includeFullDescriptionCheckbox.checked;
-                
-                // Format share text with emojis and professional styling
-                let shareText = '';
-                
-                if (includeEmoji) {
-                    shareText = `🎯 *${productData.title}* 🎯
-
-`;
-                    
-                    // Add rating with stars emoji
-                    shareText += `⭐ ${productData.rating}
-
-`;
-                    
-                    // Add price with money emoji
-                    shareText += `💰 *Price:* ${productData.price}
-
-`;
-                    
-                    // Add description with notepad emoji
-                    if (includeFullDesc) {
-                        shareText += `📝 *Description:* ${productData.description}
-
-`;
-                    } else {
-                        const shortDesc = productData.description.substring(0, 100) + '...';
-                        shareText += `📝 *Description:* ${shortDesc}
-
-`;
-                    }
-                    
-                    // Add buy link with shopping cart emoji
-                    shareText += `🛒 *Buy Now:* ${productData.buyLink}
-
-`;
-                    
-                    // Add hashtags and website credit
-                    shareText += `🏷️ #${productData.title.replace(/\s+/g, '')} #ShoppingDeals #BestPrice
-`;
-                    shareText += `🔗 Shared via DKapoore.Shop - Your trusted shopping partner! 🛍️`;
-                } else {
-                    // Without emojis
-                    shareText = `*${productData.title}*
-
-`;
-                    shareText += `Rating: ${productData.rating}
-
-`;
-                    shareText += `Price: ${productData.price}
-
-`;
-                    
-                    if (includeFullDesc) {
-                        shareText += `Description: ${productData.description}
-
-`;
-                    } else {
-                        const shortDesc = productData.description.substring(0, 100) + '...';
-                        shareText += `Description: ${shortDesc}
-
-`;
-                    }
-                    
-                    shareText += `Buy Now: ${productData.buyLink}
-
-`;
-                    shareText += `Shared via DKapoore.Shop`;
-                }
-                
-                let shareUrl = '';
-                
-                switch(platform) {
-                    case 'whatsapp':
-                        shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
-                        window.open(shareUrl, '_blank', 'width=600,height=400');
-                        break;
-                    case 'whatsapp-reel':
-                        // For WhatsApp status/reel style sharing
-                        const whatsappReelText = `🌟 *PRODUCT SPOTLIGHT* 🌟
-
-${shareText}
-
-✨ *Limited Time Offer!* ✨`;
-                        shareUrl = `https://wa.me/?text=${encodeURIComponent(whatsappReelText)}`;
-                        window.open(shareUrl, '_blank', 'width=600,height=400');
-                        break;
-                    case 'instagram':
-                        // Instagram post sharing
-                        const instagramText = `🔥 Amazing Find! 🔥
-
-${productData.title}
-
-⭐ ${productData.rating}
-💰 ${productData.price}
-
-${productData.description.substring(0, 150)}...
-
-🛒 Link in Bio!
-
-#${productData.title.replace(/\s+/g, '')} #Shopping #Deals #DKapooreShop`;
-                        copyToClipboard(instagramText);
-                        alert('Product details copied! Paste it in your Instagram post with the product image.');
-                        break;
-                    case 'instagram-reel':
-                        // Instagram reel style sharing
-                        const instagramReelText = `🎬 *UNBOXING VIRAL PRODUCT* 🎬
-
-${productData.title}
-
-✨ ${productData.rating}
-💸 ${productData.price}
-
-${productData.description.substring(0, 120)}...
-
-👉 SWIPE UP TO BUY!
-
-#Reel #ViralProduct #${productData.title.replace(/\s+/g, '')} #ShoppingReel`;
-                        copyToClipboard(instagramReelText);
-                        alert('Reel caption copied! Use this text for your Instagram reel with product video/images.');
-                        break;
-                    case 'facebook':
-                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(productData.buyLink)}&quote=${encodeURIComponent(shareText)}`;
-                        window.open(shareUrl, '_blank', 'width=600,height=400');
-                        break;
-                    case 'twitter':
-                        const twitterText = `🔥 ${productData.title} - ${productData.price} ⭐ ${productData.rating}
-
-${productData.description.substring(0, 100)}...
-
-${productData.buyLink}
-
-#Shopping #Deals`;
-                        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(twitterText)}`;
-                        window.open(shareUrl, '_blank', 'width=600,height=400');
-                        break;
-                    case 'telegram':
-                        shareUrl = `https://t.me/share/url?url=${encodeURIComponent(productData.buyLink)}&text=${encodeURIComponent(shareText)}`;
-                        window.open(shareUrl, '_blank', 'width=600,height=400');
-                        break;
-                    case 'copy':
-                        copyToClipboard(shareText);
-                        alert('Product details copied to clipboard!');
-                        break;
-                }
-                
-                shareModal.style.display = 'none';
-            }
-            
-            // Copy to clipboard function
-            function copyToClipboard(text) {
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-            }
-
-            // Image slider functionality for each product card
-            cards.forEach(card => {
-                const images = card.querySelectorAll('.product-image');
-                const indicators = card.querySelectorAll('.indicator');
-                let currentImageIndex = 0;
-                let imageInterval;
-
-                function startImageSlider() {
-                    imageInterval = setInterval(() => {
-                        images[currentImageIndex].classList.remove('active');
-                        indicators[currentImageIndex].classList.remove('active');
-                        
-                        currentImageIndex = (currentImageIndex + 1) % images.length;
-                        
-                        images[currentImageIndex].classList.add('active');
-                        indicators[currentImageIndex].classList.add('active');
-                    }, 3000);
-                }
-
-                function stopImageSlider() {
-                    clearInterval(imageInterval);
-                }
-
-                const observer = new MutationObserver((mutations) => {
-                    mutations.forEach((mutation) => {
-                        if (mutation.attributeName === 'class') {
-                            if (card.classList.contains('active')) {
-                                startImageSlider();
-                            } else {
-                                stopImageSlider();
-                            }
-                        }
-                    });
-                });
-
-                observer.observe(card, { attributes: true });
-            });
-
-            // Initialize
-            updateProgressIndicator();
-            startAutoSlide();
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
