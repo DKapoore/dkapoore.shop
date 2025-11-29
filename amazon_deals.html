@@ -1632,7 +1632,7 @@
 
         // Load products from localStorage
         function loadProducts() {
-            const storedProducts = localStorage.getItem('products');
+            const storedProducts = localStorage.getItem('productData');
             if (storedProducts) {
                 products = JSON.parse(storedProducts);
             } else {
@@ -1724,7 +1724,7 @@
                     status: 'active'
                 }
             ];
-            localStorage.setItem('products', JSON.stringify(products));
+            products = JSON.parse(localStorage.getItem("products"));
         }
 
         // Load categories from localStorage
