@@ -165,12 +165,18 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 1rem;
-            transition: border 0.3s;
+            transition: border 0.3s, background-color 0.3s;
         }
         
         .form-control:focus {
             border-color: #1a2a6c;
             outline: none;
+        }
+        
+        .form-control:disabled {
+            background-color: #f8f9fa;
+            color: #6c757d;
+            cursor: not-allowed;
         }
         
         textarea.form-control {
@@ -185,6 +191,38 @@
         
         .form-row .form-group {
             flex: 1;
+        }
+        
+        /* Checkbox Styles */
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .checkbox-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .checkbox-item label {
+            font-weight: normal;
+            margin-bottom: 0;
+            cursor: pointer;
         }
         
         /* Buttons */
@@ -684,6 +722,21 @@
                                 </div>
                             </div>
                             
+                            <!-- Affiliate OR Cart Mode -->
+                            <div class="form-group">
+                                <label class="form-label">Product Action</label>
+                                <div class="checkbox-group">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="isAffiliate">
+                                        <label for="isAffiliate">Affiliate Product (Redirect to Amazon Link)</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="isCart">
+                                        <label for="isCart">Normal Product (Add to Cart - Goes to Checkout)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="form-row">
                                 <div class="form-group">
                                     <label class="form-label">Ratings (0-5) *</label>
@@ -778,6 +831,7 @@
                                         <th>Title</th>
                                         <th>Category</th>
                                         <th>Price</th>
+                                        <th>Type</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
@@ -867,7 +921,69 @@
             loadCategories();
             loadProductsForCurrentPage();
             updateDashboard();
+            
+            // Initialize checkbox behavior
+            initializeCheckboxBehavior();
         });
+
+        // Initialize checkbox behavior for affiliate/cart mode
+        function initializeCheckboxBehavior() {
+            const affiliateCheckbox = document.getElementById("isAffiliate");
+            const cartCheckbox = document.getElementById("isCart");
+            const productLinkField = document.getElementById("productLink");
+
+            // Only one checkbox active at a time
+            affiliateCheckbox.addEventListener("change", function () {
+                if (this.checked) {
+                    cartCheckbox.checked = false;
+                    // Enable Amazon link field for affiliate products
+                    productLinkField.disabled = false;
+                    productLinkField.required = true;
+                    productLinkField.placeholder = "Enter Amazon affiliate link";
+                } else if (!cartCheckbox.checked) {
+                    // If both are unchecked, enable the field
+                    productLinkField.disabled = false;
+                    productLinkField.required = true;
+                }
+                updateFieldAppearance();
+            });
+
+            cartCheckbox.addEventListener("change", function () {
+                if (this.checked) {
+                    affiliateCheckbox.checked = false;
+                    // Disable Amazon link field for cart products
+                    productLinkField.disabled = true;
+                    productLinkField.required = false;
+                    productLinkField.placeholder = "Not required for cart products";
+                    productLinkField.value = "checkout.html"; // Default checkout page
+                } else if (!affiliateCheckbox.checked) {
+                    // If both are unchecked, enable the field
+                    productLinkField.disabled = false;
+                    productLinkField.required = true;
+                    productLinkField.placeholder = "Enter Amazon affiliate link";
+                    productLinkField.value = "";
+                }
+                updateFieldAppearance();
+            });
+
+            // Initialize field appearance
+            updateFieldAppearance();
+        }
+
+        // Update the visual appearance of fields based on their state
+        function updateFieldAppearance() {
+            const productLinkField = document.getElementById("productLink");
+            
+            if (productLinkField.disabled) {
+                productLinkField.style.backgroundColor = "#f8f9fa";
+                productLinkField.style.color = "#6c757d";
+                productLinkField.style.borderColor = "#dee2e6";
+            } else {
+                productLinkField.style.backgroundColor = "";
+                productLinkField.style.color = "";
+                productLinkField.style.borderColor = "";
+            }
+        }
 
         // Check if user is logged in
         function checkLoginStatus() {
@@ -1026,41 +1142,61 @@
             }
         }
 
-        // Load products for current page type
-        function loadProductsForCurrentPage() {
-            const fileName = getFileNameForPageType(currentPageType);
-            const storedProducts = localStorage.getItem(fileName);
-            
-            if (storedProducts) {
-                products = JSON.parse(storedProducts);
-            } else {
-                products = [];
+        /* --- Use consistent LocalStorage keys (no .json filenames) --- */
+        function getFileNameForPageType(pageType) {
+            // return LocalStorage key (not real file name)
+            switch(pageType) {
+                case 'amazon_deals': return 'products_amazon_deals';
+                case 'ebooks': return 'products_ebooks';
+                case 'automation_apps': return 'products_automation_apps';
+                default: return 'products_amazon_deals';
             }
-            
-            // Update UI
+        }
+
+        /* Save products to LocalStorage (no file download) */
+        function saveProducts() {
+            const storageKey = getFileNameForPageType(currentPageType);
+            try {
+                localStorage.setItem(storageKey, JSON.stringify(products));
+                // also update categories under a per-page key
+                const categoryKey = `productCategories_${currentPageType}`;
+                localStorage.setItem(categoryKey, JSON.stringify(categories));
+                updatePublicPage(); // trigger public page update hook (if loaded)
+                updateDashboard();
+                // if admin is viewing products table, refresh it
+                if (document.getElementById('products').classList.contains('active')) {
+                    renderProductsTable();
+                }
+                console.log(`Saved ${products.length} products to LocalStorage key: ${storageKey}`);
+            } catch (err) {
+                console.error('Error saving products to LocalStorage', err);
+                showAlert('Error saving data to LocalStorage!', 'danger');
+            }
+        }
+
+        /* Load products for current page type from LocalStorage */
+        function loadProductsForCurrentPage() {
+            const storageKey = getFileNameForPageType(currentPageType);
+            const stored = localStorage.getItem(storageKey);
+            if (stored) {
+                try {
+                    products = JSON.parse(stored);
+                    console.log(`Loaded ${products.length} products from LocalStorage key: ${storageKey}`);
+                    } catch (err) {
+                    console.error('Invalid JSON in LocalStorage', err);
+                    products = [];
+                }
+            } else {
+                // no products yet: keep products = []
+                products = [];
+                console.log(`No products found in LocalStorage key: ${storageKey}`);
+            }
+            // reload UI
             if (document.getElementById('products').classList.contains('active')) {
                 renderProductsTable();
             }
             updateDashboard();
         }
-
-        // Get filename for page type
-        function getFileNameForPageType(pageType) {
-            switch(pageType) {
-                case 'amazon_deals': return 'amazon_deals.json';
-                case 'ebooks': return 'ebooks.json';
-                case 'automation_apps': return 'automation_apps.json';
-                default: return 'amazon_deals.json';
-            }
-        }
-
-        // Save products to storage
-        function saveProducts() {
-                const fileName = getFileNameForPageType(currentPageType);
-                localStorage.setItem(fileName, JSON.stringify(products));
-                saveJsonFile();   // <-- NEW LINE
-                updatePublicPage();
-            }
 
         // Load categories from storage
         function loadCategories() {
@@ -1068,7 +1204,13 @@
             const storedCategories = localStorage.getItem(categoryKey);
             
             if (storedCategories) {
-                categories = JSON.parse(storedCategories);
+                try {
+                    categories = JSON.parse(storedCategories);
+                    console.log(`Loaded ${categories.length} categories from LocalStorage key: ${categoryKey}`);
+                } catch (err) {
+                    console.error('Invalid categories JSON in LocalStorage', err);
+                    categories = [];
+                }
             } else {
                 // Default categories based on page type
                 switch(currentPageType) {
@@ -1085,6 +1227,7 @@
                         categories = ['General'];
                 }
                 localStorage.setItem(categoryKey, JSON.stringify(categories));
+                console.log(`Created default categories for ${currentPageType}`);
             }
             updateCategoryDropdowns();
         }
@@ -1188,6 +1331,11 @@
             const additionalImages = document.getElementById('additionalImages').value.split(',').map(img => img.trim()).filter(img => img !== '');
             const searchTerms = document.getElementById('searchTerms').value;
             const status = document.getElementById('productStatus').value;
+            const isAffiliate = document.getElementById('isAffiliate').checked;
+            const isCart = document.getElementById('isCart').checked;
+            
+            // For cart products, use a default checkout page
+            const finalLink = isCart ? "checkout.html" : link;
             
             // Create product object
             const product = {
@@ -1195,13 +1343,15 @@
                 title,
                 category,
                 price,
-                link,
+                link: finalLink,
                 rating,
                 reviews,
                 description,
                 images: [mainImage, ...additionalImages],
                 searchTerms,
                 status,
+                isAffiliate,
+                isCart,
                 createdAt: editingProductId ? products.find(p => p.id === editingProductId).createdAt : new Date().toISOString(),
                 updatedAt: new Date().toISOString()
             };
@@ -1243,6 +1393,14 @@
             // Reset form title and button
             document.querySelector('#addProduct .section-title').textContent = 'Add New Product';
             document.getElementById('submitProductBtn').textContent = 'Add Product';
+            
+            // Reset checkboxes and link field
+            document.getElementById('isAffiliate').checked = false;
+            document.getElementById('isCart').checked = false;
+            document.getElementById('productLink').disabled = false;
+            document.getElementById('productLink').required = true;
+            document.getElementById('productLink').placeholder = "Enter Amazon affiliate link";
+            updateFieldAppearance();
         }
 
         // Generate unique ID
@@ -1284,9 +1442,21 @@
             
             // Render products
             if (paginatedProducts.length === 0) {
-                tableBody.innerHTML = '<tr><td colspan="7" style="text-align: center;">No products found</td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="8" style="text-align: center;">No products found</td></tr>';
             } else {
                 paginatedProducts.forEach(product => {
+                    // Determine product type
+                    let productType = 'Unknown';
+                    let typeBadgeClass = 'status-inactive';
+                    
+                    if (product.isAffiliate) {
+                        productType = 'Affiliate';
+                        typeBadgeClass = 'status-hot';
+                    } else if (product.isCart) {
+                        productType = 'Cart';
+                        typeBadgeClass = 'status-active';
+                    }
+                    
                     const row = document.createElement('tr');
                     row.innerHTML = `
                         <td>${product.id.substring(0, 8)}...</td>
@@ -1294,6 +1464,7 @@
                         <td>${product.title}</td>
                         <td>${product.category}</td>
                         <td>${product.price}</td>
+                        <td><span class="status-badge ${typeBadgeClass}">${productType}</span></td>
                         <td><span class="status-badge status-${product.status}">${product.status}</span></td>
                         <td>
                             <div class="action-buttons">
@@ -1381,6 +1552,23 @@
                 document.getElementById('additionalImages').value = product.images.slice(1).join(', ');
                 document.getElementById('searchTerms').value = product.searchTerms;
                 document.getElementById('productStatus').value = product.status;
+                
+                // Set affiliate/cart checkboxes
+                document.getElementById("isAffiliate").checked = product.isAffiliate === true;
+                document.getElementById("isCart").checked = product.isCart === true;
+                
+                // Update field states based on product type
+                const productLinkField = document.getElementById("productLink");
+                if (product.isCart) {
+                    productLinkField.disabled = true;
+                    productLinkField.required = false;
+                    productLinkField.placeholder = "Not required for cart products";
+                } else {
+                    productLinkField.disabled = false;
+                    productLinkField.required = true;
+                    productLinkField.placeholder = "Enter Amazon affiliate link";
+                }
+                updateFieldAppearance();
                 
                 // Update image preview
                 updateImagePreview();
@@ -1735,21 +1923,6 @@
             
             showAlert('Products exported successfully!', 'success');
         }
-
-        function saveJsonFile() {
-            const fileName = getFileNameForPageType(currentPageType);
-
-            const dataStr = JSON.stringify(products, null, 2);
-            const blob = new Blob([dataStr], { type: "application/json" });
-
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(blob);
-            link.download = fileName;
-            link.click();
-
-            URL.revokeObjectURL(link.href);
-        }
-
     </script>
 </body>
 </html>
