@@ -1056,10 +1056,11 @@
 
         // Save products to storage
         function saveProducts() {
-            const fileName = getFileNameForPageType(currentPageType);
-            localStorage.setItem(fileName, JSON.stringify(products));
-            updatePublicPage();
-        }
+                const fileName = getFileNameForPageType(currentPageType);
+                localStorage.setItem(fileName, JSON.stringify(products));
+                saveJsonFile();   // <-- NEW LINE
+                updatePublicPage();
+            }
 
         // Load categories from storage
         function loadCategories() {
@@ -1734,6 +1735,21 @@
             
             showAlert('Products exported successfully!', 'success');
         }
+
+        function saveJsonFile() {
+            const fileName = getFileNameForPageType(currentPageType);
+
+            const dataStr = JSON.stringify(products, null, 2);
+            const blob = new Blob([dataStr], { type: "application/json" });
+
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = fileName;
+            link.click();
+
+            URL.revokeObjectURL(link.href);
+        }
+
     </script>
 </body>
 </html>
