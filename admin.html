@@ -1550,6 +1550,31 @@
             
             showAlert('Products exported successfully!', 'success');
         }
+
+        // GitHub Pages compatibility
+            if (window.location.hostname.includes('github.io')) {
+            // CORS issues avoid karne ke liye
+            console.log('Running on GitHub Pages');
+            
+            // Data backup/restore functionality adjust karo
+            const originalBackupData = window.backupData;
+            window.backupData = function() {
+                try {
+                    originalBackupData();
+                } catch (e) {
+                    // Fallback method
+                    const data = {
+                        products: products,
+                        categories: categories,
+                        backupDate: new Date().toISOString()
+                    };
+                    const dataStr = JSON.stringify(data, null, 2);
+                    const blob = new Blob([dataStr], {type: 'application/json'});
+                    const url = URL.createObjectURL(blob);
+                    window.open(url);
+                }
+            };
+        }
     </script>
 </body>
 </html>
