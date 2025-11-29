@@ -43,6 +43,21 @@
         .admin-nav {
             display: flex;
             align-items: center;
+            gap: 15px;
+        }
+        
+        .page-selector select {
+            padding: 8px 15px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .page-selector select option {
+            background: #1a2a6c;
+            color: white;
         }
         
         .admin-nav a {
@@ -302,6 +317,21 @@
             color: #721c24;
         }
         
+        .status-hot {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-trending {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .status-bestseller {
+            background: #d4edda;
+            color: #155724;
+        }
+        
         .action-buttons {
             display: flex;
             gap: 8px;
@@ -460,6 +490,44 @@
             flex-wrap: wrap;
         }
         
+        /* Dashboard Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .stat-products {
+            color: #1a2a6c;
+        }
+        
+        .stat-active {
+            color: #28a745;
+        }
+        
+        .stat-categories {
+            color: #fd7e14;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .admin-container {
@@ -473,6 +541,16 @@
             .form-row {
                 flex-direction: column;
                 gap: 0;
+            }
+            
+            .admin-nav {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+            
+            .page-selector {
+                margin-left: 0;
             }
         }
     </style>
@@ -505,6 +583,13 @@
                 <i class="fas fa-cogs"></i> DKapoore.Shop Admin
             </div>
             <nav class="admin-nav">
+                <div class="page-selector">
+                    <select id="pageTypeSelector">
+                        <option value="amazon_deals">Amazon Deals</option>
+                        <option value="ebooks">E-Books</option>
+                        <option value="automation_apps">Automation Apps</option>
+                    </select>
+                </div>
                 <a href="amazon_deals.html" target="_blank"><i class="fas fa-eye"></i> View Site</a>
                 <a href="#" id="logoutBtn" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
             </nav>
@@ -528,19 +613,20 @@
                 <!-- Dashboard Tab -->
                 <div id="dashboard" class="tab-content active">
                     <div class="admin-section">
-                        <h2 class="section-title">Dashboard</h2>
-                        <div class="form-row">
-                            <div class="form-group" style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                        <h2 class="section-title" id="dashboardTitle">Amazon Deals Dashboard</h2>
+                        
+                        <div class="stats-grid">
+                            <div class="stat-card">
                                 <h3>Total Products</h3>
-                                <p id="totalProducts" style="font-size: 2rem; font-weight: bold; color: #1a2a6c;">0</p>
+                                <p id="totalProducts" class="stat-value stat-products">0</p>
                             </div>
-                            <div class="form-group" style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                            <div class="stat-card">
                                 <h3>Active Products</h3>
-                                <p id="activeProducts" style="font-size: 2rem; font-weight: bold; color: #28a745;">0</p>
+                                <p id="activeProducts" class="stat-value stat-active">0</p>
                             </div>
-                            <div class="form-group" style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                            <div class="stat-card">
                                 <h3>Categories</h3>
-                                <p id="totalCategories" style="font-size: 2rem; font-weight: bold; color: #fd7e14;">0</p>
+                                <p id="totalCategories" class="stat-value stat-categories">0</p>
                             </div>
                         </div>
                     </div>
@@ -650,7 +736,7 @@
                             </div>
                             
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Add Product</button>
+                                <button type="submit" class="btn btn-primary" id="submitProductBtn">Add Product</button>
                                 <button type="button" class="btn btn-secondary" id="resetForm">Reset Form</button>
                             </div>
                         </form>
@@ -771,13 +857,15 @@
         let currentPage = 1;
         const productsPerPage = 10;
         let isLoggedIn = false;
+        let currentPageType = 'amazon_deals';
+        let editingProductId = null;
 
         // Initialize the application
         document.addEventListener('DOMContentLoaded', function() {
             checkLoginStatus();
             initializeEventListeners();
             loadCategories();
-            loadProducts();
+            loadProductsForCurrentPage();
             updateDashboard();
         });
 
@@ -823,6 +911,30 @@
             
             // Logout button
             document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+            
+            // Page type selector
+            document.getElementById('pageTypeSelector').addEventListener('change', function(e) {
+                currentPageType = e.target.value;
+                loadProductsForCurrentPage();
+                loadCategories();
+                updateDashboard();
+                
+                // Update view site link
+                const viewSiteLink = document.querySelector('.admin-nav a[target="_blank"]');
+                if (viewSiteLink) {
+                    switch(currentPageType) {
+                        case 'amazon_deals':
+                            viewSiteLink.href = 'amazon_deals.html';
+                            break;
+                        case 'ebooks':
+                            viewSiteLink.href = 'e_books.html';
+                            break;
+                        case 'automation_apps':
+                            viewSiteLink.href = 'automation_apps.html';
+                            break;
+                    }
+                }
+            });
             
             // Menu tabs
             document.querySelectorAll('.admin-menu a').forEach(tab => {
@@ -909,18 +1021,69 @@
                 renderProductsTable();
             } else if (tabId === 'categories') {
                 renderCategories();
+            } else if (tabId === 'addProduct') {
+                resetProductForm();
             }
+        }
+
+        // Load products for current page type
+        function loadProductsForCurrentPage() {
+            const fileName = getFileNameForPageType(currentPageType);
+            const storedProducts = localStorage.getItem(fileName);
+            
+            if (storedProducts) {
+                products = JSON.parse(storedProducts);
+            } else {
+                products = [];
+            }
+            
+            // Update UI
+            if (document.getElementById('products').classList.contains('active')) {
+                renderProductsTable();
+            }
+            updateDashboard();
+        }
+
+        // Get filename for page type
+        function getFileNameForPageType(pageType) {
+            switch(pageType) {
+                case 'amazon_deals': return 'amazon_deals.json';
+                case 'ebooks': return 'ebooks.json';
+                case 'automation_apps': return 'automation_apps.json';
+                default: return 'amazon_deals.json';
+            }
+        }
+
+        // Save products to storage
+        function saveProducts() {
+            const fileName = getFileNameForPageType(currentPageType);
+            localStorage.setItem(fileName, JSON.stringify(products));
+            updatePublicPage();
         }
 
         // Load categories from storage
         function loadCategories() {
-            const storedCategories = localStorage.getItem('productCategories');
+            const categoryKey = `productCategories_${currentPageType}`;
+            const storedCategories = localStorage.getItem(categoryKey);
+            
             if (storedCategories) {
                 categories = JSON.parse(storedCategories);
             } else {
-                // Default categories
-                categories = ['Kurti', 'Ethnic Wear', 'Fashion', 'Home & Kitchen'];
-                localStorage.setItem('productCategories', JSON.stringify(categories));
+                // Default categories based on page type
+                switch(currentPageType) {
+                    case 'amazon_deals':
+                        categories = ['Kurti', 'Ethnic Wear', 'Fashion', 'Home & Kitchen'];
+                        break;
+                    case 'ebooks':
+                        categories = ['Fiction', 'Non-Fiction', 'Business', 'Technology', 'Self-Help'];
+                        break;
+                    case 'automation_apps':
+                        categories = ['Productivity', 'Marketing', 'Social Media', 'Data Analysis', 'Workflow'];
+                        break;
+                    default:
+                        categories = ['General'];
+                }
+                localStorage.setItem(categoryKey, JSON.stringify(categories));
             }
             updateCategoryDropdowns();
         }
@@ -944,10 +1107,11 @@
         // Add new category
         function addNewCategory() {
             const categoryName = document.getElementById('newCategoryName').value.trim();
+            const categoryKey = `productCategories_${currentPageType}`;
             
             if (categoryName && !categories.includes(categoryName)) {
                 categories.push(categoryName);
-                localStorage.setItem('productCategories', JSON.stringify(categories));
+                localStorage.setItem(categoryKey, JSON.stringify(categories));
                 updateCategoryDropdowns();
                 renderCategories();
                 document.getElementById('newCategoryName').value = '';
@@ -963,9 +1127,11 @@
         function showAddCategoryModal() {
             const categoryName = prompt('Enter new category name:');
             if (categoryName && categoryName.trim() !== '') {
+                const categoryKey = `productCategories_${currentPageType}`;
+                
                 if (!categories.includes(categoryName.trim())) {
                     categories.push(categoryName.trim());
-                    localStorage.setItem('productCategories', JSON.stringify(categories));
+                    localStorage.setItem(categoryKey, JSON.stringify(categories));
                     updateCategoryDropdowns();
                     showAlert('Category added successfully!', 'success');
                 } else {
@@ -994,27 +1160,15 @@
 
         // Remove category
         function removeCategory(categoryName) {
+            const categoryKey = `productCategories_${currentPageType}`;
+            
             if (confirm(`Are you sure you want to delete the category "${categoryName}"?`)) {
                 categories = categories.filter(cat => cat !== categoryName);
-                localStorage.setItem('productCategories', JSON.stringify(categories));
+                localStorage.setItem(categoryKey, JSON.stringify(categories));
                 updateCategoryDropdowns();
                 renderCategories();
                 showAlert('Category deleted successfully!', 'success');
             }
-        }
-
-        // Load products from storage
-        function loadProducts() {
-            const storedProducts = localStorage.getItem('products');
-            if (storedProducts) {
-                products = JSON.parse(storedProducts);
-            }
-        }
-
-        // Save products to storage
-        function saveProducts() {
-            localStorage.setItem('products', JSON.stringify(products));
-            updatePublicPage();
         }
 
         // Handle add product form submission
@@ -1036,7 +1190,7 @@
             
             // Create product object
             const product = {
-                id: generateId(),
+                id: editingProductId || generateId(),
                 title,
                 category,
                 price,
@@ -1047,20 +1201,33 @@
                 images: [mainImage, ...additionalImages],
                 searchTerms,
                 status,
-                createdAt: new Date().toISOString()
+                createdAt: editingProductId ? products.find(p => p.id === editingProductId).createdAt : new Date().toISOString(),
+                updatedAt: new Date().toISOString()
             };
             
-            // Add to products array
-            products.unshift(product);
+            if (editingProductId) {
+                // Update existing product
+                const index = products.findIndex(p => p.id === editingProductId);
+                if (index !== -1) {
+                    products[index] = product;
+                }
+                showAlert('Product updated successfully!', 'success');
+                editingProductId = null;
+                
+                // Reset form to add mode
+                document.querySelector('#addProduct .section-title').textContent = 'Add New Product';
+                document.getElementById('submitProductBtn').textContent = 'Add Product';
+            } else {
+                // Add new product
+                products.unshift(product);
+                showAlert('Product added successfully!', 'success');
+            }
             
             // Save to storage
             saveProducts();
             
             // Reset form
             resetProductForm();
-            
-            // Show success message
-            showAlert('Product added successfully!', 'success');
             
             // Switch to products tab
             switchTab('products');
@@ -1070,6 +1237,11 @@
         function resetProductForm() {
             document.getElementById('productForm').reset();
             document.getElementById('imagePreviewContainer').innerHTML = '';
+            editingProductId = null;
+            
+            // Reset form title and button
+            document.querySelector('#addProduct .section-title').textContent = 'Add New Product';
+            document.getElementById('submitProductBtn').textContent = 'Add Product';
         }
 
         // Generate unique ID
@@ -1092,7 +1264,7 @@
                 filteredProducts = filteredProducts.filter(product => 
                     product.title.toLowerCase().includes(searchTerm) ||
                     product.description.toLowerCase().includes(searchTerm) ||
-                    product.searchTerms.toLowerCase().includes(searchTerm)
+                    (product.searchTerms && product.searchTerms.toLowerCase().includes(searchTerm))
                 );
             }
             
@@ -1121,7 +1293,7 @@
                         <td>${product.title}</td>
                         <td>${product.category}</td>
                         <td>${product.price}</td>
-                        <td><span class="status-badge status-${product.status === 'active' || product.status === 'hot' || product.status === 'trending' || product.status === 'bestseller' ? 'active' : 'inactive'}">${product.status}</span></td>
+                        <td><span class="status-badge status-${product.status}">${product.status}</span></td>
                         <td>
                             <div class="action-buttons">
                                 <button class="action-btn btn-primary" onclick="editProduct('${product.id}')"><i class="fas fa-edit"></i></button>
@@ -1212,15 +1384,15 @@
                 // Update image preview
                 updateImagePreview();
                 
-                // Remove product from array (will be re-added on submit)
-                products = products.filter(p => p.id !== productId);
+                // Set editing mode
+                editingProductId = productId;
                 
                 // Switch to add product tab
                 switchTab('addProduct');
                 
                 // Change form title and button
                 document.querySelector('#addProduct .section-title').textContent = 'Edit Product';
-                document.querySelector('#productForm button[type="submit"]').textContent = 'Update Product';
+                document.getElementById('submitProductBtn').textContent = 'Update Product';
                 
                 showAlert('Product loaded for editing. Update and submit to save changes.', 'success');
             }
@@ -1278,7 +1450,7 @@
                 const preview = document.createElement('div');
                 preview.className = 'image-preview';
                 preview.innerHTML = `
-                    <img src="${mainImage}" alt="Main Image">
+                    <img src="${mainImage}" alt="Main Image" onerror="this.src='https://via.placeholder.com/120x120?text=Image+Error'">
                     <button type="button" class="remove-image" onclick="removeImagePreview('mainImage')">
                         <i class="fas fa-times"></i>
                     </button>
@@ -1292,7 +1464,7 @@
                     const preview = document.createElement('div');
                     preview.className = 'image-preview';
                     preview.innerHTML = `
-                        <img src="${image}" alt="Additional Image">
+                        <img src="${image}" alt="Additional Image" onerror="this.src='https://via.placeholder.com/120x120?text=Image+Error'">
                         <button type="button" class="remove-image" onclick="removeAdditionalImage(${index})">
                             <i class="fas fa-times"></i>
                         </button>
@@ -1321,19 +1493,27 @@
             document.getElementById('totalProducts').textContent = products.length;
             document.getElementById('activeProducts').textContent = products.filter(p => p.status !== 'inactive').length;
             document.getElementById('totalCategories').textContent = categories.length;
+            
+            // Update dashboard title based on page type
+            const pageTitleMap = {
+                'amazon_deals': 'Amazon Deals',
+                'ebooks': 'E-Books', 
+                'automation_apps': 'Automation Apps'
+            };
+            document.getElementById('dashboardTitle').textContent = 
+                `${pageTitleMap[currentPageType]} Dashboard`;
         }
 
         // Update public page
         function updatePublicPage() {
-            // This function would update the actual amazon_deals.html page
-            // For now, we'll just log that an update is needed
-            console.log('Public page needs update with', products.length, 'products');
+            // This function would update the actual pages
+            console.log(`Public page ${currentPageType} needs update with`, products.length, 'products');
             
-            // In a real implementation, this would:
-            // 1. Generate the desktop cards HTML
-            // 2. Generate the mobile reel cards HTML
-            // 3. Update the page content
-            // 4. Regenerate the JSON-LD structured data
+            // In a real implementation, this would update the specific page
+            // For now, we'll just trigger the core system if it's loaded
+            if (typeof PRODUCTS_CORE !== 'undefined' && PRODUCTS_CORE.config.currentPageType === currentPageType) {
+                PRODUCTS_CORE.saveProducts();
+            }
         }
 
         // AI Features
@@ -1449,6 +1629,7 @@
             const data = {
                 products: products,
                 categories: categories,
+                pageType: currentPageType,
                 backupDate: new Date().toISOString()
             };
             
@@ -1458,7 +1639,7 @@
             const url = URL.createObjectURL(dataBlob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `dkapoore_backup_${new Date().toISOString().split('T')[0]}.json`;
+            a.download = `dkapoore_${currentPageType}_backup_${new Date().toISOString().split('T')[0]}.json`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
@@ -1487,8 +1668,11 @@
                             products = data.products;
                             categories = data.categories;
                             
-                            localStorage.setItem('products', JSON.stringify(products));
-                            localStorage.setItem('productCategories', JSON.stringify(categories));
+                            const fileName = getFileNameForPageType(currentPageType);
+                            const categoryKey = `productCategories_${currentPageType}`;
+                            
+                            localStorage.setItem(fileName, JSON.stringify(products));
+                            localStorage.setItem(categoryKey, JSON.stringify(categories));
                             
                             updateCategoryDropdowns();
                             renderProductsTable();
@@ -1542,38 +1726,13 @@
             const url = URL.createObjectURL(dataBlob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `dkapoore_products_${new Date().toISOString().split('T')[0]}.json`;
+            a.download = `dkapoore_${currentPageType}_products_${new Date().toISOString().split('T')[0]}.json`;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
             
             showAlert('Products exported successfully!', 'success');
-        }
-
-        // GitHub Pages compatibility
-            if (window.location.hostname.includes('github.io')) {
-            // CORS issues avoid karne ke liye
-            console.log('Running on GitHub Pages');
-            
-            // Data backup/restore functionality adjust karo
-            const originalBackupData = window.backupData;
-            window.backupData = function() {
-                try {
-                    originalBackupData();
-                } catch (e) {
-                    // Fallback method
-                    const data = {
-                        products: products,
-                        categories: categories,
-                        backupDate: new Date().toISOString()
-                    };
-                    const dataStr = JSON.stringify(data, null, 2);
-                    const blob = new Blob([dataStr], {type: 'application/json'});
-                    const url = URL.createObjectURL(blob);
-                    window.open(url);
-                }
-            };
         }
     </script>
 </body>
