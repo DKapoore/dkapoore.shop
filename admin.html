@@ -566,6 +566,31 @@
             color: #fd7e14;
         }
         
+        /* GitHub Sync Section */
+        .github-sync {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .sync-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .btn-github {
+            background: #24292e;
+            color: white;
+        }
+        
+        .btn-github:hover {
+            background: #1a1f24;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .admin-container {
@@ -589,6 +614,10 @@
             
             .page-selector {
                 margin-left: 0;
+            }
+            
+            .sync-buttons {
+                flex-direction: column;
             }
         }
     </style>
@@ -652,6 +681,29 @@
                 <div id="dashboard" class="tab-content active">
                     <div class="admin-section">
                         <h2 class="section-title" id="dashboardTitle">Amazon Deals Dashboard</h2>
+                        
+                        <!-- GitHub Sync Section -->
+                        <div class="github-sync">
+                            <h3 style="color: #1a2a6c; margin-bottom: 15px;">
+                                <i class="fab fa-github"></i> GitHub Data Sync
+                            </h3>
+                            <p style="margin-bottom: 15px; color: #666;">
+                                Sync your data with GitHub to make it available to all users. 
+                                Changes will be visible on both mobile and web views.
+                            </p>
+                            <div class="sync-buttons">
+                                <button type="button" class="btn btn-github" id="pushToGitHub">
+                                    <i class="fas fa-upload"></i> Push to GitHub
+                                </button>
+                                <button type="button" class="btn btn-success" id="pullFromGitHub">
+                                    <i class="fas fa-download"></i> Pull from GitHub
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="viewGitHubFile">
+                                    <i class="fas fa-external-link-alt"></i> View GitHub File
+                                </button>
+                            </div>
+                            <div id="githubStatus" style="margin-top: 15px; font-size: 0.9rem;"></div>
+                        </div>
                         
                         <div class="stats-grid">
                             <div class="stat-card">
@@ -898,6 +950,28 @@
                                 <input type="file" id="restoreFile" accept=".json" style="display: none;">
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="form-label">GitHub Configuration</label>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">GitHub Username</label>
+                                    <input type="text" class="form-control" id="githubUsername" placeholder="Your GitHub username">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Repository Name</label>
+                                    <input type="text" class="form-control" id="githubRepo" placeholder="Repository name">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">GitHub Token (optional)</label>
+                                    <input type="password" class="form-control" id="githubToken" placeholder="GitHub personal access token">
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="saveGitHubConfig">Save GitHub Config</button>
+                            <div id="githubConfigStatus" style="margin-top: 10px;"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -914,10 +988,18 @@
         let currentPageType = 'amazon_deals';
         let editingProductId = null;
 
+        // GitHub Configuration
+        let githubConfig = {
+            username: '',
+            repo: '',
+            token: ''
+        };
+
         // Initialize the application
         document.addEventListener('DOMContentLoaded', function() {
             checkLoginStatus();
             initializeEventListeners();
+            loadGitHubConfig();
             loadCategories();
             loadProductsForCurrentPage();
             updateDashboard();
@@ -1087,8 +1169,154 @@
             document.getElementById('restoreDataBtn').addEventListener('click', triggerRestore);
             document.getElementById('restoreFile').addEventListener('change', restoreData);
             
+            // GitHub Sync
+            document.getElementById('pushToGitHub').addEventListener('click', pushToGitHub);
+            document.getElementById('pullFromGitHub').addEventListener('click', pullFromGitHub);
+            document.getElementById('viewGitHubFile').addEventListener('click', viewGitHubFile);
+            document.getElementById('saveGitHubConfig').addEventListener('click', saveGitHubConfig);
+            
             // Image preview
             document.getElementById('mainImage').addEventListener('input', updateImagePreview);
+        }
+
+        // Load GitHub configuration
+        function loadGitHubConfig() {
+            const savedConfig = localStorage.getItem('githubConfig');
+            if (savedConfig) {
+                githubConfig = JSON.parse(savedConfig);
+                document.getElementById('githubUsername').value = githubConfig.username || '';
+                document.getElementById('githubRepo').value = githubConfig.repo || '';
+                document.getElementById('githubToken').value = githubConfig.token || '';
+            }
+        }
+
+        // Save GitHub configuration
+        function saveGitHubConfig() {
+            githubConfig.username = document.getElementById('githubUsername').value.trim();
+            githubConfig.repo = document.getElementById('githubRepo').value.trim();
+            githubConfig.token = document.getElementById('githubToken').value.trim();
+            
+            localStorage.setItem('githubConfig', JSON.stringify(githubConfig));
+            
+            document.getElementById('githubConfigStatus').innerHTML = 
+                '<div class="alert alert-success">GitHub configuration saved successfully!</div>';
+            
+            setTimeout(() => {
+                document.getElementById('githubConfigStatus').innerHTML = '';
+            }, 3000);
+        }
+
+        // Push data to GitHub
+        async function pushToGitHub() {
+            if (!githubConfig.username || !githubConfig.repo) {
+                showAlert('Please configure GitHub username and repository first in Settings.', 'danger');
+                return;
+            }
+
+            const statusElement = document.getElementById('githubStatus');
+            statusElement.innerHTML = '<div class="alert alert-info">Pushing data to GitHub...</div>';
+
+            try {
+                const data = {
+                    products: products,
+                    categories: categories,
+                    pageType: currentPageType,
+                    lastUpdated: new Date().toISOString()
+                };
+
+                // Create JSON file content
+                const jsonContent = JSON.stringify(data, null, 2);
+                
+                // For GitHub Pages, we'll create a downloadable JSON file
+                const blob = new Blob([jsonContent], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `data_${currentPageType}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                statusElement.innerHTML = '<div class="alert alert-success">Data exported successfully! Download the JSON file and upload it to your GitHub repository manually.</div>';
+                
+                // Show instructions
+                setTimeout(() => {
+                    statusElement.innerHTML += `
+                        <div class="alert alert-info" style="margin-top: 10px;">
+                            <strong>Instructions:</strong><br>
+                            1. Download the JSON file<br>
+                            2. Upload it to your GitHub repository: <code>${githubConfig.username}/${githubConfig.repo}</code><br>
+                            3. Place it in the root directory as <code>data_${currentPageType}.json</code><br>
+                            4. Enable GitHub Pages in repository settings
+                        </div>
+                    `;
+                }, 1000);
+
+            } catch (error) {
+                console.error('Error pushing to GitHub:', error);
+                statusElement.innerHTML = '<div class="alert alert-danger">Error pushing data to GitHub: ' + error.message + '</div>';
+            }
+        }
+
+        // Pull data from GitHub
+        async function pullFromGitHub() {
+            if (!githubConfig.username || !githubConfig.repo) {
+                showAlert('Please configure GitHub username and repository first in Settings.', 'danger');
+                return;
+            }
+
+            const statusElement = document.getElementById('githubStatus');
+            statusElement.innerHTML = '<div class="alert alert-info">Pulling data from GitHub...</div>';
+
+            try {
+                // Construct GitHub Pages URL
+                const githubUrl = `https://${githubConfig.username}.github.io/${githubConfig.repo}/data_${currentPageType}.json`;
+                
+                const response = await fetch(githubUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                // Update local data
+                products = data.products || [];
+                categories = data.categories || [];
+                
+                // Save to localStorage
+                saveProducts();
+                updateCategoryDropdowns();
+                renderProductsTable();
+                renderCategories();
+                updateDashboard();
+                
+                statusElement.innerHTML = '<div class="alert alert-success">Data pulled from GitHub successfully! ' + products.length + ' products loaded.</div>';
+                
+            } catch (error) {
+                console.error('Error pulling from GitHub:', error);
+                statusElement.innerHTML = `
+                    <div class="alert alert-danger">
+                        Error pulling data from GitHub: ${error.message}<br>
+                        Make sure:<br>
+                        1. GitHub Pages is enabled for your repository<br>
+                        2. JSON file exists at: <code>data_${currentPageType}.json</code><br>
+                        3. Repository is public
+                    </div>
+                `;
+            }
+        }
+
+        // View GitHub file
+        function viewGitHubFile() {
+            if (!githubConfig.username || !githubConfig.repo) {
+                showAlert('Please configure GitHub username and repository first in Settings.', 'danger');
+                return;
+            }
+
+            const githubUrl = `https://github.com/${githubConfig.username}/${githubConfig.repo}/blob/main/data_${currentPageType}.json`;
+            window.open(githubUrl, '_blank');
         }
 
         // Handle login
