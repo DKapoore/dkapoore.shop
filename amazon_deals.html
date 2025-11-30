@@ -1386,23 +1386,37 @@
             from { transform: translateX(0); opacity: 1; }
             to { transform: translateX(100%); opacity: 0; }
         }
+
+        /* Error Message Styles */
+        .error-message {
+            text-align: center;
+            padding: 50px 20px;
+            color: #b21f1f;
+            grid-column: 1 / -1;
+        }
+
+        .error-message i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #b21f1f;
+        }
     </style>
 </head>
 <body>
     <!-- Desktop Header -->
     <header class="desktop-header">
         <div class="header-container">
-            <a href="index.html" class="desktop-logo">DKapoore.Shop</a>
+            <a href="./index.html" class="desktop-logo">DKapoore.Shop</a>
             <ul class="desktop-nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="amazon_deals.html" class="active">Amazon Deals</a></li>
-                <li><a href="ebook.html">E-Books</a></li>
-                <li><a href="automation-apps.html">Automation Apps</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./amazon_deals.html" class="active">Amazon Deals</a></li>
+                <li><a href="./ebook.html">E-Books</a></li>
+                <li><a href="./automation-apps.html">Automation Apps</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
             </ul>
             <div class="cart-icon">
-                <a href="cart.html" style="color: white; text-decoration: none;">
+                <a href="./cart.html" style="color: white; text-decoration: none;">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count" id="desktop-cart-count">0</span>
                 </a>
@@ -1462,9 +1476,9 @@
             </div>
             <div class="footer-section">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Checkout & Cart Page.html">Cart</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./cart.html">Cart</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -1492,7 +1506,7 @@
                 <input type="text" placeholder="Search deals..." id="search-input">
             </div>
             <div class="mobile-cart-icon">
-                <a href="Checkout & Cart Page.html" style="color: white; text-decoration: none;">
+                <a href="./cart.html" style="color: white; text-decoration: none;">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="mobile-cart-count" id="mobile-cart-count">0</span>
                 </a>
@@ -1501,23 +1515,23 @@
 
         <div class="main-content">
             <div class="nav-sidebar">
-                <a href="index.html" class="nav-btn" title="Home">
+                <a href="./index.html" class="nav-btn" title="Home">
                     <i class="fas fa-home"></i>
                     <span class="tooltip">Home</span>
                 </a>
-                <a href="amazon_deals.html" class="nav-btn active" title="Amazon Deals">
+                <a href="./amazon_deals.html" class="nav-btn active" title="Amazon Deals">
                     <i class="fas fa-tag"></i>
                     <span class="tooltip">Amazon Deals</span>
                 </a>
-                <a href="ebook.html" class="nav-btn" title="E-Books">
+                <a href="./ebook.html" class="nav-btn" title="E-Books">
                     <i class="fas fa-book"></i>
                     <span class="tooltip">E-Books</span>
                 </a>
-                <a href="automation-app.html" class="nav-btn" title="Automation Apps">
+                <a href="./automation-apps.html" class="nav-btn" title="Automation Apps">
                     <i class="fas fa-robot"></i>
                     <span class="tooltip">Automation Apps</span>
                 </a>
-                <a href="contact.html" class="nav-btn" title="Contact">
+                <a href="./contact.html" class="nav-btn" title="Contact">
                     <i class="fas fa-envelope"></i>
                     <span class="tooltip">Contact</span>
                 </a>
@@ -1611,8 +1625,8 @@
     <script>
         // CONFIGURATION
         const CONFIG = {
-            GITHUB_USERNAME: 'dkapoore', // Replace with your GitHub username
-            GITHUB_REPO: 'dkapoore.shop', // Replace with your repository name
+            GITHUB_USERNAME: 'dkapoore',
+            GITHUB_REPO: 'dkapoore.shop',
             DATA_FILE: 'data_amazon_deals.json'
         };
 
@@ -1632,12 +1646,12 @@
             updateCartCount();
         });
 
-        // Load data from GitHub repository
+        // Load data from GitHub Pages
         async function loadData() {
             showLoading(true);
             
             try {
-                // Try to load from GitHub first
+                // Load from GitHub Pages
                 const githubUrl = `https://${CONFIG.GITHUB_USERNAME}.github.io/${CONFIG.GITHUB_REPO}/${CONFIG.DATA_FILE}`;
                 console.log('Loading data from:', githubUrl);
                 
@@ -1647,78 +1661,51 @@
                     const data = await response.json();
                     products = data.products || [];
                     categories = data.categories || [];
-                    console.log(`Loaded ${products.length} products from GitHub`);
+                    console.log(`Loaded ${products.length} products from GitHub Pages`);
+                    renderUI();
                 } else {
-                    throw new Error(`GitHub data not available: ${response.status}`);
+                    throw new Error(`GitHub Pages data not available: ${response.status}`);
                 }
             } catch (error) {
-                console.warn('Could not load data from GitHub, trying localStorage:', error.message);
-                
-                // Fallback to localStorage
-                const storedProducts = localStorage.getItem('products_amazon_deals');
-                const storedCategories = localStorage.getItem('productCategories_amazon_deals');
-                
-                if (storedProducts) {
-                    products = JSON.parse(storedProducts);
-                }
-                
-                if (storedCategories) {
-                    categories = JSON.parse(storedCategories);
-                }
-                
-                console.log(`Loaded ${products.length} products from localStorage`);
+                console.error('Failed to load data from GitHub Pages:', error);
+                showError('Unable to load data. Please check your internet connection and try again.');
             }
             
-            // If still no data, use default sample data
-            if (products.length === 0) {
-                products = getDefaultProducts();
-                categories = getDefaultCategories();
-                console.log('Using default sample data');
-            }
-            
-            renderUI();
             showLoading(false);
         }
 
-        // Get default products (fallback)
-        function getDefaultProducts() {
-            return [
-                {
-                    id: 'prod_1',
-                    title: 'Premium Wireless Headphones',
-                    category: 'Electronics',
-                    price: '2,499',
-                    link: 'https://amazon.in/dp/example1',
-                    rating: 4.5,
-                    reviews: 1250,
-                    description: 'High-quality wireless headphones with noise cancellation and 30-hour battery life.',
-                    images: ['https://via.placeholder.com/300x200?text=Headphones'],
-                    searchTerms: 'headphones, wireless, audio, electronics',
-                    status: 'active',
-                    isAffiliate: true,
-                    isCart: false
-                },
-                {
-                    id: 'prod_2',
-                    title: 'Smart Fitness Band',
-                    category: 'Fitness',
-                    price: '1,799',
-                    link: 'https://amazon.in/dp/example2',
-                    rating: 4.2,
-                    reviews: 890,
-                    description: 'Track your steps, heart rate, sleep patterns and more with this advanced fitness band.',
-                    images: ['https://via.placeholder.com/300x200?text=Fitness+Band'],
-                    searchTerms: 'fitness, band, health, tracker',
-                    status: 'active',
-                    isAffiliate: true,
-                    isCart: false
-                }
-            ];
-        }
-
-        // Get default categories (fallback)
-        function getDefaultCategories() {
-            return ['Electronics', 'Fitness', 'Home & Kitchen', 'Fashion'];
+        // Show error message
+        function showError(message) {
+            const grid = document.getElementById('desktop-cards-grid');
+            const container = document.getElementById('cards-container');
+            const noProducts = document.getElementById('no-products');
+            
+            if (grid) {
+                grid.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Unable to Load Data</h3>
+                        <p>${message}</p>
+                        <button onclick="loadData()" style="background: #1a2a6c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">
+                            <i class="fas fa-redo"></i> Try Again
+                        </button>
+                    </div>
+                `;
+            }
+            
+            if (container && noProducts) {
+                noProducts.style.display = 'none';
+                container.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Unable to Load Data</h3>
+                        <p>${message}</p>
+                        <button onclick="loadData()" style="background: #1a2a6c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">
+                            <i class="fas fa-redo"></i> Try Again
+                        </button>
+                    </div>
+                `;
+            }
         }
 
         // Show/hide loading spinner
