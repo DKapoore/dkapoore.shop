@@ -774,7 +774,7 @@
         }
         
         .card-content {
-            padding: 10px;
+            padding: 15px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
@@ -813,7 +813,7 @@
         .social-buttons {
             display: flex;
             gap: 10px;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         
         .social-btn {
@@ -840,7 +840,7 @@
         
         .description-container {
             position: relative;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
             flex-grow: 1;
         }
         
@@ -885,7 +885,6 @@
             transition: all 0.3s ease;
             text-align: center;
             text-decoration: none;
-            margin-top: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -908,8 +907,10 @@
             align-items: center;
             gap: 10px;
             justify-content: space-between;
-            margin-top: 8px;
+            margin-top: 0;
             width: 100%;
+            padding-top: 10px;
+            border-top: 1px solid #f0f0f0;
         }
 
         .price-buy-row .product-price-inline {
@@ -918,7 +919,7 @@
 
         .price-buy-row .buy-btn {
             flex: 0 0 auto;
-            padding: 8px 12px;
+            padding: 10px 15px;
             font-size: 14px;
             border-radius: 6px;
             margin-top: 0;
@@ -1395,7 +1396,7 @@
             <ul class="desktop-nav-menu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="amazon_deals.html" class="active">Amazon Deals</a></li>
-                <li><a href="automation-app.html">Automation Apps</a></li>
+                <li><a href="automation-apps.html">Automation Apps</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -1610,7 +1611,7 @@
         // CONFIGURATION
         const CONFIG = {
             GITHUB_USERNAME: 'dkapoore', // Replace with your GitHub username
-            GITHUB_REPO: 'dkapoore.shop', // Replace with your repository name
+            GITHUB_REPO: 'testing', // Replace with your repository name
             DATA_FILE: 'data_amazon_deals.json'
         };
 
@@ -1685,7 +1686,7 @@
                     id: 'prod_1',
                     title: 'Premium Wireless Headphones',
                     category: 'Electronics',
-                    price: '₹2,499',
+                    price: '2,499',
                     link: 'https://amazon.in/dp/example1',
                     rating: 4.5,
                     reviews: 1250,
@@ -1700,7 +1701,7 @@
                     id: 'prod_2',
                     title: 'Smart Fitness Band',
                     category: 'Fitness',
-                    price: '₹1,799',
+                    price: '1,799',
                     link: 'https://amazon.in/dp/example2',
                     rating: 4.2,
                     reviews: 890,
@@ -1881,7 +1882,7 @@
                         <p>${escapeHtml(product.description)}</p>
                     </div>
                     <div class="desktop-price-buy-row">
-                        <span class="desktop-product-price-inline">${escapeHtml(product.price)}</span>
+                        <span class="desktop-product-price-inline">Rs ${escapeHtml(product.price)}</span>
                         ${actionButton}
                     </div>
                 </div>
@@ -2113,7 +2114,7 @@
                         <p>${escapeHtml(product.description)}</p>
                     </div>
                     <div class="price-buy-row">
-                        <span class="product-price-inline">${escapeHtml(product.price)}</span>
+                        <span class="product-price-inline">Rs ${escapeHtml(product.price)}</span>
                         ${actionButton}
                     </div>
                 </div>
