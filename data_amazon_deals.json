@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": "prod_1764431308896_f2r59rk7d",
+      "title": "Portable Rapid Boil Electric Kettle",
+      "category": "Home & Kitchen",
+      "price": "636",
+      "link": "https://amzn.to/44jlAGX",
+      "rating": 3.9,
+      "reviews": 2384,
+      "description": "Boil up to 1.8L of water quickly for home or office use. Auto shut-off and dry-boil protection ensure safe operation.\\nWide mouth design allows for easy filling and cleaning. Ideal for fast, convenient hot water anytime, anywhere.",
+      "images": [
+        "https://i.ibb.co/67xYxT9p/Boil-Electric-Kettle-1.jpg",
+        "https://i.ibb.co/Vc1cbPw8/Boil-Electric-Kettle-2.jpg",
+        "https://i.ibb.co/fVBfqG50/Boil-Electric-Kettle-3.jpg"
+      ],
+      "searchTerms": "electric kettle 1.8l, portable hot water kettle, fast boil electric kettle",
+      "status": "active",
+      "isAffiliate": true,
+      "isCart": false,
+      "createdAt": "2025-11-29T15:48:28.896Z",
+      "updatedAt": "2025-11-29T15:48:28.897Z"
+    },
+    {
+      "id": "prod_1764431152972_e87hn2xzt",
+      "title": "Versatile Electric Multi-Cooker Ceramic Pot",
+      "category": "Home & Kitchen",
+      "price": "1429",
+      "link": "https://amzn.to/4pyor6J",
+      "rating": 3.9,
+      "reviews": 104,
+      "description": "Enhance your ethnic collection with this vibrant multicolored Anarkali kurta set. Made from soft viscose rayon for a comfortable and flattering drape. Ideal for festive events, weddings, office wear, or...",
+      "images": [
+        "https://i.ibb.co/JFp11H04/Versatile-Electric-Multi-Cooker-Ceramic-Pot-2-edited.jpg",
+        "https://i.ibb.co/mFcrFm6L/Versatile-Electric-Multi-Cooker-Ceramic-Pot-3-edited.jpg",
+        "https://i.ibb.co/6JXs84x2/Versatile-Electric-Multi-Cooker-Ceramic-Pot-1-edited.jpg"
+      ],
+      "searchTerms": "electric multi-cooker ceramic, versatile cooking pot, compact kitchen cooker",
+      "status": "active",
+      "isAffiliate": true,
+      "isCart": false,
+      "createdAt": "2025-11-29T15:45:52.972Z",
+      "updatedAt": "2025-11-29T15:45:52.972Z"
+    }
+  ],
+  "categories": [
+    "Kurti",
+    "Ethnic Wear",
+    "Fashion",
+    "Home & Kitchen"
+  ],
+  "pageType": "amazon_deals",
+  "lastUpdated": "2025-11-30T06:39:59.547Z"
+}
