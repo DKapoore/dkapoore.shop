@@ -501,6 +501,20 @@
             color: #ddd;
         }
         
+        /* Error Message */
+        .error-message {
+            text-align: center;
+            padding: 50px 20px;
+            color: #b21f1f;
+            grid-column: 1 / -1;
+        }
+        
+        .error-message i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #b21f1f;
+        }
+        
         /* Mobile Layout (reel-style) */
         .reels-container {
             position: relative;
@@ -1386,20 +1400,6 @@
             from { transform: translateX(0); opacity: 1; }
             to { transform: translateX(100%); opacity: 0; }
         }
-
-        /* Error Message Styles */
-        .error-message {
-            text-align: center;
-            padding: 50px 20px;
-            color: #b21f1f;
-            grid-column: 1 / -1;
-        }
-
-        .error-message i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #b21f1f;
-        }
     </style>
 </head>
 <body>
@@ -1551,6 +1551,13 @@
                         <h3>No products found</h3>
                         <p>Try selecting a different category or check back later for new deals</p>
                     </div>
+                    
+                    <!-- Error Message -->
+                    <div class="error-message" id="error-message" style="display: none;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Unable to load data</h3>
+                        <p>Please check your internet connection and try again</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1646,7 +1653,7 @@
             updateCartCount();
         });
 
-        // Load data from GitHub Pages
+        // Load data from GitHub repository
         async function loadData() {
             showLoading(true);
             
@@ -1662,50 +1669,43 @@
                     products = data.products || [];
                     categories = data.categories || [];
                     console.log(`Loaded ${products.length} products from GitHub Pages`);
+                    hideErrorMessage();
                     renderUI();
                 } else {
-                    throw new Error(`GitHub Pages data not available: ${response.status}`);
+                    throw new Error(`GitHub data not available: ${response.status}`);
                 }
             } catch (error) {
-                console.error('Failed to load data from GitHub Pages:', error);
-                showError('Unable to load data. Please check your internet connection and try again.');
+                console.error('Failed to load data from GitHub:', error.message);
+                showErrorMessage();
+            } finally {
+                showLoading(false);
             }
-            
-            showLoading(false);
         }
 
         // Show error message
-        function showError(message) {
-            const grid = document.getElementById('desktop-cards-grid');
-            const container = document.getElementById('cards-container');
+        function showErrorMessage() {
+            const errorMessage = document.getElementById('error-message');
             const noProducts = document.getElementById('no-products');
+            const desktopGrid = document.getElementById('desktop-cards-grid');
             
-            if (grid) {
-                grid.innerHTML = `
+            if (errorMessage) errorMessage.style.display = 'block';
+            if (noProducts) noProducts.style.display = 'none';
+            
+            if (desktopGrid) {
+                desktopGrid.innerHTML = `
                     <div class="error-message">
                         <i class="fas fa-exclamation-triangle"></i>
-                        <h3>Unable to Load Data</h3>
-                        <p>${message}</p>
-                        <button onclick="loadData()" style="background: #1a2a6c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">
-                            <i class="fas fa-redo"></i> Try Again
-                        </button>
+                        <h3>Unable to load data</h3>
+                        <p>Please check your internet connection and try again</p>
                     </div>
                 `;
             }
-            
-            if (container && noProducts) {
-                noProducts.style.display = 'none';
-                container.innerHTML = `
-                    <div class="error-message">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h3>Unable to Load Data</h3>
-                        <p>${message}</p>
-                        <button onclick="loadData()" style="background: #1a2a6c; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">
-                            <i class="fas fa-redo"></i> Try Again
-                        </button>
-                    </div>
-                `;
-            }
+        }
+
+        // Hide error message
+        function hideErrorMessage() {
+            const errorMessage = document.getElementById('error-message');
+            if (errorMessage) errorMessage.style.display = 'none';
         }
 
         // Show/hide loading spinner
