@@ -1654,33 +1654,60 @@
         });
 
         // Load data from GitHub repository
-        async function loadData() {
-            showLoading(true);
-            
-            try {
-                // Load from GitHub Pages
-                const githubUrl = `https://${CONFIG.GITHUB_USERNAME}.github.io/${CONFIG.GITHUB_REPO}/${CONFIG.DATA_FILE}`;
-                console.log('Loading data from:', githubUrl);
-                
-                const response = await fetch(githubUrl);
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    products = data.products || [];
-                    categories = data.categories || [];
-                    console.log(`Loaded ${products.length} products from GitHub Pages`);
-                    hideErrorMessage();
-                    renderUI();
-                } else {
-                    throw new Error(`GitHub data not available: ${response.status}`);
-                }
-            } catch (error) {
-                console.error('Failed to load data from GitHub:', error.message);
-                showErrorMessage();
-            } finally {
-                showLoading(false);
-            }
+async function loadData() {
+    showLoading(true);
+    
+    try {
+        // Method 1: Try GitHub Pages URL first
+        const githubPagesUrl = `https://${CONFIG.GITHUB_USERNAME}.github.io/${CONFIG.GITHUB_REPO}/${CONFIG.DATA_FILE}`;
+        console.log('Trying GitHub Pages URL:', githubPagesUrl);
+        
+        let response = await fetch(githubPagesUrl);
+        
+        // If GitHub Pages fails, try with CORS proxy
+        if (!response.ok) {
+            console.log('GitHub Pages failed, trying CORS proxy...');
+            const corsProxyUrl = `https://corsproxy.io/?${encodeURIComponent(githubPagesUrl)}`;
+            response = await fetch(corsProxyUrl);
         }
+        
+        if (response.ok) {
+            const data = await response.json();
+            products = data.products || [];
+            categories = data.categories || [];
+            console.log(`Loaded ${products.length} products successfully`);
+            hideErrorMessage();
+            renderUI();
+        } else {
+            throw new Error(`Failed to load data: ${response.status}`);
+        }
+    } catch (error) {
+        console.error('Failed to load data from GitHub:', error.message);
+        
+        // Try alternative CORS proxies as fallback
+        try {
+            console.log('Trying alternative CORS proxy...');
+            const altProxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://${CONFIG.GITHUB_USERNAME}.github.io/${CONFIG.GITHUB_REPO}/${CONFIG.DATA_FILE}`)}`;
+            const response = await fetch(altProxyUrl);
+            
+            if (response.ok) {
+                const data = await response.json();
+                products = data.products || [];
+                categories = data.categories || [];
+                console.log(`Loaded ${products.length} products via alternative proxy`);
+                hideErrorMessage();
+                renderUI();
+                return;
+            }
+        } catch (proxyError) {
+            console.error('Alternative proxy also failed:', proxyError.message);
+        }
+        
+        showErrorMessage();
+    } finally {
+        showLoading(false);
+    }
+}
 
         // Show error message
         function showErrorMessage() {
