@@ -1608,14 +1608,123 @@
     <!-- Copy Message -->
     <div class="copy-message" id="copyMessage">Link copied to clipboard!</div>
 
+    <!-- PRODUCTS-DATA-START -->
+<!-- PRODUCTS-DATA-START -->
     <script>
-        const CONFIG = {
-            JSON_BIN_ID: '692d128643b1c97be9cfa15f', // Your Bin ID
-            JSON_BIN_API_KEY: '$2a$10$MxMuQNNOZrGbMDiH78Nis.Zd1eCT2XFsw.i8kPlE7NIbJQgoAfGCa' // Your actual API key
-        };
+        // Main products array - All product data is stored here
+        // Admin.html will read and write directly to this array
+        const products = [
+  {
+    "id": "prod_1765213779830_vb29vh2uz",
+    "title": "Pink Rayon Embroidered Kurta Set",
+    "category": "Women's Kurtas & Kurtis",
+    "price": "825",
+    "link": "https://amzn.to/3KDXlwm",
+    "rating": 3.7,
+    "reviews": 776,
+    "description": "Elegant rayon blend kurta set designed for all-day comfort.\nEmbroidered detailing adds a refined traditional touch.\nPerfect for casual outings, festive moments, and evening wear.\nA stylish outfit set that enhances your everyday look.",
+    "images": [
+      "https://i.ibb.co/mVFckpVC/Pink-Straight-Kurta-Set-with-Dupatta-03.jpg",
+      "https://i.ibb.co/Q7F1t42N/Pink-Straight-Kurta-Set-with-Dupatta-02.jpg",
+      "https://i.ibb.co/sdPBZLzr/Pink-Straight-Kurta-Set-with-Dupatta-01.jpg"
+    ],
+    "searchTerms": "pink embroidered kurta set, rayon kurta pant dupatta, women’s festive ethnic wear",
+    "status": "bestseller",
+    "isAffiliate": true,
+    "isCart": false,
+    "createdAt": "2025-12-08T17:09:39.830Z",
+    "updatedAt": "2025-12-08T17:09:39.830Z"
+  },
+  {
+    "id": "prod_1765213467472_s6o2p3shz",
+    "title": "ANNI Designer Women’s Hand Block Printed Halter Neck Short Kurti",
+    "category": "Women's Kurtas & Kurtis",
+    "price": "499",
+    "link": "https://amzn.to/4iGfKFk",
+    "rating": 2.7,
+    "reviews": 9,
+    "description": "A stylish halter-neck short kurti crafted with traditional Dabu handblock printing.\nSoft, smooth fabric with a lace-up back for adjustable comfort and perfect fit.\nIndigo geometric patterns give a bold ethnic appeal for modern styling.\nIdeal for parties, casual outings, and statement festive looks.",
+    "images": [
+      "https://i.ibb.co/b5D1VG1n/Indigo-Halter-Neck-Short-Kurti-01.jpg",
+      "https://i.ibb.co/kVhCF4Mz/Indigo-Halter-Neck-Short-Kurti-03.jpg",
+      "https://i.ibb.co/h1t4qXtN/Indigo-Halter-Neck-Short-Kurti-02.jpg"
+    ],
+    "searchTerms": "indigo halter neck kurti, dabu handblock printed top, women ethnic short kurti",
+    "status": "trending",
+    "isAffiliate": true,
+    "isCart": false,
+    "createdAt": "2025-12-08T17:04:27.472Z",
+    "updatedAt": "2025-12-08T17:04:27.472Z"
+  },
+  {
+    "id": "prod_1765213135200_10ivwfuj5",
+    "title": "Rayon Straight Kurta Set",
+    "category": "Women's Kurtas & Kurtis",
+    "price": "699",
+    "link": "https://amzn.to/3Kmnobn",
+    "rating": 4.2,
+    "reviews": 2,
+    "description": "A chic straight kurta set made in soft rayon viscose for smooth comfort.\nComes with matching pants and a printed dupatta for a complete traditional look.\nThe V-neck design and calf-length cut offer a refined everyday elegance.\nIdeal for casual wear, festive outings, and effortless daily styling.",
+    "images": [
+      "https://i.ibb.co/20xnX20k/Women-s-Mustard-Hand-Block-Printed-Kurta-Set-02.jpg",
+      "https://i.ibb.co/DHWbx0zp/Women-s-Mustard-Hand-Block-Printed-Kurta-Set-03.jpg",
+      "https://i.ibb.co/q3RmSyzD/Women-s-Mustard-Hand-Block-Printed-Kurta-Set-01.jpg"
+    ],
+    "searchTerms": "black straight kurta set, rayon printed kurti combo, women ethnic wear set",
+    "status": "bestseller",
+    "isAffiliate": true,
+    "isCart": false,
+    "createdAt": "2025-12-08T16:58:55.200Z",
+    "updatedAt": "2025-12-08T16:58:55.200Z"
+  },
+  {
+    "id": "prod_1765212491491_ffhuefl7b",
+    "title": "Yellow Rayon Anarkali Kurta Set",
+    "category": "Women's Kurtas & Kurtis",
+    "price": "699",
+    "link": "https://amzn.to/4ayUe3d",
+    "rating": 3.7,
+    "reviews": 9689,
+    "description": "A vibrant yellow Anarkali kurta set crafted in a soft rayon blend for all-day comfort.\nPaired with matching palazzo pants and a printed dupatta for a complete ethnic look.\nCalf-length flow and V-neck design add graceful traditional charm.\nPerfect for festive outings, casual wear, and stylish everyday dressing.",
+    "images": [
+      "https://i.ibb.co/wFRhkvF5/Printed-Anarkali-Kurta-Pant-Set-with-Dupatta-01.jpg",
+      "https://i.ibb.co/67BXYHw9/Printed-Anarkali-Kurta-Pant-Set-with-Dupatta-02.jpg",
+      "https://i.ibb.co/0jYHDLT0/Printed-Anarkali-Kurta-Pant-Set-with-Dupatta-03.jpg"
+    ],
+    "searchTerms": "yellow anarkali kurta set, rayon palazzo kurti combo, women festive ethnic wear",
+    "status": "bestseller",
+    "isAffiliate": true,
+    "isCart": false,
+    "createdAt": "2025-12-08T16:48:11.491Z",
+    "updatedAt": "2025-12-08T16:48:11.491Z"
+  },
+  {
+    "id": "prod_1765212190478_wbqy8urhr",
+    "title": "Elegant Rayon Anarkali Kurta Set",
+    "category": "Women's Kurtas & Kurtis",
+    "price": "729",
+    "link": "https://amzn.to/3MujrBW",
+    "rating": 4.2,
+    "reviews": 3765,
+    "description": "A beautifully printed Anarkali kurta set designed for festive and casual elegance.\nCrafted in soft viscose rayon with a matching pant and chanderi dupatta.\nIntricate block prints and rich teal tones add a refined traditional charm.\nPerfect for celebrations, gatherings, and everyday statement styling.",
+    "images": [
+      "https://i.ibb.co/gbRGSqWx/rayon-anarkali-03.jpg",
+      "https://i.ibb.co/R4TKRQ3d/rayon-anarkali-01.jpg",
+      "https://i.ibb.co/FbSYXCrm/rayon-anarkali-02.jpg"
+    ],
+    "searchTerms": "rayon anarkali kurta set, printed festive kurti set, women ethnic wear combo",
+    "status": "bestseller",
+    "isAffiliate": true,
+    "isCart": false,
+    "createdAt": "2025-12-08T16:43:10.479Z",
+    "updatedAt": "2025-12-08T16:43:10.480Z"
+  }
+];
+    </script>
+<!-- PRODUCTS-DATA-END --><!-- PRODUCTS-DATA-END --><!-- PRODUCTS-DATA-END -->
 
+    <script>
         // Global variables
-        let products = [];
         let categories = [];
         let currentCategory = 'all';
         let currentPage = 1;
@@ -1630,92 +1739,24 @@
             updateCartCount();
         });
 
-        // Load data from JSON Bin
-        async function loadData() {
-            showLoading(true);
+        // Load data from products array
+        function loadData() {
+            // Extract unique categories from products array
+            extractCategories();
             
-            try {
-                const binUrl = `https://api.jsonbin.io/v3/b/${CONFIG.JSON_BIN_ID}/latest`;
-                console.log('Loading data from:', binUrl);
-                
-                const response = await fetch(binUrl);
-                
-                if (response.ok) {
-                    const data = await response.json();
-                    products = data.record.products || [];
-                    categories = data.record.categories || [];
-                    console.log(`Loaded ${products.length} products from JSON Bin`);
-                } else {
-                    throw new Error(`JSON Bin data not available: ${response.status}`);
-                }
-            } catch (error) {
-                console.warn('Could not load data from JSON Bin, trying localStorage:', error.message);
-                
-                // Fallback to localStorage
-                const storedProducts = localStorage.getItem('products_amazon_deals');
-                const storedCategories = localStorage.getItem('productCategories_amazon_deals');
-                
-                if (storedProducts) {
-                    products = JSON.parse(storedProducts);
-                }
-                
-                if (storedCategories) {
-                    categories = JSON.parse(storedCategories);
-                }
-                
-                console.log(`Loaded ${products.length} products from localStorage`);
-            }
-            
-            // If still no data, use default sample data
-            if (products.length === 0) {
-                products = getDefaultProducts();
-                categories = getDefaultCategories();
-                console.log('Using default sample data');
-            }
-            
+            // Render the UI
             renderUI();
-            showLoading(false);
         }
 
-        // Get default products (fallback)
-        function getDefaultProducts() {
-            return [
-                {
-                    id: 'prod_1',
-                    title: 'Premium Wireless Headphones',
-                    category: 'Electronics',
-                    price: '2,499',
-                    link: 'https://amazon.in/dp/example1',
-                    rating: 4.5,
-                    reviews: 1250,
-                    description: 'High-quality wireless headphones with noise cancellation and 30-hour battery life.',
-                    images: ['https://via.placeholder.com/300x200?text=Headphones'],
-                    searchTerms: 'headphones, wireless, audio, electronics',
-                    status: 'active',
-                    isAffiliate: true,
-                    isCart: false
-                },
-                {
-                    id: 'prod_2',
-                    title: 'Smart Fitness Band',
-                    category: 'Fitness',
-                    price: '1,799',
-                    link: 'https://amazon.in/dp/example2',
-                    rating: 4.2,
-                    reviews: 890,
-                    description: 'Track your steps, heart rate, sleep patterns and more with this advanced fitness band.',
-                    images: ['https://via.placeholder.com/300x200?text=Fitness+Band'],
-                    searchTerms: 'fitness, band, health, tracker',
-                    status: 'active',
-                    isAffiliate: true,
-                    isCart: false
+        // Extract categories from products array
+        function extractCategories() {
+            const categorySet = new Set();
+            products.forEach(product => {
+                if (product.category && product.status !== 'inactive') {
+                    categorySet.add(product.category);
                 }
-            ];
-        }
-
-        // Get default categories (fallback)
-        function getDefaultCategories() {
-            return ['Electronics', 'Fitness', 'Home & Kitchen', 'Fashion'];
+            });
+            categories = Array.from(categorySet);
         }
 
         // Show/hide loading spinner
@@ -1795,10 +1836,7 @@
             if (!grid || !pagination) return;
             
             // Filter products
-            let filteredProducts = products.filter(p => p.status !== 'inactive');
-            if (currentCategory !== 'all') {
-                filteredProducts = filteredProducts.filter(p => p.category === currentCategory);
-            }
+            let filteredProducts = getFilteredProducts();
             
             const totalPages = Math.max(1, Math.ceil(filteredProducts.length / productsPerPage));
             if (currentPage > totalPages) currentPage = totalPages;
@@ -1813,8 +1851,8 @@
                 grid.innerHTML = `
                     <div class="no-products">
                         <i class="fas fa-box-open"></i>
-                        <h3>No products found</h3>
-                        <p>Try selecting a different category or check back later for new deals</p>
+                        <h3>No products available</h3>
+                        <p>Check back later for new deals or try a different category</p>
                     </div>
                 `;
             } else {
@@ -1965,10 +2003,7 @@
             if (!container) return;
             
             // Filter products
-            let filteredProducts = products.filter(p => p.status !== 'inactive');
-            if (currentCategory !== 'all') {
-                filteredProducts = filteredProducts.filter(p => p.category === currentCategory);
-            }
+            let filteredProducts = getFilteredProducts();
             
             const totalPages = Math.max(1, Math.ceil(filteredProducts.length / productsPerPage));
             if (currentPage > totalPages) currentPage = totalPages;
@@ -1999,6 +2034,11 @@
             // Show no products message if needed
             if (pageProducts.length === 0) {
                 noProducts.style.display = 'block';
+                noProducts.innerHTML = `
+                    <i class="fas fa-box-open"></i>
+                    <h3>No products available</h3>
+                    <p>Check back later for new deals or try a different category</p>
+                `;
                 progressContainer.innerHTML = '';
                 return;
             } else {
@@ -2171,6 +2211,21 @@
             }, 5000); // Change card every 5 seconds
         }
 
+        // Get filtered products
+        function getFilteredProducts() {
+            let filteredProducts = products.filter(p => p.status !== 'inactive');
+            if (currentCategory !== 'all') {
+                filteredProducts = filteredProducts.filter(p => p.category === currentCategory);
+            }
+            return filteredProducts;
+        }
+
+        // Get current page products
+        function getCurrentPageProducts(filteredProducts) {
+            const startIndex = (currentPage - 1) * productsPerPage;
+            return filteredProducts.slice(startIndex, startIndex + productsPerPage);
+        }
+
         // Generate stars HTML based on rating
         function generateStarsHtml(rating) {
             let starsHtml = '';
@@ -2304,21 +2359,6 @@
                     }
                 });
             }
-        }
-
-        // Get filtered products
-        function getFilteredProducts() {
-            let filteredProducts = [...products];
-            if (currentCategory !== 'all') {
-                filteredProducts = filteredProducts.filter(product => product.category === currentCategory);
-            }
-            return filteredProducts.filter(product => product.status !== 'inactive');
-        }
-
-        // Get current page products
-        function getCurrentPageProducts(filteredProducts) {
-            const startIndex = (currentPage - 1) * productsPerPage;
-            return filteredProducts.slice(startIndex, startIndex + productsPerPage);
         }
 
         // Navigate to specific card in mobile view
